@@ -85,11 +85,11 @@ Sinta-se livre para usar, modificar e compartilhar.
 Projeto idealizado por **Nexus SixTech**.
 
 Integrantes da **Nexus SixTech**:
-[Yago](https://github.com/tenmenezes)
-[Yasmim](https://github.com/YasmimMantovani)
-[Thiago](https://github.com/Thiago-Rock)
-[Fred](https://github.com/FredWallace)
-[Carlos](https://github.com/ClaudinoGomes)
+[Yago](https://github.com/tenmenezes) | 
+[Yasmim](https://github.com/YasmimMantovani) | 
+[Thiago](https://github.com/Thiago-Rock) | 
+[Fred](https://github.com/FredWallace) | 
+[Carlos](https://github.com/ClaudinoGomes) | 
 [Bruno](https://github.com/Bruno-Washington).
 
 Desenvolvido inicialmente como estudo prático em **HTML, CSS, JS, PHP e MySQL**.
