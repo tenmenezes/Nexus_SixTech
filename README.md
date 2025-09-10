@@ -1,7 +1,19 @@
-# 🎮 Nexus SixTech
-
-Bem-vindo ao **Nexus SixTech**, um projeto de site de vendas e cadastro de jogos digitais.  
-O objetivo é construir uma plataforma responsiva, moderna e funcional, que permita o **cadastro de usuários, administração de produtos e gerenciamento de vendas**.
+# 
+<table border="0">
+  <tr>
+    <td>
+      <img src="img/imgProject.png" alt="Logo" width="400"/>
+    </td>
+    <td>
+      <h2>Bem-vindo ao <strong>Nexus SixTech</strong></h2>
+      <p>
+        Um projeto de site de vendas e cadastro de jogos digitais.<br>
+        O objetivo é construir uma plataforma responsiva, moderna e funcional, que permita o 
+        <strong>cadastro de usuários, administração de produtos e gerenciamento de vendas</strong>.
+      </p>
+    </td>
+  </tr>
+</table>
 
 ---
 
