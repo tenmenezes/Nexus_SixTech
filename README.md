@@ -44,16 +44,22 @@ O projeto será desenvolvido utilizando:
 
 ## 🎯 Estrutura Inicial do Projeto
 ```
-/nexus-sixtech
-    │── index.html # Página inicial
-    │── login.html # Tela de login
-    │── register.html # Cadastro de usuários
-    │── /admin # Telas administrativas
-    │── /css # Arquivos de estilo
-    │── /js # Scripts front-end
-    │── /php # Scripts backend (login, cadastro, etc.)
-    │── /db # Scripts de banco de dados (MySQL)
-    └── README.md # Documentação do projeto
+/Nexus_SixTech
+    ├── cadastro # Pagina HTML
+    │   └── Cadastro.html
+    │
+    ├── css # Todos os arquivos CSS
+    │   └── cadastro.css
+    │
+    ├── img # Imagens como logo do projeto
+    │
+    ├── js # Todos os arquivos JS
+    │   └── validacoes.js
+    │
+    ├── assets # Páginas, documentos e arquivos adicionais
+    ├── LICENSE
+    └── README.md
+
 ```
 
 ---
