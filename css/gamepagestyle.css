@@ -1,0 +1,172 @@
+/* Variáveis para o Tema Escuro */
+:root {
+    --bg-color-light: #333333; /* Fundo escuro */
+    --text-color-light: #eeeeee; /* Texto claro */
+    --div-bg-light: #222222; /* Header mais escuro */
+    --div-text-light: #ffffff;
+    --box-bg-light: #444444; /* Caixas mais escuras */
+    --link-color-light: #ffffff; /* Links em azul claro */
+}
+
+/* Variáveis CSS padrão (valores iniciais - Tema Claro) */
+ body.theme-light{
+    --bg-color-light: #ffffff;
+    --text-color-light: #333333;
+    --div-bg-light: #aaaaaa;
+    --div-text-light: #ffffff;
+    --box-bg-light: #868686; /* Um cinza claro para as caixas */
+    --link-color-light: #000000;
+}
+
+/* Fonte grande */
+    .large-font {
+      font-size: 1.2em;
+    }
+
+    /* Fonte pequena */
+    .small-font {
+      font-size: 0.8em;
+    }
+
+
+ .main-content {
+    padding: 20px; /* Preenchimento interno do conteúdo principal */
+    margin-top: 20px; /* Margem superior para separar do cabeçalho */
+  }
+
+.product-grid {
+    display: grid; /* Usa grid para organizar os produtos em colunas */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Cria colunas que se ajustam automaticamente */
+    gap: 20px; /* Espaçamento entre os cards de produtos */
+}
+
+
+
+.product-card {
+    text-decoration: none;
+    border-radius: 15px; /* Bordas arredondadas para os cards */
+    text-align: center;
+    overflow: hidden; /* Esconde o conteúdo que transborda (ex: bordas da imagem) */
+    background-color: #d6d6d6; /* fundo quase branco */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.262); /* sombra leve */
+    color: #121212; /* texto escuro */
+    transition: transform 0.3s ease-in-out /* Transições suaves para efeitos de hover */
+}
+
+.product-card:hover {
+    transform: translateY(-20px); /* Move o card ligeiramente para cima ao passar o mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Aumenta a sombra ao passar o mouse */
+}
+
+.product-card img {
+    width: 100%; /* Imagem ocupa 100% da largura do card */
+    height: 250px; /* Altura fixa da imagem */
+    object-fit: cover; /* Ajusta a imagem para cobrir o espaço sem distorcer */
+    display: block; /* Remove o espaço extra abaixo da imagem */
+    background-repeat: no-repeat;
+    background-size: cover; /* Garante que a imagem cubra todo o espaço do card */
+}
+
+.product-card .product-info {
+    padding: 15px; /* Preenchimento interno das informações do produto */
+}
+
+.product-card .product-info h3 {
+    margin-top: 0; /* Remove margem superior padrão do h3 */
+    margin-bottom: 10px; /* Margem inferior para separar do preço */
+    font-size: 1.2em; /* Tamanho da fonte do nome do produto */
+}
+
+.product-grid .product-card .price {
+    font-size: 1.1em; /* Tamanho da fonte do preço */
+    color: rgb(0, 0, 0); /* Cor azul para o preço */
+    margin-bottom: 10px; /* Margem inferior para separar do botão */
+    
+}
+
+.product-grid .product-card .add-to-cart-btn {
+    background-color: #28a745; /* Cor de fundo verde para o botão "Add to Cart" */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda do botão */
+    padding: 10px 15px; /* Preenchimento interno do botão */
+    border-radius: 5px; /* Bordas arredondadas para o botão */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    font-size: 1em; /* Tamanho da fonte do botão */
+    transition: background-color 0.2s ease-in-out; /* Transição suave na mudança de cor */
+    width: 100%; /* Botão ocupa 100% da largura disponível */
+}
+
+.product-grid .product-card .add-to-cart-btn:hover {
+    background-color: #218838; /* Cor de fundo mais escura ao passar o mouse no botão */
+}
+
+.product-grid .product-card .remove-btn {
+    background-color: #28a745; /* Cor de fundo verde para o botão "Add to Cart" */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda do botão */
+    padding: 10px 15px; /* Preenchimento interno do botão */
+    border-radius: 5px; /* Bordas arredondadas para o botão */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    font-size: 1em; /* Tamanho da fonte do botão */
+    transition: background-color 0.2s ease-in-out; /* Transição suave na mudança de cor */
+    width: 100%; /* Botão ocupa 100% da largura disponível */
+}
+
+.product-grid .product-card .remove-btn:hover {
+    background-color: #218838; /* Cor de fundo mais escura ao passar o mouse no botão */
+}
+
+.container .btn-finalizar {
+    background-color: #28a745; /* Cor de fundo verde para o botão "Add to Cart" */
+    margin-top: 20px;
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda do botão */
+    padding: 10px 15px; /* Preenchimento interno do botão */
+    border-radius: 5px; /* Bordas arredondadas para o botão */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    font-size: 1em; /* Tamanho da fonte do botão */
+    transition: background-color 0.2s ease-in-out; /* Transição suave na mudança de cor */
+    width: 250px; /* Botão ocupa 100% da largura disponível */
+    display: block;
+    margin: 30px auto 0 auto;
+}
+
+.container .btn-finalizar:hover {
+    background-color: #218838; /* Cor de fundo mais escura ao passar o mouse no botão */
+}
+
+    
+    .product {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .product img {
+      max-width: 100%;
+      height: 150px;
+    }
+    
+    .price {
+      color: red;
+      font-weight: bold;
+    }
+    .product button {
+      margin-top: 10px;
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .carrinho-vazio {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40vh;
+      font-size: 2em;
+      color: #888;
+      text-align: center;
+    }

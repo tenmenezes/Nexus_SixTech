@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xbox</title>
+    <link rel="stylesheet" href="../css/homePage.css" />
+    <link rel="stylesheet" href="../css/gamepagestyle.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho com logo, menu e usuário -->
+    <header>
+      <div class="logo">
+        <a href="../index.html" aria-label="Página inicial">
+          <img src="../utils/img/logoProjeto.png" alt="Logo GameStore" />
+        </a>
+      </div>
+      <nav class="main-menu">
+        <ul>
+          <li class="link1">
+            <a href="Xbox.html"
+              ><img src="../utils/img/logoXbox.png" alt="Xbox" width="30" />
+              <h2>Xbox</h2></a
+            >
+          </li>
+          <li class="link2">
+            <a href="Nintendo.html"
+              ><img
+                src="../utils/img/LogoNintendo.png"
+                alt="Nintendo"
+                width="35"
+              />
+              <h2>Nintendo</h2></a
+            >
+          </li>
+          <li class="link3">
+            <a href="Playstation.html"
+              ><img
+                src="../utils/img/LogoPS.png"
+                alt="PlayStation"
+                width="30"
+              />
+              <h2>PlayStation</h2>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="user-info">
+        <img src="../utils/img/user.png" alt="Avatar" class="avatar" />
+        <a href="user.html"
+          ><span id="user-name" class="user-color">Usuário</span></a
+        >
+
+        <div class="cart-icon" id="cart-icon">
+          <a href="Cart.html">🛒</a>
+          <span class="cart-count" id="cart-count"></span>
+        </div>
+      </div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </header>
+    <!-- Menu flutuante para mobile -->
+    <div id="floating-menu" class="floating-menu">
+      <ul>
+        <li class="link1">
+          <a href="Xbox.html"
+            ><img src="../utils/img/logoXbox.png" alt="Xbox" width="20" />
+            Xbox</a
+          >
+        </li>
+        <li class="link2">
+          <a href="Nintendo.html"
+            ><img
+              src="../utils/img/LogoNintendo.png"
+              alt="Nintendo"
+              width="20"
+            />
+            Nintendo</a
+          >
+        </li>
+        <li class="link3">
+          <a href="Playstation.html"
+            ><img src="../utils/img/LogoPS.png" alt="PlayStation" width="20" />
+            PlayStation</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!--  Grid dos jogos  -->
+    <main class="main-content container">
+      <div class="product-grid" id="product-grid">
+        <div class="product-card">
+          <img
+            id="imagem"
+            src="../utils/games_x-box/senuasSacrifice.jpg"
+            alt="Hellblade Senua's Sacrifice"
+          />
+          <div class="product-info">
+            <h3 id="nome">Senua's Sacrifice</h3>
+            <p id="preco" class="price">R$ 99.90</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+              Comprar
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            id="imagem"
+            src="../utils/games_x-box/senuasSaga.jpg"
+            alt="Senua's Saga Hellblade II"
+          />
+          <div class="product-info">
+            <h3 id="nome">Senua's Hellblade II</h3>
+            <p id="preco" class="price">R$ 199.90</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+              Comprar
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img id="imagem" src="../utils/games_x-box/Doom.jpg" alt="Doom" />
+          <div class="product-info">
+            <h3 id="nome">Doom</h3>
+            <p id="preco" class="price">R$ 119.99</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+              Comprar
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            id="imagem"
+            src="../utils/games_x-box/Forza Motorsport 6.jpg"
+            alt="Forza Motorsport 6"
+          />
+          <div class="product-info">
+            <h3 id="nome">Forza Motorsport 6</h3>
+            <p id="preco" class="price">R$ 249.99</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+              Comprar
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            id="imagem"
+            src="../utils/games_x-box/Dishonored 2.jpg"
+            alt="Dishonored 2"
+          />
+          <div class="product-info">
+            <h3 id="nome">Dishonored 2</h3>
+            <p id="preco" class="price">R$ 199.99</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+              Comprar
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            id="imagem"
+            src="../utils/games_x-box/Halo_Infinite_capa.png"
+            alt="Halo Infinite"
+          />
+          <div class="product-info">
+            <h3 id="nome">Halo Infinite</h3>
+            <p id="preco" class="price">R$ 139.99</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+              Comprar
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            id="imagem"
+            src="../utils/games_x-box/Sea-Of-Thieves-Emblema.jpg"
+            alt="Sea of Thieves"
+          />
+          <div class="product-info">
+            <h3 id="nome">Sea of Thieves</h3>
+            <p id="preco" class="price">R$ 79.99</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+              Comprar
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            id="imagem"
+            src="../utils/games_x-box/gears of wars.png"
+            alt="Gears of War: E-Day"
+          />
+          <div class="product-info">
+            <h3 id="nome">Gears of Wars</h3>
+            <p id="preco" class="price">R$ 159.99</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+              Comprar
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            id="imagem"
+            src="../utils/games_x-box/dishonored.jpg"
+            alt="Dishonored"
+          />
+          <div class="product-info">
+            <h3 id="nome">Dishonored</h3>
+            <p id="preco" class="price">R$ 199.90</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+              Comprar
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            id="imagem"
+            src="../utils/games_x-box/doomEternal.jpg"
+            alt="Doom Eternal"
+          />
+          <div class="product-info">
+            <h3 id="nome">Doom Eternal</h3>
+            <p id="preco" class="price">R$ 99.90</p>
+            <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+              Comprar
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2025 4Players - Todos os direitos reservados. <br />
+        <br />
+        Bruno Washington<br /><br />
+        Carlos Eduardo<br /><br />
+        Thiago Rocha<br /><br />
+        Yago Menezes
+      </p>
+    </footer>
+
+    <script>
+      const user = JSON.parse(localStorage.getItem("usuarioLogado"));
+      if (user && user.usuario) {
+        document.getElementById("user-name").textContent = user.usuario;
+      } else {
+        document.getElementById("user-name").textContent = "Usuário";
+      }
+    </script>
+
+    <script src="../js/homePage.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/Cart.js"></script>
+  </body>
+</html>

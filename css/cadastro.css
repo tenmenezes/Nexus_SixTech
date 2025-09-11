@@ -14,7 +14,7 @@ body {
     margin: 0;
     font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
     background: linear-gradient(180deg, #f1f5f9, var(--bg));
-    background-image: url('https://wallpaperaccess.com/full/7270403.gif');
+    background-image: url('../utils/mario.gif');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -23,6 +23,16 @@ body {
     align-items: center;
     justify-content: center;
     padding: 24px;
+}
+
+.link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all .1s;
+}
+.link:hover {
+    text-decoration: underline;
 }
 
 .wrap {
@@ -35,7 +45,8 @@ body {
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 420px;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(5px);
+    animation: fadein 1s ease-in-out;
 }
 
 .info {
@@ -78,6 +89,7 @@ form {
     position: relative;
 }
 
+
 input,
 select {
     width: 100%;
@@ -86,7 +98,7 @@ select {
     border: 1px solid #e6e9ef50;
     background: transparent;
     font-size: 14px;
-    color: #031022;
+    color: grey;
 }
 
 input:focus,
@@ -126,25 +138,33 @@ select:not([value=""])+label {
     margin-top: 8px;
 }
 
-button.btn {
+button.btn, .ghost {
     background: var(--accent);
     color: #fff;
     padding: 10px 14px;
     border-radius: 10px;
     border: none;
-    cursor: pointer;
     font-weight: 600;
+    transition: ease-in-out background .1s;
 }
 
-button.ghost {
-    background: transparent;
-    border: 1px solid #e6e9ef;
-    color: var(--muted);
+button.btn:hover, .ghost:hover {
+    background: #1e40af;
+    cursor: pointer;
 }
 
 .small {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--muted);
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @media (max-width:900px) {
