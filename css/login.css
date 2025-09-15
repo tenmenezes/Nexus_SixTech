@@ -91,6 +91,7 @@ form {
     padding: 0 50px;
     height: 100%;
     text-align: center;
+    animation: fadein ease-in-out 2s;
 }
 
 input
@@ -115,7 +116,7 @@ label {
     position: absolute;
     left: 12px;
     top: 14px;
-    color: #6b7280;
+    color: #ffffff;
     font-size: 13px;
     background: transparent;
     padding: 0 6px;
@@ -181,6 +182,37 @@ select:not([value=""])+label {
     animation: show 0.6s;
 }
 
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    height: auto;
+    margin: 3px;
+}
+
+.checkbox input[type="checkbox"] {
+    width: 11px;
+    height: 11px;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.checkbox label.remember {
+    color: #aebbff;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    display: flex;
+    align-items: flex-start;
+    pointer-events: auto;
+    font-size: 10px;
+    cursor: pointer;
+
+}
+
 @keyframes show {
 
     0%,
@@ -213,8 +245,8 @@ select:not([value=""])+label {
 
 .overlay {
     background: #8508ce;
-    background: -webkit-linear-gradient(to right, #2b6eff, #e20136);
-    background: linear-gradient(to right, #ff0101, #d54cf7);
+    background: -webkit-linear-gradient(to right, #245cd4, #ee1749);
+    background: linear-gradient(to right, rgb(255, 48, 203), #670081);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -290,4 +322,12 @@ select:not([value=""])+label {
     pointer-events: none;
     transition: .5s ease-in-out;
     /* evita interação enquanto está oculto */
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
 }
