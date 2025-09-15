@@ -3,8 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
   <link rel="website icon" type="png" href="../img/imgProject.png">
+  
   <link rel="stylesheet" href="../css/cadastro.css">
+  
+  <!-- Importando Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
   <title>Cadastro - Responsivo</title>
 </head>
 <body>
@@ -132,6 +138,33 @@
     </form>
   </div>
 
+  <button id="musicControl">
+    <i class="fa-solid fa-volume-xmark" style="color: red;"></i>
+  </button>
+
+    <audio autoplay loop id="bgMusic">
+      <source src="../utils/songs/lofi.mp3" type="audio/mp3">
+    </audio>
+    <script>
+      const music = document.getElementById("bgMusic");
+      const btn = document.getElementById("musicControl");
+      const icon = btn.querySelector("i");
+      let isPlaying = false;
+
+      btn.addEventListener("click", () => {
+        if (isPlaying) {
+          music.pause();
+          icon.className = "fa-solid fa-volume-xmark"; // Ícone mute
+          icon.style.color = "red";
+        } else {
+          music.play();
+          icon.className = "fa-solid fa-volume-high"; // Ícone som
+          icon.style.color = "green";
+        }
+        isPlaying = !isPlaying;
+      });
+
+    </script>
   <script>
     
    
