@@ -2,7 +2,7 @@
 <table border="0">
   <tr>
     <td>
-      <img src="img/imgProject.png" alt="Logo" width="400"/>
+      <img src="utils/img/imgProject.png" alt="Logo" width="400"/>
     </td>
     <td>
       <h2>Bem-vindo ao <strong>Nexus SixTech</strong></h2>
