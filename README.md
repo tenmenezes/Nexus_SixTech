@@ -2,15 +2,15 @@
 <table border="0">
   <tr>
     <td>
-      <img src="utils/img/imgProject.png" alt="Logo" width="400"/>
+      <img src="utils/img/imgProject-removebg-preview.png" alt="Logo" width="600"/>
     </td>
     <td>
-      <h2>Bem-vindo ao <strong>Nexus SixTech</strong></h2>
-      <p>
+      <h2 align="center">Bem-vindo ao <strong>Nexus SixTech</strong></h2>
+      <h3>
         Um projeto de site de vendas e cadastro de jogos digitais.<br>
         O objetivo é construir uma plataforma responsiva, moderna e funcional, que permita o 
         <strong>cadastro de usuários, administração de produtos e gerenciamento de vendas</strong>.
-      </p>
+      </h3>
     </td>
   </tr>
 </table>
