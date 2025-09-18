@@ -77,7 +77,7 @@ O projeto será desenvolvido utilizando:
 ---
 
 ## 📅 Status do Projeto
-🚧 **Em planejamento** – Desenvolvimento ainda não iniciado.
+🚧 **Em Prática** – Desenvolvimento iniciado.
 
 ---
 
