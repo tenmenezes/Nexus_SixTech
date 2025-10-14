@@ -1,4 +1,3 @@
-
 /* Container do input + botão lado a lado */
 .search-container {
     display: flex;
@@ -174,8 +173,8 @@ form {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,14 +182,16 @@ form {
     pointer-events: none;
     transition: opacity 0.3s ease;
     z-index: 999;
+    overflow: auto;
+    /* permite scroll se o modal for maior que a tela */
 }
 
-input, select {
+input,
+select {
     transition: 0.3 ease-in-out;
 }
 
-form
-input:focus,
+form input:focus,
 form select:focus {
     border-color: #e04454a4;
     outline: none;
@@ -203,24 +204,51 @@ form select:focus {
 
 .modal-background {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
 }
 
 .modal {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.97);
     border-radius: 15px;
     padding: 20px;
     width: 400px;
-    max-width: 90vw;
-    min-width: 320px;
+    max-width: 95vw;
+    min-width: 260px;
+    max-height: 90vh;
+    overflow-y: auto;
+    /* scroll interno se o conteúdo for maior */
+    box-sizing: border-box;
+    position: relative;
     transform: scale(0);
     transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .modal-container.active .modal {
     transform: scale(1);
+}
+
+.delete-modal {
+    background: #fff;
+    width: 400px;
+    max-width: 95vw;
+    min-width: 260px;
+    max-height: 90vh;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    overflow-y: auto;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 /* Manter o estilo antigo dos inputs e botões */
@@ -246,21 +274,6 @@ form select:focus {
 
 .modal button:hover {
     background-color: #241e7e;
-}
-
-.delete-modal {
-    background: #fff;
-    width: 400px;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-}
-
-.close {
-    cursor: pointer;
-    position: absolute;
-    top: 6%;
-    left: 90%;
 }
 
 .delete-modal .modal-header {
@@ -306,6 +319,61 @@ form select:focus {
     background: #a71d2a;
 }
 
+/* Neon border animation keyframes */
+@keyframes neon-border-green {
+    100% {
+        border-image-source: linear-gradient(90deg, #00ff99, #00ffea, #00ff99, #00ffea, #00ff99);
+        border-image-slice: 1;
+        border-image-width: 4px;
+        border-image-outset: 0;
+        border-image-repeat: stretch;
+        background-position: 400% 0;
+    }
+}
+
+@keyframes neon-border-blue {
+    100% {
+        border-image-source: linear-gradient(90deg, #00aaff, #0055ff, #00aaff, #0055ff, #00aaff);
+        border-image-slice: 1;
+        border-image-width: 4px;
+        border-image-outset: 0;
+        border-image-repeat: stretch;
+        background-position: 400% 0;
+    }
+}
+
+@keyframes neon-border-red {
+    100% {
+        border-image-source: linear-gradient(90deg, #ff0055, #ff0000, #ff0055, #ff0000, #ff0055);
+        border-image-slice: 1;
+        border-image-width: 4px;
+        border-image-outset: 0;
+        border-image-repeat: stretch;
+        background-position: 400% 0;
+    }
+}
+
+/* Neon border for add modal (green) */
+.modal-add {
+    border: 4px solid;
+    border-image: linear-gradient(90deg, #00ff99, #00ffea, #00ff99, #00ffea, #00ff99) 1;
+    animation: neon-border-green 3s linear infinite;
+}
+
+/* Neon border for edit modal (blue) */
+.modal-edit {
+    border: 4px solid;
+    border-image: linear-gradient(90deg, #00aaff, #0055ff, #00aaff, #0055ff, #00aaff) 1;
+    animation: neon-border-blue 3s linear infinite;
+}
+
+/* Neon border for delete modal (red) */
+.delete-modal {
+    border: 4px solid;
+    border-image: linear-gradient(90deg, #ff0055, #ff0000, #ff0055, #ff0000, #ff0055) 1;
+    animation: neon-border-red 3s linear infinite;
+}
+
 /* Animação ao carregar */
 @keyframes fadeIn {
     from {
@@ -331,23 +399,37 @@ form select:focus {
 
 /* Para notebooks e tablets */
 @media (max-width: 900px) {
-    .modal {
+
+    .modal,
+    .delete-modal,
+    .modal-add,
+    .modal-edit {
         width: 90vw;
-        /* Usa 90% da largura da tela */
         max-width: 500px;
-        /* Limite máximo */
-        min-width: 250px;
+        min-width: 200px;
+        max-height: 90vh;
+        padding: 16px;
     }
 }
 
 /* Para celulares */
 @media (max-width: 600px) {
-    .modal {
+
+    .modal,
+    .delete-modal,
+    .modal-add,
+    .modal-edit {
         width: 98vw;
-        /* Quase toda a largura */
         max-width: 98vw;
         min-width: 0;
         padding: 10px;
+        max-height: 90vh;
+        border-radius: 8px;
+    }
+
+    .modal-background {
+        width: 100vw;
+        height: 100vh;
     }
 }
 
