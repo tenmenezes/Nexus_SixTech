@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- tabulator CSS -->
+    <link href="https://unpkg.com/tabulator-tables@5.6.0/dist/css/tabulator.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome CDN - CSS -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    />
+    
+    <link rel="stylesheet" href="../css/master.css" />
+    <link rel="stylesheet" href="../css/users.css">
+    <link rel="stylesheet" href="../css/orders.css">
+    
+    <title>Orders | Reports</title>
+</head>
+<body>
+     <!-- Overlay -->
+      <div class="transicao ativa" id="transition-overlay">
+        <div class="fatia"></div>
+        <div class="fatia"></div>
+        <div class="fatia">
+          <img src="../img/imgProject-Photoroom.png" class="imagem" alt="Logo">
+        </div>
+        <div class="fatia"></div>
+        <div class="fatia"></div>
+      </div>
+
+
+    <header>
+      <div class="info-header">
+        <div class="logo">
+          <h3 class="glitch" data-text="NS">NS</h3>
+        </div>
+        <div class="icons-header">
+          <i class="fa-solid fa-expand"></i>
+        </div>
+      </div>
+      <div style="align-items: center" class="info-header">
+        <i class="fa-solid fa-bell not"></i>
+        <i class="fa-solid fa-envelope mail"></i>
+        <i class="fa-solid fa-user icon"></i>
+      </div>
+      
+      <!-- Botão hambúrguer (visível apenas no mobile) -->
+      <button class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+    
+    <!--FIM HEADER-->
+
+    <section class="main">
+      <div class="sidebar">
+        <h3>navigation</h3>
+        <a class="sidebar-active" href="../master.html"
+          ><i class="fa-solid fa-chart-simple icon-dash"></i> Dashboard</a
+        >
+        <br />
+        <hr />
+
+        <h3>reports</h3>
+        <a href="userReports.html"><i class="fas fa-users"></i> Users </a>
+        <a href="productReports.html"><i class="fas fa-clipboard-list"></i> Products </a>
+        <a href="salesReports.html"><i class="fas fa-chart-bar"></i> Sales </a>
+        <a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders </a>
+        <br />
+        <hr />
+
+        <h3>system</h3>
+        <a href="../system/logs.html"><i class="fas fa-list-alt"></i> System logs</a>
+        <a href="../system/backup.html"><i class="fa-solid fa-file-arrow-down"></i> Backup</a>
+        <a href="../system/systemVersion.html"><i class="fas fa-code"></i> System version</a>
+        <br />
+        <hr />
+
+        <h3>feedback</h3>
+        <a href="../feedback/question.html"><i class="fas fa-question-circle"></i> Send question</a>
+        <a href="../feedback/history.html"><i class="fas fa-history"></i> Call history</a>
+        <a href="../feedback/faq.html"><i class="fas fa-info-circle"></i> FAQ</a>
+        <br />
+        <hr />
+
+        <h3>documentation</h3>
+        <a href="../documentation/help.html"><i class="fas fa-book"></i> Help</a>
+        <br />
+        <hr />
+
+        <h3>logout</h3>
+        <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </div>
+      
+      <!--FIM SIDEBAR-->
+
+      <div class="content">
+        <div class="titulo-secao">
+          <h2>Orders Report</h2>
+          <br />
+          <hr />
+          <div class="opc">
+            <p><i class="fas fa-shopping-cart"></i> / Orders Report</p>
+            
+            <div class="search-container">
+              <div class="search">
+                <input type="text" id="searchOrders" placeholder="Search users">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+      
+        <div id="orders-table" class="orders-table"></div>
+
+      </div>
+
+    <!-- Modals -->
+
+    <!-- Edição de produto -->
+
+    <dialog id="editProductDialog" class="productDialog">
+
+      <h1 class="faUser">
+        <i class="fa-solid fa-cart-plus"></i>
+      </h1>
+
+      <form>
+        <input type="text" placeholder="Nome">
+        <input type="text" placeholder="Descrição">
+        <input type="text" placeholder="Preço">
+
+        <div class="dt_gen">
+
+          <select name="plataforma">
+            <option value="PlayStation">PlayStation</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Nintendo Switch">Nintendo Switch</option>
+            <option value="PC">PC</option>
+          </select>
+
+          <select name="genero">
+            <option value="Ação">Ação</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Corrida">Corrida</option>
+            <option value="Esporte">Esporte</option>
+            <option value="Estratégia">Estratégia</option>
+            <option value="RPG">RPG</option>
+            <option value="Terror">Terror</option>
+          </select>
+
+        </div>
+
+        <input type="text" placeholder="Estoque">
+        <input type="date" placeholder="Data" value="">
+      </form>
+
+      <div class="divButtons">
+        <button type="button" class="close" onclick="this.closest('dialog').close()">Fechar</button>
+        <button type="button" class="save">Salvar</button>
+      </div>
+
+    </dialog>
+
+      <!--  ------------------ SEÇÃO DE SCRIPTS -------------------- -->
+
+
+      <!-- Tabulator JS -->
+      <script src="https://unpkg.com/tabulator-tables@5.6.0/dist/js/tabulator.min.js"></script>
+      
+      <script src="../js/sidebar.js"></script>
+      <script src="../js/transition.js"></script>
+      <script src="../js/orders.js"></script>
+
+    <!-- Font Awesome CDN - JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+
+</body>
+</html>

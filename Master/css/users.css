@@ -1,0 +1,362 @@
+
+/* Container do input + botão lado a lado */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* espaço entre input e botão */
+    flex-wrap: wrap;
+    /* responsivo */
+}
+
+/* Input de busca */
+.search {
+    position: relative;
+    flex: 1;
+    /* ocupa o máximo de espaço possível */
+    min-width: 200px;
+    /* largura mínima */
+}
+
+.search input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    /* espaço para o ícone à direita */
+    border-radius: 25px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.search input:focus {
+    border-color: #206abe;
+    box-shadow: 0 4px 12px rgba(32, 106, 190, 0.3);
+    outline: none;
+}
+
+/* Ícone dentro do input */
+.search svg {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 18px;
+    pointer-events: none;
+}
+
+/* VISUAL DA TABELA */
+
+.tableUser.tabulator {
+    margin: 0;
+}
+
+.tableUser {
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.tabulator-col-content {
+    background-color: #1100ffb7;
+}
+
+.tabulator-col-title {
+    color: white;
+}
+
+
+
+
+.btnUser {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: auto;
+    margin: 10px;
+}
+
+.btnUser button {
+    min-width: 80px;
+    min-height: 40px;
+    background: #3a4be2;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-size: 20px;
+}
+
+.btnUser button:hover {
+    background: #241e7e;
+}
+
+.newDialog button {
+    margin: 10px;
+    min-width: 150px;
+    min-height: 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(42, 42, 247);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.459);
+    transition: background 0.3s ease-in-out;
+}
+
+.newDialog button:hover {
+    background-color: rgb(0, 0, 161);
+}
+
+.faUser {
+    text-align: center;
+    font-size: 60px;
+    color: #0499ac;
+    padding: 10px;
+    filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.568));
+}
+
+.dt_gen {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    height: auto;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 20px;
+}
+
+.genero {
+    min-width: 150px;
+}
+
+.dt_gen input {
+    width: 50%;
+}
+
+form {
+    display: flex;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+}
+
+.divButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.edit {
+    cursor: pointer;
+    margin-right: 8px;
+    color: #007bff;
+}
+
+.edit,
+.delet {
+    font-size: 18px;
+}
+
+.delet {
+    cursor: pointer;
+    color: #dc3545;
+}
+
+
+/* teste de animação css no modal */
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+input, select {
+    transition: 0.3 ease-in-out;
+}
+
+form
+input:focus,
+form select:focus {
+    border-color: #e04454a4;
+    outline: none;
+}
+
+.modal-container.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 20px;
+    width: 400px;
+    max-width: 90vw;
+    min-width: 320px;
+    transform: scale(0);
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.modal-container.active .modal {
+    transform: scale(1);
+}
+
+/* Manter o estilo antigo dos inputs e botões */
+.modal input,
+.modal select {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.modal button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #3a4be2;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.modal button:hover {
+    background-color: #241e7e;
+}
+
+.delete-modal {
+    background: #fff;
+    width: 400px;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.close {
+    cursor: pointer;
+    position: absolute;
+    top: 6%;
+    left: 90%;
+}
+
+.delete-modal .modal-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.delete-modal .modal-body {
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.delete-modal .modal-footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.delete-modal .modal-footer button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.delete-modal .modal-footer .cancel {
+    background: #aaa;
+    color: white;
+}
+
+.delete-modal .modal-footer .cancel:hover {
+    background: #888;
+}
+
+.delete-modal .modal-footer .confirm {
+    background: #dc3545;
+    color: white;
+}
+
+.delete-modal .modal-footer .confirm:hover {
+    background: #a71d2a;
+}
+
+/* Animação ao carregar */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Para notebooks e tablets */
+@media (max-width: 900px) {
+    .modal {
+        width: 90vw;
+        /* Usa 90% da largura da tela */
+        max-width: 500px;
+        /* Limite máximo */
+        min-width: 250px;
+    }
+}
+
+/* Para celulares */
+@media (max-width: 600px) {
+    .modal {
+        width: 98vw;
+        /* Quase toda a largura */
+        max-width: 98vw;
+        min-width: 0;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    p {
+        display: none;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+}

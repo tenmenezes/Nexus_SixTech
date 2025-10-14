@@ -1,0 +1,10 @@
+.sales-table.tabulator {
+    margin: 0;
+}
+
+.sales-table {
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    animation: fadeIn 0.8s ease-in-out;
+}

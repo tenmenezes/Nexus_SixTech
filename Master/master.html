@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/master.css" />
+
+    <!-- Font Awesome CDN - CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Dashboard | User Master</title>
+  </head>
+  <body>
+
+    <!-- Overlay -->
+      <div class="transicao ativa" id="transition-overlay">
+        <div class="fatia"></div>
+        <div class="fatia"></div>
+        <div class="fatia">
+          <img src="./img/imgProject-Photoroom.png" class="imagem" alt="Logo">
+        </div>
+        <div class="fatia"></div>
+        <div class="fatia"></div>
+      </div>
+
+    <header>
+      <div class="info-header">
+        <div class="logo">
+          <!-- data-text usado pelas pseudo-camadas -->
+          <h3 class="glitch" data-text="NS">NS</h3>
+        </div>
+        <div class="icons-header">
+          <i class="fa-solid fa-expand fullscreen"></i>
+        </div>
+      </div>
+      <div style="align-items: center" class="info-header">
+        <i class="fa-solid fa-bell not"></i>
+        <i class="fa-solid fa-envelope mail"></i>
+        <i class="fa-solid fa-user icon"></i>
+      </div>
+
+      <!-- Botão hambúrguer (visível apenas no mobile) -->
+      <button class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <!--FIM HEADER-->
+
+    <section class="main">
+      <div class="sidebar">
+        <h3>navigation</h3>
+        <a class="sidebar-active" href="master.html"
+          ><i class="fa-solid fa-chart-simple icon-dash"></i> Dashboard</a
+        >
+        <br />
+        <hr />
+
+        <h3>reports</h3>
+        <a href="./reports/userReports.html"><i class="fas fa-users"></i> Users </a>
+        <a href="./reports/productReports.html"><i class="fas fa-clipboard-list"></i> Products </a>
+        <a href="./reports/salesReports.html"><i class="fas fa-chart-bar"></i> Sales </a>
+        <a href="./reports/orders.html"><i class="fas fa-shopping-cart"></i> Orders</a>
+        <br />
+        <hr />
+
+        <h3>system</h3>
+        <a href="./system/logs.html"><i class="fas fa-list-alt"></i> System logs</a>
+        <a href="./system/backup.html"><i class="fa-solid fa-file-arrow-down"></i> Backup</a>
+        <a href="./system/systemVersion.html"><i class="fas fa-code"></i> System version</a>
+        <br />
+        <hr />
+
+        <h3>feedback</h3>
+        <a href="./feedback/question.html"><i class="fas fa-question-circle"></i> Send question</a>
+        <a href="./feedback/history.html"><i class="fas fa-history"></i> Call history</a>
+        <a href="./feedback/faq.html"><i class="fas fa-info-circle"></i> FAQ</a>
+        <br />
+        <hr />
+
+        <h3>documentation</h3>
+        <a href="./documentation/help.html"><i class="fas fa-book"></i> Help</a>
+        <br />
+        <hr />
+
+        <h3>logout</h3>
+        <a href="../documentation/help.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </div>
+
+      <!--FIM SIDEBAR-->
+
+      <div class="content">
+        <div class="titulo-secao">
+          <h2>Dashboard Sale</h2>
+          <br />
+          <hr />
+          <p><i class="fa-solid fa-house"></i> / Dashboard Sale</p>
+        </div>
+
+        <div class="box-info">
+          <div
+            style="background: linear-gradient(45deg, #ff5370, #ff869a)"
+            class="box-info-single"
+          >
+            <div class="info-text">
+              <h3>Total Sales</h3>
+              <h2>$0</h2>
+            </div>
+            <i class="fa-solid fa-money-bill-1"></i>
+            <button class="toggle-card">
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+          </div>
+          <div
+            style="background: linear-gradient(45deg, #4099ff, #73b4ff)"
+            class="box-info-single"
+          >
+            <div class="info-text">
+              <h3>Total Orders</h3>
+              <h2>0</h2>
+            </div>
+            <i class="fa-solid fa-database"></i>
+            <button class="toggle-card">
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+          </div>
+          <div
+            style="background: linear-gradient(45deg, #2ed8b6, #59e0c5)"
+            class="box-info-single"
+          >
+            <div class="info-text">
+              <h3>Avarage Price</h3>
+              <h2>$0</h2>
+            </div>
+            <i class="fa-solid fa-dollar-sign"></i>
+            <button class="toggle-card">
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+          </div>
+          <div
+            style="background: linear-gradient(45deg, #eb9c52, #faa85cc7)"
+            class="box-info-single"
+          >
+            <div class="info-text">
+              <h3>Product Sold</h3>
+              <h2>0</h2>
+            </div>
+            <i class="fa-solid fa-tags"></i>
+            <button class="toggle-card">
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Gráficos -->
+
+        <div class="flex-container">
+          <div class="box-grafico item chart">
+
+            <!-- Botão de filtro com ícone -->
+
+            <div class="toolbar">
+
+              <!-- Troca de tipo -->
+
+              <button
+                class="toolbar-btn"
+                id="btn-linha"
+                title="Gráfico de linha"
+              >
+                <i class="fa-solid fa-chart-line"></i>
+              </button>
+              <button
+                class="toolbar-btn"
+                id="btn-barra"
+                title="Gráfico de barra"
+              >
+                <i class="fa-solid fa-chart-simple"></i>
+              </button>
+              <button class="toolbar-btn" id="btn-misto" title="Gráfico misto">
+                <i class="fa-solid fa-chart-simple"></i> +
+                <i class="fa-solid fa-chart-line"></i>
+              </button>
+
+              <!-- Ações -->
+
+              <button
+                class="toolbar-btn"
+                id="btn-baixar-misto"
+                title="Baixar gráfico"
+              >
+                <i class="fa-solid fa-download"></i>
+              </button>
+              <button
+                class="toolbar-btn"
+                id="btn-resetar-misto"
+                title="Resetar o zoom"
+              >
+                <i class="fa-solid fa-arrows-rotate"></i>
+              </button>
+
+              <!-- Filtro -->
+
+              <div class="filter-container">
+                <button class="filter-btn" title="Filtrar por produto">
+                  <i class="fa-solid fa-filter"></i>
+                </button>
+
+                <div class="filter-dropdown">
+                  <select id="produtoSelect" class="toolbar-select">
+                    <option value="todas">Todos</option>
+                    <optgroup label="PlayStation">
+                      <option value="God of War (2018)">
+                        God of War
+                      </option>
+                      <option value="The Last of Us (2013)">
+                        The Last of Us
+                      </option>
+                      <option value="God of War 2 (~2000)">
+                        God of War 2
+                      </option>
+                    </optgroup>
+                    <optgroup label="Xbox">
+                      <option value="Halo Infinite (2021)">
+                        Halo Infinite
+                      </option>
+                      <option value="Gears 5 (2019)">Gears 5</option>
+                    </optgroup>
+                    <optgroup label="Nintendo">
+                      <option value="Zelda: Breath of the Wild (2017)">
+                        Zelda: Breath of the Wild
+                      </option>
+                      <option value="Mario Odyssey (2017)">
+                        Mario Odyssey
+                      </option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <canvas id="Sales"></canvas>
+          </div>
+
+          <div class="box-grafico item chart">
+            <div class="toolbar">
+              <!-- Ações -->
+              <button
+                class="toolbar-btn btn-baixar"
+                title="Baixar gráfico"
+              >
+                <i class="fa-solid fa-download"></i>
+              </button>
+              <button
+                class="toolbar-btn btn-resetar"
+                title="Resetar o zoom"
+              >
+                <i class="fa-solid fa-arrows-rotate"></i>
+              </button>
+            </div>
+
+            <canvas id="graficoLinha"></canvas>
+          </div>
+
+          <div class="box-grafico item full-width">
+            <div class="charts-container">
+              <canvas id="pizzaChart"></canvas>
+              <canvas id="radarChart"></canvas>
+              <canvas id="doughnutChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Adicione mais gráficos conforme necessário, totalmente responsivo-->
+        </div>
+      </div>
+      <!--FIM CONTENT-->
+    </section>
+    <!--FIM MAIN-->
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Chart.js Zoom Plugin CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+
+    <!-- JS Files -->
+     <script src="./js/sidebar.js"></script>
+    <script src="./js/graficos.js"></script>
+    <script src="./js/master.js"></script>
+    <script src="./js/transition.js"></script>
+
+    <!-- Font Awesome CDN - JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+  </body>
+</html>

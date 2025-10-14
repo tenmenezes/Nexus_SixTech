@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- tabulator CSS -->
+  <link href="https://unpkg.com/tabulator-tables@5.6.0/dist/css/tabulator.min.css" rel="stylesheet">
+
+  <!-- Font Awesome CDN - CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../css/master.css" />
+  <link rel="stylesheet" href="../css/product.css">
+  <link rel="stylesheet" href="../css/users.css">
+
+  <title>Products | Report</title>
+</head>
+
+<body>
+  <!-- Overlay -->
+  <div class="transicao ativa" id="transition-overlay">
+    <div class="fatia"></div>
+    <div class="fatia"></div>
+    <div class="fatia">
+      <img src="../img/imgProject-Photoroom.png" class="imagem" alt="Logo">
+    </div>
+    <div class="fatia"></div>
+    <div class="fatia"></div>
+  </div>
+
+  <header>
+    <div class="info-header">
+      <div class="logo">
+        <h3 class="glitch" data-text="NS">NS</h3>
+      </div>
+      <div class="icons-header">
+        <i class="fa-solid fa-expand"></i>
+      </div>
+    </div>
+    <div style="align-items: center" class="info-header">
+      <i class="fa-solid fa-bell not"></i>
+      <i class="fa-solid fa-envelope mail"></i>
+      <i class="fa-solid fa-user icon"></i>
+    </div>
+
+    <!-- Botão hambúrguer (visível apenas no mobile) -->
+    <button class="hamburger" id="hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+
+  <!--FIM HEADER-->
+
+  <section class="main">
+    <div class="sidebar">
+      <h3>navigation</h3>
+      <a class="sidebar-active" href="../master.html"><i class="fa-solid fa-chart-simple icon-dash"></i> Dashboard</a>
+      <br />
+      <hr />
+
+      <h3>reports</h3>
+      <a href="userReports.html"><i class="fas fa-users"></i> Users </a>
+      <a href="productReports.html"><i class="fas fa-clipboard-list"></i> Products </a>
+      <a href="salesReports.html"><i class="fas fa-chart-bar"></i> Sales </a>
+      <a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders </a>
+      <br />
+      <hr />
+
+      <h3>system</h3>
+      <a href="../system/logs.html"><i class="fas fa-list-alt"></i> System logs</a>
+      <a href="../system/backup.html"><i class="fa-solid fa-file-arrow-down"></i> Backup</a>
+      <a href="../system/systemVersion.html"><i class="fas fa-code"></i> System version</a>
+      <br />
+      <hr />
+
+      <h3>feedback</h3>
+      <a href="../feedback/question.html"><i class="fas fa-question-circle"></i> Send question</a>
+      <a href="../feedback/history.html"><i class="fas fa-history"></i> Call history</a>
+      <a href="../feedback/faq.html"><i class="fas fa-info-circle"></i> FAQ</a>
+      <br />
+      <hr />
+
+      <h3>documentation</h3>
+      <a href="#"><i class="fas fa-book"></i> Help</a>
+      <br />
+      <hr />
+
+      <h3>logout</h3>
+      <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+
+    <!--FIM SIDEBAR-->
+
+    <div class="content">
+      <div class="titulo-secao">
+        <h2>Products Report</h2>
+        <br />
+        <hr />
+        <div class="opc">
+          <p><i class="fas fa-clipboard-list"></i> / Products Report</p>
+
+          <div class="search-container">
+            <div class="search">
+              <input type="text" id="searchProduct" placeholder="Search users">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div class="btnUser">
+              <button id="btnNovoProduto" title="Adicionar novo produto">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+
+      <div id="product-table" class="product-table"></div>
+
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Modal de novo produto -->
+    <div id="newProductDialog" class="modal-container">
+      <div class="modal-background"></div>
+      <div class="modal productDialog">
+        <h1 class="faUser"><i class="fas fa-plus-circle"></i> Novo Produto</h1>
+        <form>
+          <input type="text" placeholder="Nome">
+          <input type="text" placeholder="Descrição">
+          <input type="number" placeholder="Preço" step="0.01">
+          <select name="Plataforma">
+            <option value="">Plataforma</option>
+            <option value="PC">PC</option>
+            <option value="PlayStation">PlayStation</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Nintendo Switch">Nintendo Switch</option>
+            <option value="Mobile">Mobile</option>
+          </select>
+          <select name="Gênero">
+            <option value="">Gênero</option>
+            <option value="Ação">Ação</option>
+            <option value="Aventura">Aventura</option>
+            <option value="RPG">RPG</option>
+            <option value="Esporte">Esporte</option>
+            <option value="Estratégia">Estratégia</option>
+            <option value="Corrida">Corrida</option>
+            <option value="Terror">Terror</option>
+          </select>
+          <input type="number" placeholder="Estoque">
+          <input type="date" placeholder="Data">
+        </form>
+        <div class="divButtons">
+          <button class="cancel">Fechar</button>
+          <button class="save">Salvar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de edição de produto -->
+    <div id="editProductDialog" class="modal-container">
+      <div class="modal-background"></div>
+      <div class="modal productDialog">
+        <h1 class="faUser"><i class="fas fa-edit"></i> Edição de Produto</h1>
+        <form>
+          <input type="text" placeholder="Nome">
+          <input type="text" placeholder="Descrição">
+          <input type="number" placeholder="Preço" step="0.01">
+          <select name="Plataforma">
+            <option value="">Plataforma</option>
+            <option value="PC">PC</option>
+            <option value="PlayStation">PlayStation</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Nintendo Switch">Nintendo Switch</option>
+            <option value="Mobile">Mobile</option>
+          </select>
+          <select name="Gênero">
+            <option value="">Gênero</option>
+            <option value="Ação">Ação</option>
+            <option value="Aventura">Aventura</option>
+            <option value="RPG">RPG</option>
+            <option value="Esporte">Esporte</option>
+            <option value="Estratégia">Estratégia</option>
+            <option value="Corrida">Corrida</option>
+            <option value="Terror">Terror</option>
+          </select>
+          <input type="number" placeholder="Estoque">
+          <input type="date" placeholder="Data">
+        </form>
+        <div class="divButtons">
+          <button class="cancel">Fechar</button>
+          <button class="save">Salvar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de exclusão -->
+
+    <div id="deleteProductModal" class="modal-container">
+      <div class="modal-background"></div>
+      <div class="modal delete-modal">
+        <div class="modal-header">
+          <h2>Attention!</h2>
+          <span class="close">&times;</span>
+        </div>
+        <hr>
+        <div class="modal-body">
+          <p>You are about to delete this product. <br> This action <strong style="color: red;">cannot be
+              undone</strong>.</p>
+          <p>Do you want to continue?</p>
+        </div>
+        <hr>
+        <div class="modal-footer">
+          <button class="cancel">Cancel</button>
+          <button class="confirm">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!--  ------------------ SEÇÃO DE SCRIPTS -------------------- -->
+
+    <!-- Luxon (necessário para colunas datetime no Tabulator) -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.5.0/build/global/luxon.min.js"></script>
+    <!-- Tabulator JS -->
+    <script src="https://unpkg.com/tabulator-tables@5.6.0/dist/js/tabulator.min.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/transition.js"></script>
+    <script src="../js/product.js"></script>
+    <!-- Font Awesome CDN - JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
+
+
+</body>
+
+</html>

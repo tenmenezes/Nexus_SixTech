@@ -1,0 +1,56 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* Logo */
+.logo {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #4dd0e1;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Número da versão */
+.version-number {
+    text-shadow: 0 0 10px rgba(77, 208, 225, 0.7);
+}
+
+/* Timeline */
+.timeline .list-group-item {
+    background: rgba(255, 255, 255, 0.05);
+    color: #eee;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.timeline .list-group-item:hover {
+    background: rgba(77, 208, 225, 0.2);
+}
+
+/* Footer */
+footer a {
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
