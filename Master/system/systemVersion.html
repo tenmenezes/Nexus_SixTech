@@ -1,165 +1,191 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nexus SixTech - Versão</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nexus SixTech - Versão</title>
 
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-  <!-- Ícones (Bootstrap Icons) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
     <!-- Font Awesome CDN - CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-  <!-- CSS Customizado -->
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="../css/systemVersion.css" />
+    <link rel="stylesheet" href="../css/master.css" />
+  </head>
 
-  <link rel="stylesheet" href="../css/systemVersion.css">
-  <link rel="stylesheet" href="../css/master.css">
-  
-</head>
-
-
-<body>
-
-  <!-- Overlay -->
-  <div class="transicao ativa" id="transition-overlay">
-    <div class="fatia"></div>
-    <div class="fatia"></div>
-    <div class="fatia">
-      <img src="../img/imgProject-Photoroom.png" class="imagem" alt="Logo">
-    </div>
-    <div class="fatia"></div>
-    <div class="fatia"></div>
-  </div>
-
-
-  <header>
-    <div class="info-header">
-      <div class="logo">
-        <h3 class="glitch" data-text="NS">NS</h3>
+  <body>
+    <!-- Overlay -->
+    <div class="transicao ativa" id="transition-overlay">
+      <div class="fatia"></div>
+      <div class="fatia"></div>
+      <div class="fatia">
+        <img src="../img/imgProject-Photoroom.png" class="imagem" alt="Logo" />
       </div>
-      <div class="icons-header">
-        <i class="fa-solid fa-expand"></i>
+      <div class="fatia"></div>
+      <div class="fatia"></div>
+    </div>
+
+    <header>
+      <div class="info-header">
+        <div class="logo">
+          <h3 class="glitch" data-text="NS">NS</h3>
+        </div>
+        <div class="icons-header" title="Tela cheia">
+          <i class="fa-solid fa-expand fullscreen"></i>
+        </div>
       </div>
-    </div>
-    <div style="align-items: center" class="info-header">
-      <i class="fa-solid fa-bell not"></i>
-      <i class="fa-solid fa-envelope mail"></i>
-    </div>
-
-    <!-- Botão hambúrguer (visível apenas no mobile) -->
-    <button class="hamburger" id="hamburger">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-  </header>
-
-  <!--FIM HEADER-->
-
-  <section class="main">
-    <div class="sidebar">
-      <h3>navigation</h3>
-      <a class="sidebar-active" href="../master.html"><i class="fa-solid fa-chart-simple icon-dash"></i> Dashboard</a>
-      <br />
-      <hr />
-
-      <h3>reports</h3>
-      <a href="../reports/userReports.html"><i class="fas fa-users"></i> Users </a>
-      <a href="../reports/productReports.html"><i class="fas fa-clipboard-list"></i> Products </a>
-      <a href="../reports/salesReports.html"><i class="fas fa-chart-bar"></i> Sales </a>
-      <a href="../reports/orders.html"><i class="fas fa-shopping-cart"></i> Orders </a>
-      <br />
-      <hr />
-
-      <h3>system</h3>
-      <a href="../system/logs.html"><i class="fas fa-list-alt"></i> System logs</a>
-      <a href="../system/backup.html"><i class="fa-solid fa-file-arrow-down"></i> Backup</a>
-      <a href="../system/systemVersion.html"><i class="fas fa-code"></i> System version</a>
-      <br />
-      <hr />
-
-      <h3>feedback</h3>
-      <a href="../feedback/question.html"><i class="fas fa-question-circle"></i> Send question</a>
-      <a href="../feedback/history.html"><i class="fas fa-history"></i> Call history</a>
-      <a href="../feedback/faq.html"><i class="fas fa-info-circle"></i> FAQ</a>
-      <br />
-      <hr />
-
-      <h3>documentation</h3>
-      <a href="../documentation/help.html"><i class="fas fa-book"></i> Help</a>
-      <br />
-      <hr />
-
-      <h3>logout</h3>
-      <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
-    </div>
-    <!--FIM SIDEBAR-->
-
-
-  <div class="container py-5">
-    <!-- Cabeçalho -->
-    <header class="text-center mb-5">
-      <h1 class="logo animate__animated animate__fadeInDown">Nexus <span>SixTech</span></h1>
-      <p class="text-muted animate__animated animate__fadeInUp">Página de Versão do Sistema</p>
+      <div style="align-items: center" class="info-header">
+        <i class="fa-solid fa-bell not" title="notificações"></i>
+        <i class="fa-solid fa-envelope mail" title="e-mails"></i>
+      </div>
+      <button class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </header>
 
-    <!-- Card da Versão -->
-    <div class="card glass-card shadow-lg border-0 animate__animated animate__zoomIn">
-      <div class="card-body text-center p-5">
-        <h2 class="card-title mb-3">Versão Atual</h2>
-        <div class="version-number display-4 fw-bold text-info mb-3 animate__animated animate__pulse animate__infinite">v1.0.0</div>
-        <p class="release-date text-secondary mb-4"><i class="bi bi-calendar-event"></i> Lançado em: 01/10/2025</p>
+    <section class="main">
+      <div class="sidebar">
+        <h3>navigation</h3>
+        <a class="sidebar-active" href="../master.html"
+          ><i class="fa-solid fa-chart-simple icon-dash"></i> Dashboard</a
+        >
+        <br />
+        <hr />
 
-        <!-- Changelog -->
-        <h5 class="mb-3"><i class="bi bi-stars text-info"></i> Novidades</h5>
-        <ul class="list-unstyled text-start d-inline-block">
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Interface redesenhada para melhor usabilidade</li>
-          <li class="mb-2"><i class="bi bi-lightning-charge-fill text-warning me-2"></i> Melhorias de performance no backend</li>
-          <li class="mb-2"><i class="bi bi-bug-fill text-danger me-2"></i> Correções de bugs relatados pelos usuários</li>
-        </ul>
-      </div>
-    </div>
+        <h3>reports</h3>
+        <a href="../reports/userReports.html"
+          ><i class="fas fa-users"></i> Users
+        </a>
+        <a href="../reports/productReports.html"
+          ><i class="fas fa-clipboard-list"></i> Products
+        </a>
+        <a href="../reports/salesReports.html"
+          ><i class="fas fa-chart-bar"></i> Sales
+        </a>
+        <a href="../reports/orders.html"
+          ><i class="fas fa-shopping-cart"></i> Orders</a
+        >
+        <br />
+        <hr />
 
-    <!-- Timeline de Versões Anteriores -->
-    <section class="timeline mt-5 animate__animated animate__fadeInUp">
-      <h4 class="text-center mb-4">Histórico de Versões</h4>
-      <div class="list-group">
-        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          <span><strong>v0.9.0</strong> — Beta público com recursos principais</span>
-          <span class="badge bg-info">Jul/2025</span>
-        </div>
-        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          <span><strong>v0.5.0</strong> — Primeira versão interna</span>
-          <span class="badge bg-info">Mai/2025</span>
+        <h3>system</h3>
+        <a href="../system/logs.html"
+          ><i class="fas fa-list-alt"></i> System logs</a
+        >
+        <a href="../system/backup.html"
+          ><i class="fa-solid fa-file-arrow-down"></i> Backup</a
+        >
+        <a href="../system/systemVersion.html"
+          ><i class="fas fa-code"></i> System version</a
+        >
+        <br />
+        <hr />
+
+        <h3>feedback</h3>
+        <a href="../feedback/question.html"
+          ><i class="fas fa-question-circle"></i> Send question</a
+        >
+        <a href="../feedback/history.html"
+          ><i class="fas fa-history"></i> Call history</a
+        >
+        <a href="../feedback/faq.html"
+          ><i class="fas fa-info-circle"></i> FAQ</a
+        >
+        <br />
+        <hr />
+
+        <h3>documentation</h3>
+        <a href="../documentation/help.html"
+          ><i class="fas fa-book"></i> Help</a
+        >
+        <br />
+        <hr />
+
+        <h3>logout</h3>
+        <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </div>
+      <!--FIM SIDEBAR-->
+
+      <div class="content">
+        <div class="system-version-container">
+          <div class="main-version-content">
+            <!-- Header estilizado -->
+            <div class="mvc-header">
+              <i class="fa-solid fa-server mvc-header-icon"></i>
+              <h2>System Version</h2>
+              <span class="mvc-header-sub"
+                ><i class="fa-solid fa-code"></i> / Version Info</span
+              >
+              <hr />
+            </div>
+            <!-- Content estilizado -->
+            <div class="mvc-content">
+              <h3>
+                <i class="fa-solid fa-circle-info mvc-content-icon"></i>
+                Current Version: <span class="mvc-version">1.0.0</span>
+              </h3>
+              <p class="mvc-date">
+                <i class="fa-regular fa-calendar-days"></i>
+                Release Date: June 2024
+              </p>
+              <div class="mvc-changelog">
+                <h4><i class="fa-solid fa-list-check"></i> Changelog:</h4>
+                <ul>
+                  <li>
+                    <i class="fa-solid fa-check mvc-list-icon"></i> Initial
+                    release with core features.
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-check mvc-list-icon"></i> Improved
+                    user interface and navigation.
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-check mvc-list-icon"></i> Added system
+                    logs and backup functionalities.
+                  </li>
+                </ul>
+              </div>
+              <button class="update-button">
+                <i class="fa-solid fa-arrows-rotate"></i> Check for Updates
+              </button>
+            </div>
+            <!-- Footer estilizado -->
+            <footer class="mvc-footer">
+              <hr />
+              <div class="mvc-footer-team">
+                <span><i class="fa-solid fa-users"></i> Team:</span>
+                <span>Yago, Yasmim, Thiago, Fred, Carlos, Bruno</span>
+              </div>
+              <div class="mvc-footer-social">
+                <a href="#" title="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+              </div>
+              <div class="mvc-footer-copy">
+                &copy; 2024 Nexus SixTech. All rights reserved.
+              </div>
+            </footer>
+          </div>
         </div>
       </div>
+      <!--FIM CONTENT-->
     </section>
 
-    <!-- Rodapé -->
-    <footer class="text-center mt-5 text-muted animate__animated animate__fadeInUp">
-      <p>© 2025 Nexus SixTech — 
-        <a href="https://github.com/tenmenezes/Nexus_SixTech" target="_blank" class="text-info text-decoration-none">
-          <i class="bi bi-github"></i> GitHub
-        </a>
-      </p>
-    </footer>
-  </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Font Awesome CDN - JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
-
-    <!-- Scripts -->
-
-  <script src="../js/sidebar.js"></script>
-  <script src="../js/transition.js"></script>
-
-</body>
+    <!-- Font Awesome CDN - JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/transition.js"></script>
+  </body>
 </html>

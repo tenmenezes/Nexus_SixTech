@@ -1,56 +1,171 @@
-body {
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #fff;
-    min-height: 100vh;
-}
-
-/* Logo */
-.logo {
-    font-size: 3rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.logo span {
-    color: #4dd0e1;
-}
-
-/* Glassmorphism Card */
-.glass-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
+.main-version-content {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    background: rgba(255, 255, 255, 0.10);
     border-radius: 16px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
 }
 
-.glass-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+.mvc-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12px;
 }
 
-/* Número da versão */
-.version-number {
-    text-shadow: 0 0 10px rgba(77, 208, 225, 0.7);
+.mvc-header-icon {
+    font-size: 2.2em;
+    color: #4dd0e1;
+    margin-bottom: 8px;
 }
 
-/* Timeline */
-.timeline .list-group-item {
-    background: rgba(255, 255, 255, 0.05);
-    color: #eee;
+.mvc-header h2 {
+    font-size: 1.7em;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+.mvc-header-sub {
+    font-size: 1em;
+    color: #888;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.mvc-content {
+    width: 100%;
+    text-align: center;
+}
+
+.mvc-content-icon {
+    color: #245cd4;
+    margin-right: 6px;
+}
+
+.mvc-version {
+    font-weight: bold;
+    color: #4dd0e1;
+    font-size: 1.2em;
+}
+
+.mvc-date {
+    color: #666;
+    margin: 10px 0 18px 0;
+    font-size: 1em;
+}
+
+.mvc-changelog {
+    margin: 0 auto 18px auto;
+    text-align: left;
+    max-width: 400px;
+}
+
+.mvc-changelog h4 {
+    font-size: 1.1em;
+    color: #245cd4;
+    margin-bottom: 8px;
+}
+
+.mvc-list-icon {
+    color: #28a745;
+    margin-right: 6px;
+}
+
+.mvc-changelog ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mvc-changelog li {
+    margin-bottom: 10px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.update-button {
+    display: inline-block;
+    padding: 10px 22px;
+    font-size: 15px;
+    color: #fff;
+    background: linear-gradient(90deg, #245cd4, #ee1749);
     border: none;
-    transition: background 0.3s ease;
-}
-
-.timeline .list-group-item:hover {
-    background: rgba(77, 208, 225, 0.2);
-}
-
-/* Footer */
-footer a {
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 18px;
     font-weight: 500;
+    box-shadow: 0 2px 8px rgba(77, 208, 225, 0.10);
+    transition: background 0.2s, transform 0.2s;
 }
 
-footer a:hover {
-    text-decoration: underline;
+.update-button i {
+    margin-right: 8px;
+}
+
+.update-button:hover {
+    background: linear-gradient(90deg, #ee1749, #245cd4);
+    transform: scale(1.05);
+}
+
+.mvc-footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid #eee;
+}
+
+.mvc-footer-team {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.mvc-footer-team i {
+    color: #245cd4;
+    margin-right: 6px;
+}
+
+.mvc-footer-social {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.mvc-footer-social a {
+    color: #4dd0e1;
+    font-size: 1.5em;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.mvc-footer-social a:hover {
+    color: #ee1749;
+    transform: scale(1.2);
+}
+
+.mvc-footer-copy {
+    font-size: 0.95em;
+    color: #888;
+    margin-top: 10px;
+}
+
+/* Responsivo */
+@media (max-width: 700px) {
+    .main-version-content {
+        max-width: 98vw;
+        padding: 16px 4vw;
+    }
+
+    .mvc-changelog {
+        max-width: 98vw;
+    }
 }

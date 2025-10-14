@@ -41,34 +41,23 @@ document.addEventListener("DOMContentLoaded", () => {
   // Fecha o dropdown ao selecionar uma opção
 
   const fullscreenBtn = document.getElementsByClassName("fullscreen")[0];
-  
+
   fullscreenBtn.addEventListener("click", () => {
-    // Pega o elemento que vai ficar em fullscreen (a página inteira)
+    console.log("Fullscreen button clicked"); // debug
     const elem = document.documentElement;
-  
+
     if (!document.fullscreenElement) {
-      // Solicita fullscreen
       if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.webkitRequestFullscreen) {
-        /* Safari */
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) {
-        /* IE11 */
-        elem.msRequestFullscreen();
+        elem.requestFullscreen().catch((err) => {
+          alert("Erro ao tentar fullscreen: " + err.message);
+        });
+      } else {
+        alert("Fullscreen não suportado neste navegador.");
       }
     } else {
-      // Sai do fullscreen
       if (document.exitFullscreen) {
         document.exitFullscreen();
-      } else if (document.webkitExitFullscreen) {
-        /* Safari */
-        document.webkitExitFullscreen();
-      } else if (document.msExitFullscreen) {
-        /* IE11 */
-        document.msExitFullscreen();
       }
     }
   });
 });
-
