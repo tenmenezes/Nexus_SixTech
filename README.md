@@ -57,18 +57,51 @@ O projeto será desenvolvido utilizando:
 ## 🎯 Estrutura Inicial do Projeto
 ```
 /Nexus_SixTech
-    ├── cadastro # Pagina HTML
-    │   └── Cadastro.html
+    ├── Master # Usuário Administrador
+    │    ├── img
+    │    ├── css
+    │    ├── js
+    │    ├── reports
+    │    ├── system
+    │    ├── documentation
+    │    ├── feedback
+    │    └── master.html
     │
     ├── css # Todos os arquivos CSS
-    │   └── cadastro.css
+    │    └── cadastro.css
+    │    └── carrossel.css
+    │    └── cart.css
+    │    └── gamepagestyle.css
+    │    └── homepage.css
+    │    └── login.css  
     │
-    ├── img # Imagens como logo do projeto
+    ├── js # Todos os arquivos Javascript
+    │    └── cart.js
+    │    └── homepage.js
+    │    └── login.js
+    │    └── utils.js
+    │    └── validacoes.js
     │
-    ├── js # Todos os arquivos JS
-    │   └── validacoes.js
+    ├── php # Todos os arquivos PHP
+    │    └── cadastro.php
+    │    └── cart.php
+    │    └── conn.php
+    │    └── index.php
+    │    └── login.php
+    │    └── nintendo.php
+    │    └── playstation.php
+    │    └── user.php
+    │    └── xbox.php
     │
-    ├── assets # Páginas, documentos e arquivos adicionais
+    ├── utils # Páginas, documentos e arquivos adicionais
+    │    ├── img
+    │    ├── img_banner
+    │    ├── img_games_nintendo
+    │    ├── img_games_playstation
+    │    ├── img_games_x-box
+    │    ├── songs
+    │    └── mario.gif
+    │
     ├── LICENSE
     └── README.md
 
