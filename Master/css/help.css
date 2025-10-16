@@ -1,0 +1,73 @@
+
+.help-container {
+    padding: 30px;
+    background-color: var(--background, #f8f9fa);
+    color: var(--text-color, #222);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.help-container h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--primary-color, #0078ff);
+}
+
+.help-container p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.help-container hr {
+  margin: 25px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.help-guide h2, .help-support h2 {
+    margin-top: 25px;
+    color: var(--primary-color, #0078ff)
+}
+
+.help-topic {
+    background: rgba(0, 0, 0, 0.03);
+    border-left: 4px solid var(--primary-color, #0078ff);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.help-topic h3 {
+    margin: 0 0 5px;
+}
+
+.support-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.support-form input,
+.support-form textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.send-btn {
+    background-color: var(--primary-color, #0078ff);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.send-btn:hover {
+    background-color: #005fcc;
+}

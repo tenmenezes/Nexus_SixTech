@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus SixTech - Ajuda</title>
+
+    <!-- Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
+
+    <!-- Font Awesome CDN - CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      />
+
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="../css/help.css"/>
+    <link rel="stylesheet" href="../css/master.css"/>
+</head>
+<body>
+    <!-- Overlay -->
+    <div class="transicao ativa" id="transition-overlay">
+      <div class="fatia"></div>
+      <div class="fatia"></div>
+      <div class="fatia">
+        <img src="../img/imgProject-Photoroom.png" class="imagem" alt="Logo" />
+      </div>
+      <div class="fatia"></div>
+      <div class="fatia"></div>
+    </div>
+
+    <header>
+      <div class="info-header">
+        <div class="logo">
+          <h3 class="glitch" data-text="NS">NS</h3>
+        </div>
+        <div class="icons-header" title="Tela cheia">
+          <i class="fa-solid fa-expand fullscreen"></i>
+        </div>
+      </div>
+      <div style="align-items: center" class="info-header">
+        <i class="fa-solid fa-bell not" title="notificações"></i>
+        <i class="fa-solid fa-envelope mail" title="e-mails"></i>
+      </div>
+      <button class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <section class="main">
+      <div class="sidebar">
+        <h3>navigation</h3>
+        <a class="sidebar-active" href="../master.html"><i class="fa-solid fa-chart-simple icon-dash"></i> Dashboard</a>
+        <br />
+        <hr />
+
+        <h3>reports</h3>
+        <a href="../reports/userReports.html"><i class="fas fa-users"></i> Users</a>
+        <a href="../reports/productReports.html"><i class="fas fa-clipboard-list"></i> Products</a>
+        <a href="../reports/salesReports.html"><i class="fas fa-chart-bar"></i> Sales</a>
+        <a href="../reports/orders.html"><i class="fas fa-shopping-cart"></i> Orders</a>
+        <br />
+        <hr />
+
+        <h3>system</h3>
+        <a href="../system/logs.html"><i class="fas fa-list-alt"></i> System logs</a>
+        <a href="../system/backup.html"><i class="fa-solid fa-file-arrow-down"></i> Backup</a>
+        <a href="../system/systemVersion.html"><i class="fas fa-code"></i> System version</a>
+        <br />
+        <hr />
+
+        <h3>feedback</h3>
+        <a href="../feedback/question.html"><i class="fas fa-question-circle"></i> Send question</a>
+        <a href="../feedback/history.html"><i class="fas fa-history"></i> Call history</a>
+        <a href="../feedback/faq.html"><i class="fas fa-info-circle"></i> FAQ</a>
+        <br />
+        <hr />
+
+        <h3>documentation</h3>
+        <a href="../documentation/help.html"><i class="fas fa-book"></i> Help</a>
+        <a href="./documentation/help.html"><i class="fa-solid fa-circle-exclamation"></i> Made by</a>
+        <br />
+        <hr />
+
+        <h3>logout</h3>
+        <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </div>
+      <!--FIM SIDEBAR-->
+
+      <div class="content">
+        <div class="help-container">
+            <h1><i class="fa-solid fa-circle-question"></i> Central de Ajuda</h1>
+            <p>Bem-vindo(a) à Central de Ajuda da <strong>Nexus SixTech</strong>.  
+            Aqui você encontra instruções sobre como utilizar o sistema e um canal direto para enviar dúvidas ou sugestões à equipe de suporte.</p>
+
+            <hr>
+
+            <!-- Secao de Instrucoes -->
+            <section class="help-guide">
+            <h2> Guia de Uso</h2><br>
+
+            <div class="help-topic">
+                <h3><i class="fa-solid fa-chart-simple"></i> Dashboard</h3>
+                <p>A página inicial mostra um resumo das informações do sistema, como número de usuários, produtos e vendas.  
+                e os gráficos para acompanhar o desempenho da sua operação em tempo real.</p>
+            </div>
+
+            <div class="help-topic">
+                <h3><i class="fa-solid fa-users"></i> Relatórios</h3>
+                <p>Na seção <strong>Reports</strong>, você pode visualizar dados detalhados sobre usuários, produtos, vendas e pedidos.  
+                Utilize os filtros e exporte os relatórios para acompanhar as métricas de forma personalizada.</p>
+            </div>
+
+            <div class="help-topic">
+                <h3><i class="fa-solid fa-database"></i> Backup</h3>
+                <p>Em <strong>System → Backup</strong>, você pode gerar uma cópia de segurança dos seus dados.  
+                Recomendamos criar um backup semanal para garantir a segurança das informações.</p>
+            </div>
+
+            <div class="help-topic">
+                <h3><i class="fa-solid fa-code"></i> Versão do Sitema</h3>
+                <p>Na aba <strong>System Version</strong>, você encontra o número da versão atual e as notas de atualização do sistema.</p>
+            </div>
+
+            <div class="help-topic">
+                <h3><i class="fa-solid fa-question-circle"></i> FAQ</h3>
+                <p>Consulte a <strong>FAQ</strong> para ver respostas às dúvidas mais frequentes.  
+                Caso sua dúvida não esteja lá, use o formulário abaixo para entrar em contato.</p>
+            </div>
+            </section>
+
+            <hr>
+
+             <!-- Seção de Suporte -->
+            <section class="help-support">
+            <h2><i class="fa-solid fa-envelope"></i> Suporte Técnico</h2>
+            <p>Se você não encontrou a resposta que procurava, envie sua dúvida pelo formulário abaixo.  
+            Nossa equipe entrará em contato o mais breve possível.</p>
+
+            <form class="support-form">
+                <label for="name"><i class="fa-solid fa-user"></i> Nome</label>
+                <input type="text" id="name" placeholder="Seu nome completo" required>
+
+                <label for="email"><i class="fa-solid fa-envelope"></i> E-mail</label>
+                <input type="text" id="email" placeholder="seuemail@exemplo.com" required>
+
+                <label for="subject"><i class="fa-solid fa-heading"></i> Assunto</label>
+                <input type="text" id="subject" placeholder="Ex: Dificuldade para gerar pdf" required>
+
+                <label for="message"><i class="fa-solid fa-comment-dots"></i> Mensagem</label>
+                <textarea type="text" id="message" placeholder="Descreva seu problema ou dúvida" required></textarea>
+
+                <button type="submit" class="send-btn">
+                    <i class="fa-solid fa-paper-plane"></i> Enviar
+                </button>
+            </form>
+            </section> 
+        </div>
+      </div>
+
+
+    <!-- Font Awesome CDN - JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/transition.js"></script>
+</body>
+</html>
