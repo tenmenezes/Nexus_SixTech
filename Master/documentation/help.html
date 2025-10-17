@@ -22,16 +22,7 @@
     <link rel="stylesheet" href="../css/master.css"/>
 </head>
 <body>
-    <!-- Overlay -->
-    <div class="transicao ativa" id="transition-overlay">
-      <div class="fatia"></div>
-      <div class="fatia"></div>
-      <div class="fatia">
-        <img src="../img/imgProject-Photoroom.png" class="imagem" alt="Logo" />
-      </div>
-      <div class="fatia"></div>
-      <div class="fatia"></div>
-    </div>
+    
 
     <header>
       <div class="info-header">
@@ -82,7 +73,7 @@
 
         <h3>documentation</h3>
         <a href="../documentation/help.html"><i class="fas fa-book"></i> Help</a>
-        <a href="./documentation/help.html"><i class="fa-solid fa-circle-exclamation"></i> Made by</a>
+        <a href="../documentation/help.html"><i class="fa-solid fa-circle-exclamation"></i> About</a>
         <br />
         <hr />
 
@@ -92,76 +83,95 @@
       <!--FIM SIDEBAR-->
 
       <div class="content">
+        <div class="titulo-secao">
+          <h2>Central de Ajuda</h2>
+          <br />
+          <hr />
+          <br />
+          <p><i class="fas fa-book"></i> / Central de Ajuda</p>
+        </div>
+
+        <nav class="help-nav">
+          <a href="#guia">Guia de Uso</a>
+          <a href="#dash">Dashboard</a>
+          <a href="#relatorios">Relatórios</a>
+          <a href="#backup">Backup</a>
+          <a href="#versao">Versão</a>
+          <a href="#faq">FAQ</a>
+          <a href="#suporte">Suporte</a>
+        </nav>
+
         <div class="help-container">
-            <h1><i class="fa-solid fa-circle-question"></i> Central de Ajuda</h1>
-            <p>Bem-vindo(a) à Central de Ajuda da <strong>Nexus SixTech</strong>.  
-            Aqui você encontra instruções sobre como utilizar o sistema e um canal direto para enviar dúvidas ou sugestões à equipe de suporte.</p>
+        <h1><i class="fas fa-book"></i> Central de Ajuda</h1>
+        <p>Bem-vindo(a) à Central de Ajuda da <strong>Nexus SixTech</strong>.  
+        Aqui você encontra instruções sobre como utilizar o sistema e um canal direto para enviar dúvidas ou sugestões à equipe de suporte.</p>
 
-            <hr>
+        <hr>
 
-            <!-- Secao de Instrucoes -->
-            <section class="help-guide">
-            <h2> Guia de Uso</h2><br>
+        <!-- Secao de Instrucoes -->
+        <section class="help-guide" id="guia">
+        <h2> Guia de Uso</h2><br>
 
-            <div class="help-topic">
-                <h3><i class="fa-solid fa-chart-simple"></i> Dashboard</h3>
-                <p>A página inicial mostra um resumo das informações do sistema, como número de usuários, produtos e vendas.  
-                e os gráficos para acompanhar o desempenho da sua operação em tempo real.</p>
-            </div>
+        <div class="help-topic" id="dash">
+            <h3><i class="fa-solid fa-chart-simple"></i> Dashboard</h3>
+            <p>A página inicial mostra um resumo das informações do sistema, como número de usuários, produtos e vendas.  
+            e os gráficos para acompanhar o desempenho da sua operação em tempo real.</p>
+        </div>
 
-            <div class="help-topic">
-                <h3><i class="fa-solid fa-users"></i> Relatórios</h3>
-                <p>Na seção <strong>Reports</strong>, você pode visualizar dados detalhados sobre usuários, produtos, vendas e pedidos.  
-                Utilize os filtros e exporte os relatórios para acompanhar as métricas de forma personalizada.</p>
-            </div>
+        <div class="help-topic" id="relatorios">
+            <h3><i class="fa-solid fa-users"></i> Relatórios</h3>
+            <p>Na seção <strong>Reports</strong>, você pode visualizar dados detalhados sobre usuários, produtos, vendas e pedidos.  
+            Utilize os filtros e exporte os relatórios para acompanhar as métricas de forma personalizada.</p>
+        </div>
 
-            <div class="help-topic">
-                <h3><i class="fa-solid fa-database"></i> Backup</h3>
-                <p>Em <strong>System → Backup</strong>, você pode gerar uma cópia de segurança dos seus dados.  
-                Recomendamos criar um backup semanal para garantir a segurança das informações.</p>
-            </div>
+        <div class="help-topic" id="backup">
+            <h3><i class="fa-solid fa-database"></i> Backup</h3>
+            <p>Em <strong>System → Backup</strong>, você pode gerar uma cópia de segurança dos seus dados.  
+            Recomendamos criar um backup semanal para garantir a segurança das informações.</p>
+        </div>
 
-            <div class="help-topic">
-                <h3><i class="fa-solid fa-code"></i> Versão do Sitema</h3>
-                <p>Na aba <strong>System Version</strong>, você encontra o número da versão atual e as notas de atualização do sistema.</p>
-            </div>
+        <div class="help-topic" id="versao">
+            <h3><i class="fa-solid fa-code"></i> Versão do Sitema</h3>
+            <p>Na aba <strong>System Version</strong>, você encontra o número da versão atual e as notas de atualização do sistema.</p>
+        </div>
 
-            <div class="help-topic">
-                <h3><i class="fa-solid fa-question-circle"></i> FAQ</h3>
-                <p>Consulte a <strong>FAQ</strong> para ver respostas às dúvidas mais frequentes.  
-                Caso sua dúvida não esteja lá, use o formulário abaixo para entrar em contato.</p>
-            </div>
-            </section>
+        <div class="help-topic" id="faq">
+            <h3><i class="fa-solid fa-question-circle"></i> FAQ</h3>
+            <p>Consulte a <strong>FAQ</strong> para ver respostas às dúvidas mais frequentes.  
+            Caso sua dúvida não esteja lá, use o formulário abaixo para entrar em contato.</p>
+        </div>
+        </section>
 
-            <hr>
+        <hr>
 
-             <!-- Seção de Suporte -->
-            <section class="help-support">
-            <h2><i class="fa-solid fa-envelope"></i> Suporte Técnico</h2>
-            <p>Se você não encontrou a resposta que procurava, envie sua dúvida pelo formulário abaixo.  
-            Nossa equipe entrará em contato o mais breve possível.</p>
+        <!-- Seção de Suporte -->
+        <section class="help-support" id="suporte">
+        <h2><i class="fa-solid fa-envelope"></i> Suporte Técnico</h2>
+        <p>Se você não encontrou a resposta que procurava, envie sua dúvida pelo formulário abaixo.  
+        Nossa equipe entrará em contato o mais breve possível.</p>
 
-            <form class="support-form">
-                <label for="name"><i class="fa-solid fa-user"></i> Nome</label>
-                <input type="text" id="name" placeholder="Seu nome completo" required>
+        <form class="support-form">
+            <label for="name"><i class="fa-solid fa-user"></i> Nome</label>
+            <input type="text" id="name" placeholder="Seu nome completo" required>
 
-                <label for="email"><i class="fa-solid fa-envelope"></i> E-mail</label>
-                <input type="text" id="email" placeholder="seuemail@exemplo.com" required>
+            <label for="email"><i class="fa-solid fa-envelope"></i> E-mail</label>
+            <input type="text" id="email" placeholder="seuemail@exemplo.com" required>
 
-                <label for="subject"><i class="fa-solid fa-heading"></i> Assunto</label>
-                <input type="text" id="subject" placeholder="Ex: Dificuldade para gerar pdf" required>
+            <label for="subject"><i class="fa-solid fa-heading"></i> Assunto</label>
+            <input type="text" id="subject" placeholder="Ex: Dificuldade para gerar pdf" required>
 
-                <label for="message"><i class="fa-solid fa-comment-dots"></i> Mensagem</label>
-                <textarea type="text" id="message" placeholder="Descreva seu problema ou dúvida" required></textarea>
+            <label for="message"><i class="fa-solid fa-comment-dots"></i> Mensagem</label>
+            <textarea type="text" id="message" placeholder="Descreva seu problema ou dúvida" required></textarea>
 
-                <button type="submit" class="send-btn">
-                    <i class="fa-solid fa-paper-plane"></i> Enviar
-                </button>
-            </form>
-            </section> 
+            <button type="submit" class="send-btn">
+                <i class="fa-solid fa-paper-plane"></i> Enviar
+            </button>
+        </form>
+        </section> 
         </div>
       </div>
 
+      
 
     <!-- Font Awesome CDN - JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
