@@ -6,7 +6,8 @@ define('DB_PASS', '');
 
 session_start();
 
-function getDbConnection() {
+function getDbConnection()
+{
     $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4';
     $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -21,4 +22,3 @@ function getDbConnection() {
         die("Erro de Conexão com o Banco de Dados: " . $e->getMessage());
     }
 }
-?>

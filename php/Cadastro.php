@@ -95,14 +95,17 @@ end_form:
   <div class="wrap" role="region" aria-label="Formulário de cadastro">
     <div class="info">
       <h2 style="text-align: center;">Criar conta</h2>
-      <p style="text-align: center; color: wheat;">Preencha os dados ao lado e crie sua conta para aproveitar todos os nossos recursos..</p>
-      <img src="../utils/img/imgProject-Photoroom.png" width="500px" alt="logo" style="filter: drop-shadow(30px 10px 4px #be44dd96); animation: fadein ease-in-out 4s;">
+      <p style="text-align: center; color: wheat;">Preencha os dados ao lado e crie sua conta para aproveitar
+        todos os nossos recursos..</p>
+      <img src="../utils/img/imgProject-Photoroom.png" width="500px" alt="logo"
+        style="filter: drop-shadow(30px 10px 4px #be44dd96); animation: fadein ease-in-out 4s;">
     </div>
 
     <form action="Cadastro.php" method="post" id="form">
       <div style="display:flex;justify-content:space-between;align-items:center;">
         <h3 style="margin:0; color: rgba(240, 248, 255, 0.582);">Cadastro</h3>
-        <div class="small">Já tem conta? <a href="../login/login.html" target="_blank" class="link">Entrar</a></div>
+        <div class="small">Já tem conta? <a href="../login/login.html" target="_blank" class="link">Entrar</a>
+        </div>
       </div>
 
       <div class="grid">

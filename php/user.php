@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configurações do Usuário</title>
   <style>
     body {
@@ -26,11 +27,13 @@
       text-align: center;
     }
 
-    p, label {
+    p,
+    label {
       margin: 10px 0;
     }
 
-    body.dark-mode, .container.dark-mode {
+    body.dark-mode,
+    .container.dark-mode {
       background-color: #121212;
       color: #f1f1f1;
     }
@@ -61,9 +64,11 @@
       gap: 10px;
       margin: 20px 0;
     }
+
     .user-actions-btns a {
       text-decoration: none;
     }
+
     .user-actions-btns button {
       width: 120px;
       background: #28a745;
@@ -75,6 +80,7 @@
       cursor: pointer;
       transition: background 0.2s;
     }
+
     .user-actions-btns button:hover {
       background: #218838;
     }
@@ -91,9 +97,9 @@
         width: 60px;
       }
     }
-
   </style>
 </head>
+
 <body>
   <div class="container" id="config-container">
     <h2>Dados do Usuário</h2>
@@ -104,15 +110,15 @@
     <hr>
     <div class="settings">
       <h2>Acessibilidade</h2>
-    <hr>
-    
-    <br><label for="theme-select">Tema:</label>
-    <select id="theme-select">
-      <option value="light">Claro</option>
-      <option value="dark">Escuro</option>
-    </select>
-    
-    <br><br><label for="font-select">Fonte:</label>
+      <hr>
+
+      <br><label for="theme-select">Tema:</label>
+      <select id="theme-select">
+        <option value="light">Claro</option>
+        <option value="dark">Escuro</option>
+      </select>
+
+      <br><br><label for="font-select">Fonte:</label>
       <select id="font-select">
         <option value="small">Pequena</option>
         <option value="normal">Normal</option>
@@ -120,7 +126,8 @@
       </select>
       <div class="user-actions-btns">
         <!-- Botão para voltar -->
-       <a href="javascript:history.back()" class="settings"><button onclick="location.reload()">⬅ Voltar</button>
+        <a href="javascript:history.back()" class="settings"><button onclick="location.reload()">⬅
+            Voltar</button>
       </div>
     </div>
   </div>
@@ -155,7 +162,7 @@
         </div>
       `;
 
-      const btn = document.getElementById("btnLogout").addEventListener('click', function(){
+      const btn = document.getElementById("btnLogout").addEventListener('click', function() {
 
         localStorage.removeItem('usuarioLogado'); //removendo apenas o usuario logado
         window.location.href = '../HomePage/HomePage.html';
@@ -216,4 +223,5 @@
     }
   </script>
 </body>
+
 </html>

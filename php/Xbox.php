@@ -26,18 +26,12 @@
           </a>
         </li>
         <li class="link2">
-          <a href="Nintendo.html"><img
-              src="../utils/img/LogoNintendo.png"
-              alt="Nintendo"
-              width="35" />
+          <a href="Nintendo.html"><img src="../utils/img/LogoNintendo.png" alt="Nintendo" width="35" />
             <h2>Nintendo</h2>
           </a>
         </li>
         <li class="link3">
-          <a href="Playstation.html"><img
-              src="../utils/img/LogoPS.png"
-              alt="PlayStation"
-              width="30" />
+          <a href="Playstation.html"><img src="../utils/img/LogoPS.png" alt="PlayStation" width="30" />
             <h2>PlayStation</h2>
           </a>
         </li>
@@ -62,10 +56,7 @@
           Xbox</a>
       </li>
       <li class="link2">
-        <a href="Nintendo.html"><img
-            src="../utils/img/LogoNintendo.png"
-            alt="Nintendo"
-            width="20" />
+        <a href="Nintendo.html"><img src="../utils/img/LogoNintendo.png" alt="Nintendo" width="20" />
           Nintendo</a>
       </li>
       <li class="link3">
@@ -79,10 +70,7 @@
   <main class="main-content container">
     <div class="product-grid" id="product-grid">
       <div class="product-card">
-        <img
-          id="imagem"
-          src="../utils/games_x-box/senuasSacrifice.jpg"
-          alt="Hellblade Senua's Sacrifice" />
+        <img id="imagem" src="../utils/games_x-box/senuasSacrifice.jpg" alt="Hellblade Senua's Sacrifice" />
         <div class="product-info">
           <h3 id="nome">Senua's Sacrifice</h3>
           <p id="preco" class="price">R$ 99.90</p>
@@ -93,10 +81,7 @@
       </div>
 
       <div class="product-card">
-        <img
-          id="imagem"
-          src="../utils/games_x-box/senuasSaga.jpg"
-          alt="Senua's Saga Hellblade II" />
+        <img id="imagem" src="../utils/games_x-box/senuasSaga.jpg" alt="Senua's Saga Hellblade II" />
         <div class="product-info">
           <h3 id="nome">Senua's Hellblade II</h3>
           <p id="preco" class="price">R$ 199.90</p>
@@ -118,10 +103,7 @@
       </div>
 
       <div class="product-card">
-        <img
-          id="imagem"
-          src="../utils/games_x-box/Forza Motorsport 6.jpg"
-          alt="Forza Motorsport 6" />
+        <img id="imagem" src="../utils/games_x-box/Forza Motorsport 6.jpg" alt="Forza Motorsport 6" />
         <div class="product-info">
           <h3 id="nome">Forza Motorsport 6</h3>
           <p id="preco" class="price">R$ 249.99</p>
@@ -132,10 +114,7 @@
       </div>
 
       <div class="product-card">
-        <img
-          id="imagem"
-          src="../utils/games_x-box/Dishonored 2.jpg"
-          alt="Dishonored 2" />
+        <img id="imagem" src="../utils/games_x-box/Dishonored 2.jpg" alt="Dishonored 2" />
         <div class="product-info">
           <h3 id="nome">Dishonored 2</h3>
           <p id="preco" class="price">R$ 199.99</p>
@@ -146,10 +125,7 @@
       </div>
 
       <div class="product-card">
-        <img
-          id="imagem"
-          src="../utils/games_x-box/Halo_Infinite_capa.png"
-          alt="Halo Infinite" />
+        <img id="imagem" src="../utils/games_x-box/Halo_Infinite_capa.png" alt="Halo Infinite" />
         <div class="product-info">
           <h3 id="nome">Halo Infinite</h3>
           <p id="preco" class="price">R$ 139.99</p>
@@ -160,10 +136,7 @@
       </div>
 
       <div class="product-card">
-        <img
-          id="imagem"
-          src="../utils/games_x-box/Sea-Of-Thieves-Emblema.jpg"
-          alt="Sea of Thieves" />
+        <img id="imagem" src="../utils/games_x-box/Sea-Of-Thieves-Emblema.jpg" alt="Sea of Thieves" />
         <div class="product-info">
           <h3 id="nome">Sea of Thieves</h3>
           <p id="preco" class="price">R$ 79.99</p>
@@ -174,10 +147,7 @@
       </div>
 
       <div class="product-card">
-        <img
-          id="imagem"
-          src="../utils/games_x-box/gears of wars.png"
-          alt="Gears of War: E-Day" />
+        <img id="imagem" src="../utils/games_x-box/gears of wars.png" alt="Gears of War: E-Day" />
         <div class="product-info">
           <h3 id="nome">Gears of Wars</h3>
           <p id="preco" class="price">R$ 159.99</p>
@@ -188,10 +158,7 @@
       </div>
 
       <div class="product-card">
-        <img
-          id="imagem"
-          src="../utils/games_x-box/dishonored.jpg"
-          alt="Dishonored" />
+        <img id="imagem" src="../utils/games_x-box/dishonored.jpg" alt="Dishonored" />
         <div class="product-info">
           <h3 id="nome">Dishonored</h3>
           <p id="preco" class="price">R$ 199.90</p>
@@ -202,10 +169,7 @@
       </div>
 
       <div class="product-card">
-        <img
-          id="imagem"
-          src="../utils/games_x-box/doomEternal.jpg"
-          alt="Doom Eternal" />
+        <img id="imagem" src="../utils/games_x-box/doomEternal.jpg" alt="Doom Eternal" />
         <div class="product-info">
           <h3 id="nome">Doom Eternal</h3>
           <p id="preco" class="price">R$ 99.90</p>
