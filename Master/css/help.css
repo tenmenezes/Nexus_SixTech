@@ -47,7 +47,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     margin-top: 15px;
-    margin-bottom: 25px;
     justify-content: center;
 
 }
@@ -60,7 +59,7 @@ body {
 }
 
 .help-nav a:hover{
-    color: #245cd4; /* ou outra cor do tema */
+    color: #245cd4; 
     transform: scale(1.05);
 }
 
@@ -132,6 +131,9 @@ body {
     font-size: 1rem;
     cursor: pointer;
     transition: 0.3s;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
 }
 
 .send-btn:hover {
