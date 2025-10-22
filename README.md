@@ -61,7 +61,7 @@ O projeto será desenvolvido utilizando:
 
 ---
 
-## 🎯 Estrutura Inicial do Projeto
+## 🎯 Estrutura do Projeto
 
 ```
 📁 Nexus_SixTech
