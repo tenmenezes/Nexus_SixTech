@@ -58,8 +58,8 @@ body {
     transition: color 0.3s, transform 0.3s;
 }
 
-.help-nav a:hover{
-    color: #245cd4; 
+.help-nav a:hover {
+    color: #245cd4;
     transform: scale(1.05);
 }
 
@@ -84,12 +84,13 @@ body {
 }
 
 .help-container hr {
-  margin: 25px 0;
-  border: none;
-  border-top: 1px solid #ddd;
+    margin: 25px 0;
+    border: none;
+    border-top: 1px solid #ddd;
 }
 
-.help-guide h2, .help-support h2 {
+.help-guide h2,
+.help-support h2 {
     margin-top: 25px;
     color: var(--primary-color, #0078ff)
 }

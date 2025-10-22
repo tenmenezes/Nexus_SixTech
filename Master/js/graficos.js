@@ -174,13 +174,12 @@ document.getElementById("btn-misto").addEventListener("click", () => {
 document.getElementById("btn-baixar-misto").addEventListener("click", () => {
   const link = document.createElement("a");
   link.href = graficoMisto.toBase64Image();
-  
+
   if (tipoGraficoAtual === "linha") link.download = "grafico-linha.png";
   else if (tipoGraficoAtual === "barra") link.download = "grafico-barra.png";
   else link.download = "grafico-misto.png";
 
   link.click();
-
 });
 
 // Resetar zoom
@@ -364,7 +363,11 @@ new Chart(ctxRadar, {
   options: {
     responsive: true,
     plugins: {
-      title: { display: true, text: "Distribuição de Vendas por Gênero", position: "bottom" },
+      title: {
+        display: true,
+        text: "Distribuição de Vendas por Gênero",
+        position: "bottom",
+      },
       legend: { display: false }, // se quiser tirar a legenda também
     },
     scales: {

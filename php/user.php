@@ -126,7 +126,7 @@
       </select>
       <div class="user-actions-btns">
         <!-- Botão para voltar -->
-        <a href="javascript:history.back()" class="settings"><button onclick="location.reload()">⬅
+        <a href="javascript:history.back()" class="settings"><button onclick="location.reload()">
             Voltar</button>
       </div>
     </div>
@@ -147,8 +147,8 @@
       senhaSpan.textContent = "senha não encontrada";
       actionsDiv.innerHTML = `
         <div class="user-actions-btns">
-          <a href="../Cadastro/cadastro.html"><button type="button">Realizar cadastro</button></a>
-          <a href="#"><button type="button">Logar</button></a>
+          <a href="../php/Cadastro.php"><button type="button">Realizar cadastro</button></a>
+          <a href="../php/login.php"><button type="button">Logar</button></a>
         </div>
       `;
     } else {
@@ -157,7 +157,7 @@
       senhaSpan.textContent = user.senha || '';
       actionsDiv.innerHTML = `
         <div class="user-actions-btns">
-          <a href="../Login/forgotPassword/forgotPassword.html"><button type="button">Trocar senha</button></a>
+          <a href="../php/login.php"><button type="button">Trocar senha</button></a>
           <button type="button" id="btnLogout">Logout</button>
         </div>
       `;
@@ -165,7 +165,7 @@
       const btn = document.getElementById("btnLogout").addEventListener('click', function() {
 
         localStorage.removeItem('usuarioLogado'); //removendo apenas o usuario logado
-        window.location.href = '../HomePage/HomePage.html';
+        window.location.href = './Index.php';
 
       });
 

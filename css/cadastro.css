@@ -32,6 +32,7 @@ body {
     font-weight: 600;
     transition: all .1s;
 }
+
 .link:hover {
     text-decoration: underline;
 }
@@ -172,7 +173,8 @@ i {
     color: white;
 }
 
-button.btn, .ghost {
+button.btn,
+.ghost {
     background: var(--accent);
     color: #fff;
     padding: 10px 14px;
@@ -182,7 +184,8 @@ button.btn, .ghost {
     transition: ease-in-out background .1s;
 }
 
-button.btn:hover, .ghost:hover {
+button.btn:hover,
+.ghost:hover {
     background: #1e40af;
     cursor: pointer;
 }
@@ -196,6 +199,7 @@ button.btn:hover, .ghost:hover {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }

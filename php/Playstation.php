@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loja de Jogos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/homePage.css" />
     <link rel="stylesheet" href="../css/gamepagestyle.css" />
+    <title>Loja de Jogos</title>
 </head>
 
 <body>
     <!-- Cabeçalho com logo, menu e usuário -->
     <header>
         <div class="logo">
-            <a href="index.php" aria-label="Página inicial">
+            <a href="./Index.php" aria-label="Página inicial">
                 <img src="../utils/img/imgProject-removebg-preview.png" alt="Logo GameStore" />
             </a>
         </div>
@@ -21,17 +23,17 @@
         <nav class="main-menu">
             <ul>
                 <li class="link1">
-                    <a href="Xbox.html"><img src="../utils/img/logoXbox.png" alt="Xbox" width="30" />
+                    <a href="./Xbox.php"><img src="../utils/img/logoXbox.png" alt="Xbox" width="30" />
                         <h2>Xbox</h2>
                     </a>
                 </li>
                 <li class="link2">
-                    <a href="Nintendo.html"><img src="../utils/img/LogoNintendo.png" alt="Nintendo" width="35" />
+                    <a href="./Nintendo.php"><img src="../utils/img/LogoNintendo.png" alt="Nintendo" width="35" />
                         <h2>Nintendo</h2>
                     </a>
                 </li>
                 <li class="link3">
-                    <a href="Playstation.html"><img src="../utils/img/LogoPS.png" alt="PlayStation" width="30" />
+                    <a href="./Playstation.php"><img src="../utils/img/LogoPS.png" alt="PlayStation" width="30" />
                         <h2>PlayStation</h2>
                     </a>
                 </li>
@@ -39,9 +41,9 @@
         </nav>
         <div class="user-info">
             <img src="../utils/img/user.png" alt="Avatar" class="avatar" />
-            <a href="user.html"><span id="user-name" class="user-color">Usuário</span></a>
+            <a href="./user.php"><span id="user-name" class="user-color">Usuário</span></a>
             <div class="cart-icon" id="cart-icon">
-                <a href="Cart.html">🛒</a>
+                <a href="./Cart.php">🛒</a>
                 <span class="cart-count" id="cart-count"></span>
             </div>
         </div>
@@ -51,15 +53,15 @@
     <div id="floating-menu" class="floating-menu">
         <ul>
             <li class="link1">
-                <a href="Xbox.html"><img src="../utils/img/logoXbox.png" alt="Xbox" width="20" />
+                <a href="./Xbox.php"><img src="../utils/img/logoXbox.png" alt="Xbox" width="20" />
                     Xbox</a>
             </li>
             <li class="link2">
-                <a href="Nintendo.html"><img src="../utils/img/LogoNintendo.png" alt="Nintendo"
+                <a href="./Nintendo.php"><img src="../utils/img/LogoNintendo.png" alt="Nintendo"
                         width="20" />Nintendo</a>
             </li>
             <li class="link3">
-                <a href="Playstation.html"><img src="../utils/img/LogoPS.png" alt="PlayStation"
+                <a href="./Playstation.php"><img src="../utils/img/LogoPS.png" alt="PlayStation"
                         width="20" />PlayStation</a>
             </li>
         </ul>
@@ -69,7 +71,7 @@
     <main class="main-content container">
         <div class="product-grid" id="product-grid">
             <div class="product-card">
-                <img id="imagem" src="../utils/games_playstation/ghost-of-yotei-game-3840x2160-19048.jpg"
+                <img id="imagem" src="../utils/img_games_playstation/ghost-of-yotei-game-3840x2160-19048.jpg"
                     alt="Ghost Of Yotei" />
                 <div class="product-info">
                     <h3 id="nome">Ghost Of Yotei</h3>
@@ -80,7 +82,7 @@
                 </div>
             </div>
             <div class="product-card">
-                <img id="imagem" src="../utils/games_playstation/thealters.png" alt="The Alters" />
+                <img id="imagem" src="../utils/img_games_playstation/thealters.png" alt="The Alters" />
                 <div class="product-info">
                     <h3 id="nome">The Alters</h3>
                     <p id="preco" class="price">R$ 249.90</p>
@@ -90,7 +92,7 @@
                 </div>
             </div>
             <div class="product-card">
-                <img id="imagem" src="../utils/games_playstation/GodofWar.jpg" alt="God of War" />
+                <img id="imagem" src="../utils/img_games_playstation/GodofWar.jpg" alt="God of War" />
                 <div class="product-info">
                     <h3 id="nome">God of War</h3>
                     <p id="preco" class="price">R$ 229.99</p>
@@ -100,7 +102,7 @@
                 </div>
             </div>
             <div class="product-card">
-                <img id="imagem" src="../utils/games_playstation/Fallout76.jpg" alt="Fallout 76" />
+                <img id="imagem" src="../utils/img_games_playstation/Fallout76.jpg" alt="Fallout 76" />
                 <div class="product-info">
                     <h3 id="nome">Fallout 76</h3>
                     <p id="preco" class="price">R$ 129.99</p>
@@ -110,7 +112,7 @@
                 </div>
             </div>
             <div class="product-card">
-                <img id="imagem" src="../utils/games_playstation/UntilDawn.jpg" alt="Until Dawn" />
+                <img id="imagem" src="../utils/img_games_playstation/UntilDawn.jpg" alt="Until Dawn" />
                 <div class="product-info">
                     <h3 id="nome">Until Dawn</h3>
                     <p id="preco" class="price">R$ 199.99</p>
@@ -120,7 +122,7 @@
                 </div>
             </div>
             <div class="product-card">
-                <img id="imagem" src="../utils/games_playstation/Wildarms.jpg" alt="Wild Arms After Code: F" />
+                <img id="imagem" src="../utils/img_games_playstation/Wildarms.jpg" alt="Wild Arms After Code: F" />
                 <div class="product-info">
                     <h3 id="nome">Wild Arms After Code: F</h3>
                     <p id="preco" class="price">R$ 99.99</p>
@@ -130,7 +132,7 @@
                 </div>
             </div>
             <div class="product-card">
-                <img id="imagem" src="../utils/games_playstation/dinocrisis.jpg" alt="Dino Crisis" />
+                <img id="imagem" src="../utils/img_games_playstation/dinocrisis.jpg" alt="Dino Crisis" />
                 <div class="product-info">
                     <h3 id="nome">Dino Crisis</h3>
                     <p id="preco" class="price">R$ 189.99</p>
@@ -140,7 +142,7 @@
                 </div>
             </div>
             <div class="product-card">
-                <img id="imagem" src="../utils/games_playstation/starwars.jpg" alt="Lego Star Wars" />
+                <img id="imagem" src="../utils/img_games_playstation/starwars.jpg" alt="Lego Star Wars" />
                 <div class="product-info">
                     <h3 id="nome">Lego Star Wars</h3>
                     <p id="preco" class="price">R$ 89.99</p>
@@ -151,7 +153,7 @@
             </div>
 
             <div class="product-card">
-                <img id="imagem" src="../utils/games_playstation/Star_Wars_Jedi_Fallen_Order_capa.png"
+                <img id="imagem" src="../utils/img_games_playstation/Star_Wars_Jedi_Fallen_Order_capa.png"
                     alt="Star Wars Jedi Fallen Order" />
                 <div class="product-info">
                     <h3 id="nome">Jedi Fallen Order</h3>
@@ -163,7 +165,8 @@
             </div>
 
             <div class="product-card">
-                <img id="imagem" src="../utils/games_playstation/Ghost_of_Tsushima_capa.png" alt="Ghost of Tsushima" />
+                <img id="imagem" src="../utils/img_games_playstation/Ghost_of_Tsushima_capa.png"
+                    alt="Ghost of Tsushima" />
                 <div class="product-info">
                     <h3 id="nome">Ghost of Tsushima</h3>
                     <p id="preco" class="price">R$ 299.99</p>
@@ -175,26 +178,56 @@
         </div>
     </main>
 
+    <!-- Footer -->
+
     <footer>
-        <p>
-            &copy; 2025 Nexus SixTech - Todos os direitos reservados. <br />
-            <br />
-            Bruno Washington<br /><br />
-            Carlos Eduardo<br /><br />
-            Fred Santos<br /><br />
-            Thiago Rocha<br /><br />
-            Yasmim Mantovani<br /><br />
-            Yago Menezes
-        </p>
+        <div class="footer-grid">
+            <div class="col-info">
+                <h4>Nexus SixTech</h4>
+                <p>&copy; 2025 - Todos os direitos reservados.</p>
+                <p>Rio de Janeiro, Brasil</p>
+            </div>
+
+            <div class="col-links">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Fale Conosco</a></li>
+                </ul>
+            </div>
+
+            <div class="col-team">
+                <h4>Desenvolvido por</h4>
+                <p>Bruno Washington <br> Carlos Eduardo <br> Fred Santos <br> Thiago Rocha <br> Yasmim Mantovani <br>
+                    Yago Menezes</p>
+            </div>
+
+            <div class="col-social">
+                <h4 class="text-social">Siga-nos</h4>
+                <div class="social-icons">
+
+                    <a href="#" target="_blank" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://github.com/tenmenezes/Nexus_SixTech" target="_blank" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script>
-    const user = JSON.parse(localStorage.getItem("usuarioLogado"));
-    if (user && user.usuario) {
-        document.getElementById("user-name").textContent = user.usuario;
-    } else {
-        document.getElementById("user-name").textContent = "Usuário";
-    }
+        const user = JSON.parse(localStorage.getItem("usuarioLogado"));
+        if (user && user.usuario) {
+            document.getElementById("user-name").textContent = user.usuario;
+        } else {
+            document.getElementById("user-name").textContent = "Usuário";
+        }
     </script>
 
     <script src="../js/homePage.js"></script>

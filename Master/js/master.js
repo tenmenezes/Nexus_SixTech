@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   /* botão dos cards responsivos */
 
   document.querySelectorAll(".toggle-card").forEach((button) => {

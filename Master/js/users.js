@@ -259,8 +259,7 @@ newUserModal.querySelector(".save").addEventListener("click", () => {
     )
   ) {
     confirm("Erro: preencha os campos antes de salvar!");
-  }
-  else {
+  } else {
     const newUser = {
       id: tableData.length + 1,
       nome: inputs[0].value,

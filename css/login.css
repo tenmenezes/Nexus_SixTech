@@ -95,8 +95,7 @@ form {
     animation: fadein ease-in-out 2s;
 }
 
-input
-{
+input {
     width: 100%;
     padding: 16px 12px 6px;
     border-radius: 10px;
@@ -219,7 +218,7 @@ i {
     transition: ease-in-out 0.3s;
 }
 
-#musicControl{
+#musicControl {
     position: fixed;
     top: 60px;
     right: 20px;
@@ -349,7 +348,9 @@ i {
 @keyframes fadein {
     0% {
         opacity: 0;
-    } 100% {
+    }
+
+    100% {
         opacity: 1;
     }
 }
