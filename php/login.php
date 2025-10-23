@@ -53,6 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Importando Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
+    <link rel="shortcut icon" href="../utils/gamepad.png" type="image/x-icon">
+
     <title>Login | Forgot Password</title>
 </head>
 

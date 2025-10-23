@@ -4,71 +4,71 @@ require_once 'Conn.php'; //arquivo de conexão
 $mensagem = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $pdo = getDbConnection();
+    $pdo = getDbConnection();
 
 
-  $full_name = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
-  $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-  $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_SPECIAL_CHARS);
-  $password = $_POST['senha'] ?? '';
+    $full_name = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = $_POST['senha'] ?? '';
 
 
-  $required_fields = ['nome', 'NomeMae', 'cpf', 'bairro', 'cidade', 'estado', 'senha'];
-  foreach ($required_fields as $field) {
-    if (empty($_POST[$field])) {
-      $mensagem = '<div style="color: red;">Erro: O campo ' . $field . ' é obrigatório.</div>';
-      goto end_form;
+    $required_fields = ['nome', 'NomeMae', 'cpf', 'bairro', 'cidade', 'estado', 'senha'];
+    foreach ($required_fields as $field) {
+        if (empty($_POST[$field])) {
+            $mensagem = '<div style="color: red;">Erro: O campo ' . $field . ' é obrigatório.</div>';
+            goto end_form;
+        }
     }
-  }
 
-  if (!$email) {
-    $mensagem = '<div style="color: red;">Erro: E-mail inválido.</div>';
-    goto end_form;
-  }
+    if (!$email) {
+        $mensagem = '<div style="color: red;">Erro: E-mail inválido.</div>';
+        goto end_form;
+    }
 
-  $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-  // 2. Preparação dos dados para Inserção
-  // **************************************
-  $data = [
-    'full_name'    => $full_name,
-    'date_of_birth' => $_POST['nascimento'] ?? null,
-    'gender'       => $_POST['genero'] ?? null,
-    'mother_name'  => $_POST['NomeMae'],
-    'cpf'          => $_POST['cpf'],
-    'email'        => $email,
-    'mobile_phone' => $_POST['celular'] ?? null,
-    'home_phone'   => $_POST['fixo'] ?? null,
-    'street'       => $_POST['endereco'] ?? null,
-    'number'       => $_POST['numero'] ?? null,
-    'complement'   => $_POST['complemento'] ?? null,
-    'zip_code'     => $_POST['cep'] ?? null,
-    'neighborhood' => $_POST['bairro'],
-    'city'         => $_POST['cidade'],
-    'state'        => $_POST['estado'],
-    'login'        => $login,
-    'password'     => $hashed_password,
-    'user_type'    => 'C', // 'A' ou 'C'
-  ];
+    // 2. Preparação dos dados para Inserção
+    // **************************************
+    $data = [
+        'full_name'    => $full_name,
+        'date_of_birth' => $_POST['nascimento'] ?? null,
+        'gender'       => $_POST['genero'] ?? null,
+        'mother_name'  => $_POST['NomeMae'],
+        'cpf'          => $_POST['cpf'],
+        'email'        => $email,
+        'mobile_phone' => $_POST['celular'] ?? null,
+        'home_phone'   => $_POST['fixo'] ?? null,
+        'street'       => $_POST['endereco'] ?? null,
+        'number'       => $_POST['numero'] ?? null,
+        'complement'   => $_POST['complemento'] ?? null,
+        'zip_code'     => $_POST['cep'] ?? null,
+        'neighborhood' => $_POST['bairro'],
+        'city'         => $_POST['cidade'],
+        'state'        => $_POST['estado'],
+        'login'        => $login,
+        'password'     => $hashed_password,
+        'user_type'    => 'C', // 'A' ou 'C'
+    ];
 
-  // 3. Inserção no Banco de Dados
-  // *******************************
-  $sql = "INSERT INTO users (full_name, date_of_birth, gender, mother_name, cpf, email, mobile_phone, home_phone, street, number, complement, zip_code, neighborhood, city, state, login, password, user_type)
+    // 3. Inserção no Banco de Dados
+    // *******************************
+    $sql = "INSERT INTO users (full_name, date_of_birth, gender, mother_name, cpf, email, mobile_phone, home_phone, street, number, complement, zip_code, neighborhood, city, state, login, password, user_type)
             VALUES (:full_name, :date_of_birth, :gender, :mother_name, :cpf, :email, :mobile_phone, :home_phone, :street, :number, :complement, :zip_code, :neighborhood, :city, :state, :login, :password, :user_type)";
 
-  try {
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute($data);
-    $mensagem = '<div style="color: green;">Usuário cadastrado com sucesso! <a href="login.php">Faça login</a>.</div>';
-  } catch (PDOException $e) {
-    // 1062 é o código de erro para chave duplicada (UNIQUE)
-    if ($e->getCode() == '23000' && strpos($e->getMessage(), '1062') !== false) {
-      $mensagem = '<div style="color: red;">Erro: Login, CPF ou E-mail já cadastrado.</div>';
-    } else {
-      // Outros erros
-      $mensagem = '<div style="color: red;">Erro ao cadastrar: ' . $e->getMessage() . '</div>';
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($data);
+        $mensagem = '<div style="color: green;">Usuário cadastrado com sucesso! <a href="login.php">Faça login</a>.</div>';
+    } catch (PDOException $e) {
+        // 1062 é o código de erro para chave duplicada (UNIQUE)
+        if ($e->getCode() == '23000' && strpos($e->getMessage(), '1062') !== false) {
+            $mensagem = '<div style="color: red;">Erro: Login, CPF ou E-mail já cadastrado.</div>';
+        } else {
+            // Outros erros
+            $mensagem = '<div style="color: red;">Erro ao cadastrar: ' . $e->getMessage() . '</div>';
+        }
     }
-  }
 }
 
 end_form:
@@ -87,6 +87,8 @@ end_form:
 
     <!-- Importando Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../utils/gamepad.png" type="image/x-icon">
 
     <title>Cadastro - Responsivo</title>
 </head>

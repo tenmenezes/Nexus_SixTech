@@ -2,7 +2,7 @@
 session_start();
 
 if (!empty($_SESSION['user_login'])) {
-  $usuario = $_SESSION['user_login'];
+    $usuario = $_SESSION['user_login'];
 }
 
 ?>
@@ -13,9 +13,14 @@ if (!empty($_SESSION['user_login'])) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="shortcut icon" href="../utils/gamepad.png" type="image/x-icon">
+
     <link rel="stylesheet" href="../css/homePage.css" />
     <link rel="stylesheet" href="../css/carrossel.css" />
+    <title>Home Page</title>
 </head>
 
 <body>
@@ -51,13 +56,13 @@ if (!empty($_SESSION['user_login'])) {
         <div class="user-info">
 
             <?php if (empty($usuario)) {
-        echo "<a href='login.php'><img src='../utils/img/user.png' alt='Avatar' class='avatar'/></a>";
-      } else {
-        echo "<img src='../utils/img/user.png' alt='Avatar' class='avatar' />";
-        echo "<a href='logout.php'><span id='user-name' class='user-color'>";
-        echo $usuario;
-        echo "</span></a>";
-      } ?>
+                echo "<a href='login.php'><img src='../utils/img/user.png' alt='Avatar' class='avatar'/></a>";
+            } else {
+                echo "<img src='../utils/img/user.png' alt='Avatar' class='avatar' />";
+                echo "<a href='logout.php'><span id='user-name' class='user-color'>";
+                echo $usuario;
+                echo "</span></a>";
+            } ?>
             <div class="cart-icon" id="cart-icon">
                 <a href="Cart.html">🛒</a>
                 <span class="cart-count" id="cart-count"></span>
