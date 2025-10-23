@@ -64,7 +64,6 @@ O projeto será desenvolvido utilizando:
 ## 🎯 Estrutura do Projeto
 
 ```
-📁 Nexus_SixTech
 ├── 📁 Master
 │   ├── 📁 css
 │   │   ├── 🎨 about.css
@@ -182,7 +181,9 @@ O projeto será desenvolvido utilizando:
 │   │   ├── 🖼️ gears of wars.png
 │   │   ├── 🖼️ senuasSacrifice.jpg
 │   │   └── 🖼️ senuasSaga.jpg
-│   └── 🖼️ mario.gif
+│   ├── 🖼️ gamepad.png
+│   ├── 🖼️ mario.gif
+│   └── 🖼️ master.png
 ├── ⚙️ .gitignore
 ├── 📄 LICENSE
 └── 📝 README.md
