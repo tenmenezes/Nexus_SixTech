@@ -67,6 +67,7 @@ O projeto será desenvolvido utilizando:
 📁 Nexus_SixTech
 ├── 📁 Master
 │   ├── 📁 css
+│   │   ├── 🎨 about.css
 │   │   ├── 🎨 help.css
 │   │   ├── 🎨 master.css
 │   │   ├── 🎨 orders.css
@@ -124,9 +125,12 @@ O projeto será desenvolvido utilizando:
 │   ├── 🐘 Playstation.php
 │   ├── 🐘 Xbox.php
 │   ├── 🐘 login.php
-│   └── 🐘 user.php
+│   ├── 🐘 logout.php
+│   ├── 🐘 user.php
+│   ├── 🐘 verificacao_2fa_modal.php
+│   └── 🐘 verificacao_2fa_process.php
 ├── 📁 sql
-│   └── 📄 Banco.sql
+│   └── 📄 Nexus_database.sql
 ├── 📁 utils
 │   ├── 📁 img
 │   │   ├── 🖼️ LogoNintendo.png
@@ -170,7 +174,7 @@ O projeto será desenvolvido utilizando:
 │   ├── 📁 img_games_x-box
 │   │   ├── 🖼️ Dishonored 2.jpg
 │   │   ├── 🖼️ Doom.jpg
-│   │   ├── 🖼️ Forza Motorsport 6.jpg
+│   │   ├── 🖼️ Forza_Motorsport_6.jpg
 │   │   ├── 🖼️ Halo_Infinite_capa.png
 │   │   ├── 🖼️ Sea-Of-Thieves-Emblema.jpg
 │   │   ├── 🖼️ dishonored.jpg
