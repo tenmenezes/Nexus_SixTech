@@ -1,31 +1,3 @@
-a{
-    text-decoration: none;
-    color: black;
-}
-.titulo-faq{
-border-radius: 10px;
-background: rgba(0, 0, 0, 0.10);
-padding: 20px;
-}
-
-.tit{
-    color: #4099ff;
-}
-
-button{
-    background-color:  rgba(0, 0, 0, 0.0);
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-}
-button:active{
-    color: #4099ff;
-}
-
-.oculto{
-    display: none;
-}
-
 .content {
     flex: 1;
     background-color: var(--color-background);
@@ -34,19 +6,85 @@ button:active{
     overflow-y: auto;
     padding: 20px;
     margin-left: 250px;
-    /* espaço para a sidebar fixa */
-    margin-top: 0;
-    /* já está coberto pelo .main */
+    box-sizing: border-box;
+}
+
+/* Corrige vazamento lateral */
+body, .main, .content {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+.faq-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: 30px auto; /* centraliza e evita margens laterais fixas */
+    max-width: 950px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.faq-container h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    color: #222;
 }
 
 .faq-topic {
-    background: rgba(0, 0, 0, 0.03);
-    border-left: 4px solid var(--primary-color, #ff5370);
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    background-color: #fafafa;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-top: 15px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.faq-topic:hover {
+    background-color: #f2f2f2;
 }
 
 .faq-topic h3 {
-    margin: 0 0 5px;
+    font-size: 17px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.faq-topic p {
+    color: #333;
+    margin-top: 10px;
+    line-height: 1.6;
+    display: none;
+}
+
+.faq-topic.active p {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* 🔹 Ajustes para telas menores */
+@media (max-width: 768px) {
+    .content {
+        margin-left: 0 !important;
+        padding: 15px;
+    }
+
+    .faq-container {
+        margin: 15px 0;
+        padding: 20px;
+    }
+
+    .faq-container h1 {
+        font-size: 20px;
+    }
+
+    .faq-topic h3 {
+        font-size: 16px;
+    }
 }
