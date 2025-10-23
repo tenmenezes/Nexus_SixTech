@@ -1,0 +1,59 @@
+/* Garante que o conteúdo principal comece abaixo do header fixo */
+#main-content {
+    /* Altura aproximada do header + um padding extra */
+    margin-top: 100px;
+    /* Garante que o conteúdo tenha espaço antes do footer */
+    padding-bottom: 50px;
+    min-height: calc(100vh - 300px);
+    /* Garante que o footer fique embaixo */
+}
+
+/* Estilo para títulos da seção principal */
+#main-content h2 {
+    color: #007bff;
+    /* Cor primária do Bootstrap */
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+/* Estilo para subtítulos */
+#main-content h4 {
+    color: #343a40;
+    /* Cor escura padrão */
+}
+
+/* Melhorando a legibilidade dos parágrafos */
+#main-content p,
+#main-content li {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Estilos para o Dark Mode */
+body.dark-mode #main-content {
+    background-color: var(--bg-color-light);
+    /* Fundo escuro */
+    color: var(--text-color-light);
+    /* Texto claro */
+}
+
+body.dark-mode #main-content h1,
+body.dark-mode #main-content h2 {
+    color: #28a745 !important;
+    /* Destaque verde no modo escuro */
+}
+
+body.dark-mode #main-content h4 {
+    color: #f1f1f1 !important;
+    /* Subtítulos claros no modo escuro */
+}
+
+body.dark-mode #main-content h2 {
+    border-bottom: 2px solid #444;
+    /* Linha mais discreta */
+}
+
+body.dark-mode .text-muted {
+    color: #bbb !important;
+}

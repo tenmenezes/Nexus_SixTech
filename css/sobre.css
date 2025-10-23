@@ -1,0 +1,64 @@
+/* Garante que o conteúdo principal comece abaixo do header fixo */
+#main-content {
+    /* Altura aproximada do header + um padding extra */
+    margin-top: 100px;
+    min-height: calc(100vh - 300px);
+    /* Garante que o footer fique embaixo */
+}
+
+/* Estilos para a seção principal */
+#sobre-o-projeto {
+    padding-top: 2rem !important;
+}
+
+/* Estilos para a seção da equipe */
+#a-equipe .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+}
+
+#a-equipe .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Cor primária (Exemplo, baseada em um tema comum de jogos, se quiser mudar) */
+.text-primary {
+    color: #007bff !important;
+    /* Azul Bootstrap */
+}
+
+.text-secondary {
+    color: #6c757d !important;
+    /* Cinza escuro */
+}
+
+
+/* Estilos para o Dark Mode */
+body.dark-mode #main-content {
+    background-color: var(--bg-color-light);
+    /* Fundo escuro */
+    color: var(--text-color-light);
+    /* Texto claro */
+}
+
+body.dark-mode #a-equipe {
+    background-color: var(--div-bg-light) !important;
+    /* Fundo mais escuro para a seção */
+}
+
+body.dark-mode #a-equipe .card {
+    background-color: var(--box-bg-light);
+    /* Cartões escuros */
+    color: var(--text-color-light);
+}
+
+body.dark-mode #a-equipe .card-text {
+    color: #cccccc !important;
+    /* Texto claro no cartão */
+}
+
+body.dark-mode .text-primary {
+    color: #28a745 !important;
+    /* Uma cor de destaque no modo escuro (Ex: verde) */
+}

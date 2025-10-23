@@ -16,6 +16,8 @@ if (!empty($_SESSION['user_login'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
     <link rel="shortcut icon" href="../utils/gamepad.png" type="image/x-icon">
 
     <link rel="stylesheet" href="../css/homePage.css" />
@@ -68,7 +70,7 @@ if (!empty($_SESSION['user_login'])) {
                 <span class="cart-count" id="cart-count"></span>
             </div>
 
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <button class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
         </div>
     </header>
 
@@ -218,23 +220,28 @@ if (!empty($_SESSION['user_login'])) {
             <div class="col-links">
                 <h4>Navegação</h4>
                 <ul>
-                    <li><a href="#">Sobre Nós</a></li>
-                    <li><a href="#">Termos de Uso</a></li>
-                    <li><a href="#">Política de Privacidade</a></li>
-                    <li><a href="#">Fale Conosco</a></li>
+                    <li><a href="../html/sobre.html">Sobre Nós</a></li>
+                    <li><a href="../html/termos.html">Termos de Uso</a></li>
+                    <li><a href="../html/politica.html">Política de Privacidade</a></li>
+                    <li><a href="../html/fale_conosco.html">Fale Conosco</a></li>
                 </ul>
             </div>
 
             <div class="col-team">
                 <h4>Desenvolvido por</h4>
-                <p>Bruno Washington <br> Carlos Eduardo <br> Fred Santos <br> Thiago Rocha <br> Yasmim Mantovani <br>
-                    Yago Menezes</p>
+                <p>
+                    Bruno Washington <br />
+                    Carlos Eduardo <br />
+                    Fred Santos <br />
+                    Thiago Rocha <br />
+                    Yasmim Mantovani <br />
+                    Yago Menezes
+                </p>
             </div>
 
             <div class="col-social">
                 <h4 class="text-social">Siga-nos</h4>
                 <div class="social-icons">
-
                     <a href="#" target="_blank" aria-label="Instagram">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
@@ -242,7 +249,6 @@ if (!empty($_SESSION['user_login'])) {
                     <a href="https://github.com/tenmenezes/Nexus_SixTech" target="_blank" aria-label="GitHub">
                         <i class="fa-brands fa-github"></i>
                     </a>
-
                 </div>
             </div>
         </div>
