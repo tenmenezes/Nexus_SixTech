@@ -1,14 +1,21 @@
+<?php
+session_start();
+
+if (!empty($_SESSION['user_login'])) {
+  $usuario = $_SESSION['user_login'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Home Page</title>
     <link rel="stylesheet" href="../css/homePage.css" />
     <link rel="stylesheet" href="../css/carrossel.css" />
-    <title>Home Page</title>
 </head>
 
 <body>
@@ -42,10 +49,17 @@
         </nav>
 
         <div class="user-info">
-            <img src="../utils/img/user.png" alt="Avatar" class="avatar" />
-            <a href="./user.php"><span id="user-name" class="user-color">Usuário</span></a>
+
+            <?php if (empty($usuario)) {
+        echo "<a href='login.php'><img src='../utils/img/user.png' alt='Avatar' class='avatar'/></a>";
+      } else {
+        echo "<img src='../utils/img/user.png' alt='Avatar' class='avatar' />";
+        echo "<a href='logout.php'><span id='user-name' class='user-color'>";
+        echo $usuario;
+        echo "</span></a>";
+      } ?>
             <div class="cart-icon" id="cart-icon">
-                <a href="./Cart.php">🛒</a>
+                <a href="Cart.html">🛒</a>
                 <span class="cart-count" id="cart-count"></span>
             </div>
 
@@ -134,7 +148,7 @@
     <!-- Grid de jogos em destaque -->
     <section class="jogos" id="playstation">
         <h2>PlayStation</h2>
-        <a href="Playstation.php" target="_blank">
+        <a href="Playstation.html" target="_blank">
             <div class="grid">
                 <div class="jogo">
                     <img src="../utils/img/ghost-of-yotei-game-3840x2160-19048.jpg" alt="Ghost Of Yotei" />
@@ -152,7 +166,7 @@
 
     <section class="jogos" id="xbox">
         <h2>Xbox</h2>
-        <a href="Xbox.php" target="_blank">
+        <a href="Xbox.html" target="_blank">
             <div class="grid">
                 <div class="jogo">
                     <img src="../utils/img_games_x-box/senuasSacrifice.jpg" alt="Hellblade Senua's Sacrifice" />
@@ -170,7 +184,7 @@
 
     <section class="jogos" id="nintendo">
         <h2>Nintendo</h2>
-        <a href="Nintendo.php" target="_blank">
+        <a href="Nintendo.html" target="_blank">
             <div class="grid">
                 <div class="jogo">
                     <img src="../utils/img/capaNint.jpg" alt="Zelda: Tears of the Kingdom" />
@@ -229,14 +243,6 @@
         </div>
     </footer>
 
-    <script>
-        const user = JSON.parse(localStorage.getItem("usuarioLogado"));
-        if (user && user.usuario) {
-            document.getElementById("user-name").textContent = user.usuario;
-        } else {
-            document.getElementById("user-name").textContent = "Usuário";
-        }
-    </script>
     <script src="../js/homePage.js"></script>
     <script src="../js/utils.js"></script>
     <script src="../js/Cart.js"></script>

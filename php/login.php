@@ -3,7 +3,7 @@ require_once 'Conn.php'; //arquivo de conexão
 //Isso é para a página do administrador
 // Se o usuário já está logado, redireciona para a área restrita.
 //if (isset($_SESSION['user_id'])) {
-//    header('Location: painel.php');
+//    header('Location: ../Master/master.php');
 //    exit;
 //}
 
