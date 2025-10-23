@@ -59,6 +59,7 @@
 
 .team-member:hover {
     transform: scale(1.1);
+    background-color: #9fccff;
 }
 
 .team-member i {
