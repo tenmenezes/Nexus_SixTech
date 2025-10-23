@@ -210,12 +210,18 @@
             <div class="col-team">
                 <h4>Desenvolvido por</h4>
                 <p>
-                    Bruno Washington <br />
-                    Carlos Eduardo <br />
-                    Fred Santos <br />
-                    Thiago Rocha <br />
-                    Yasmim Mantovani <br />
-                    Yago Menezes
+                    <a href="https://github.com/Bruno-Washington"><i class="fa-solid fa-arrow-up-right-from-square"
+                            style="font-size: 14px;"></i> Bruno Washington</a> <br />
+                    <a href="https://github.com/ClaudinoGomes"><i class="fa-solid fa-arrow-up-right-from-square"
+                            style="font-size: 14px;"></i> Carlos Eduardo</a> <br />
+                    <a href="https://github.com/FredWallace"><i class="fa-solid fa-arrow-up-right-from-square"
+                            style="font-size: 14px;"></i> Fred Wallace</a> <br />
+                    <a href="https://github.com/Thiago-Rock"><i class="fa-solid fa-arrow-up-right-from-square"
+                            style="font-size: 14px;"></i> Thiago Rocha</a> <br />
+                    <a href="https://github.com/YasmimMantovani"><i class="fa-solid fa-arrow-up-right-from-square"
+                            style="font-size: 14px;"></i> Yasmim Mantovani</a> <br />
+                    <a href="http://github.com/tenmenezes"><i class="fa-solid fa-arrow-up-right-from-square"
+                            style="font-size: 14px;"></i> Yago Menezes </a>
                 </p>
             </div>
 
