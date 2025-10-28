@@ -3,7 +3,7 @@
 <table border="0">
   <tr>
     <td>
-      <img src="utils/img/imgProject-removebg-preview.png" alt="Logo" width="600"/>
+      <img src="./utils/img/imgProject-Photoroom.png" alt="Logo" width="600"/>
     </td>
     <td>
       <h2 align="center">Bem-vindo ao <strong>Nexus SixTech</strong></h2>
