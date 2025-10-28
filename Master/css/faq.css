@@ -9,21 +9,13 @@
     box-sizing: border-box;
 }
 
-/* Corrige vazamento lateral */
-body, .main, .content {
-    overflow-x: hidden;
-    max-width: 100%;
-}
-
 .faq-container {
     background-color: #fff;
     border-radius: 10px;
     padding: 25px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin: 30px auto; /* centraliza e evita margens laterais fixas */
-    max-width: 950px;
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px; 
     width: 100%;
-    box-sizing: border-box;
 }
 
 .faq-container h1 {
@@ -31,7 +23,7 @@ body, .main, .content {
     align-items: center;
     gap: 10px;
     font-size: 24px;
-    color: #222;
+    color: #0078ff;
 }
 
 .faq-topic {
@@ -40,7 +32,7 @@ body, .main, .content {
     border-radius: 10px;
     padding: 15px 20px;
     margin-top: 15px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 
@@ -66,6 +58,46 @@ body, .main, .content {
 .faq-topic.active p {
     display: block;
     animation: fadeIn 0.3s ease;
+}
+
+.faq-help {
+    margin-top: 20px;
+    color: #0078ff;
+}
+
+.faq-help p {
+    color: #333;
+}
+
+.support-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.support-form input,
+.support-form textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.btn {
+    background-color: var(--primary-color, #0078ff);
+    color: white;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #005fcc;
 }
 
 /* 🔹 Ajustes para telas menores */
