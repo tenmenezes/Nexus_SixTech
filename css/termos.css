@@ -8,8 +8,12 @@
     /* Garante que o footer fique embaixo */
 }
 
+h1 {
+    color: #007bff;
+}
+
 /* Estilo para títulos da seção */
-#main-content h2 {
+#main-content h2{
     color: #007bff;
     /* Cor primária do Bootstrap */
     border-bottom: 2px solid #eee;

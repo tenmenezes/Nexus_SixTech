@@ -31,31 +31,25 @@
     border-color: #004085;
 }
 
-
 /* Estilos para o Dark Mode */
 body.dark-mode #main-content {
-    background-color: var(--bg-color-light);
-    /* Fundo escuro */
-    color: var(--text-color-light);
-    /* Texto claro */
+    background-color: var(--bg-color-light); 
+    color: var(--text-color-light); 
 }
 
 body.dark-mode #main-content h1 {
-    color: #28a745 !important;
-    /* Destaque verde no modo escuro */
+    color: #28a745 !important; 
 }
 
 body.dark-mode .card {
-    background-color: var(--div-bg-light) !important;
-    /* Fundo do cartão mais escuro */
+    background-color: var(--div-bg-light) !important; 
     color: var(--text-color-light);
     border: 1px solid #444;
 }
 
 body.dark-mode .form-control,
 body.dark-mode .form-select {
-    background-color: var(--box-bg-light);
-    /* Campos de formulário mais escuros */
+    background-color: var(--box-bg-light); 
     color: var(--text-color-light);
     border: 1px solid #555;
 }
@@ -65,8 +59,7 @@ body.dark-mode .form-select:focus {
     background-color: var(--box-bg-light);
     color: var(--text-color-light);
     border-color: #28a745;
-    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
-    /* Sombra verde de foco */
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25); 
 }
 
 body.dark-mode .text-muted {
@@ -78,6 +71,5 @@ body.dark-mode .contact-info li {
 }
 
 body.dark-mode .contact-info a {
-    color: #28a745;
-    /* Links com destaque verde */
+    color: #28a745; 
 }

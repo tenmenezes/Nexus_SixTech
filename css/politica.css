@@ -8,6 +8,10 @@
     /* Garante que o footer fique embaixo */
 }
 
+h1 {
+    color: #007bff;
+}
+
 /* Estilo para títulos da seção principal */
 #main-content h2 {
     color: #007bff;
