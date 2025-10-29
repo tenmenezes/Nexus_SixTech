@@ -62,3 +62,9 @@ body.dark-mode .text-primary {
     color: #28a745 !important;
     /* Uma cor de destaque no modo escuro (Ex: verde) */
 }
+
+@media (max-width: 2000px) {
+    #nossa-missao {
+        
+    }
+}
