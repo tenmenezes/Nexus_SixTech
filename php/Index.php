@@ -30,7 +30,7 @@ if (!empty($_SESSION['user_login'])) {
     <header>
         <div class="logo">
             <a href="./Index.php" aria-label="Página inicial">
-                <img src="../utils/img/imgProject-removebg-preview.png" alt="Logo GameStore" />
+                <img src="../utils/img/imgProject.png" alt="Logo GameStore" />
             </a>
         </div>
 
