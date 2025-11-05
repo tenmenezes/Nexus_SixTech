@@ -1,4 +1,7 @@
+import { getUsuarios } from "./dados.js";
+
 // Seleção
+
 const btnNovo = document.getElementById("btnNovo");
 const newUserModal = document.getElementById("newUserModal");
 const editUserModal = document.getElementById("editUserModal");
@@ -62,130 +65,136 @@ confirmDeleteBtn.addEventListener("click", () => {
   }
 });
 
-// Função para gerar usuários automáticos
-function gerarUsuarios(qtd) {
-  const usuarios = [];
-  const nomes = [
-    "Ana",
-    "Bruno",
-    "Carlos",
-    "Diana",
-    "Eduardo",
-    "Fernanda",
-    "Gabriel",
-    "Helena",
-    "Igor",
-    "Julia",
-  ];
-  const sobrenomes = [
-    "Silva",
-    "Souza",
-    "Oliveira",
-    "Pereira",
-    "Almeida",
-    "Costa",
-    "Rodrigues",
-    "Martins",
-    "Barbosa",
-    "Ferreira",
-  ];
+// // Função para gerar usuários automáticos
+// function gerarUsuarios(qtd) {
+//   const usuarios = [];
+//   const nomes = [
+//     "Ana",
+//     "Bruno",
+//     "Carlos",
+//     "Diana",
+//     "Eduardo",
+//     "Fernanda",
+//     "Gabriel",
+//     "Helena",
+//     "Igor",
+//     "Julia",
+//   ];
+//   const sobrenomes = [
+//     "Silva",
+//     "Souza",
+//     "Oliveira",
+//     "Pereira",
+//     "Almeida",
+//     "Costa",
+//     "Rodrigues",
+//     "Martins",
+//     "Barbosa",
+//     "Ferreira",
+//   ];
 
-  for (let i = 1; i <= qtd; i++) {
-    const nome = `${nomes[Math.floor(Math.random() * nomes.length)]} ${
-      sobrenomes[Math.floor(Math.random() * sobrenomes.length)]
-    }`;
-    const cpf = `${Math.floor(100 + Math.random() * 900)}.${Math.floor(
-      100 + Math.random() * 900
-    )}.${Math.floor(100 + Math.random() * 900)}-${Math.floor(
-      10 + Math.random() * 90
-    )}`;
-    const login = `user${i}`;
-    const email = `user${i}@teste.com`;
-    const celular = `+55 (21) 9${Math.floor(
-      1000 + Math.random() * 9000
-    )}-${Math.floor(1000 + Math.random() * 9000)}`;
-    const cep = `${Math.floor(10000 + Math.random() * 90000)}-${Math.floor(
-      100 + Math.random() * 900
-    )}`;
-    const dt_nas = `${String(Math.floor(1 + Math.random() * 28)).padStart(
-      2,
-      "0"
-    )}/${String(Math.floor(1 + Math.random() * 12)).padStart(2, "0")}/${
-      1980 + Math.floor(Math.random() * 25)
-    }`;
-    const hora = new Date().toLocaleTimeString("pt-BR");
-    const data = new Date().toLocaleDateString("pt-BR");
+//   for (let i = 1; i <= qtd; i++) {
+//     const nome = `${nomes[Math.floor(Math.random() * nomes.length)]} ${
+//       sobrenomes[Math.floor(Math.random() * sobrenomes.length)]
+//     }`;
+//     const cpf = `${Math.floor(100 + Math.random() * 900)}.${Math.floor(
+//       100 + Math.random() * 900
+//     )}.${Math.floor(100 + Math.random() * 900)}-${Math.floor(
+//       10 + Math.random() * 90
+//     )}`;
+//     const login = `user${i}`;
+//     const email = `user${i}@teste.com`;
+//     const celular = `+55 (21) 9${Math.floor(
+//       1000 + Math.random() * 9000
+//     )}-${Math.floor(1000 + Math.random() * 9000)}`;
+//     const cep = `${Math.floor(10000 + Math.random() * 90000)}-${Math.floor(
+//       100 + Math.random() * 900
+//     )}`;
+//     const dt_nas = `${String(Math.floor(1 + Math.random() * 28)).padStart(
+//       2,
+//       "0"
+//     )}/${String(Math.floor(1 + Math.random() * 12)).padStart(2, "0")}/${
+//       1980 + Math.floor(Math.random() * 25)
+//     }`;
+//     const hora = new Date().toLocaleTimeString("pt-BR");
+//     const data = new Date().toLocaleDateString("pt-BR");
 
-    usuarios.push({
-      id: i,
-      nome,
-      dt_nas,
-      genero: Math.random() > 0.5 ? "M" : "F",
-      cpf,
-      email,
-      cel: celular,
-      cep,
-      login,
-      senha: "**********",
-      categoria: "NULL",
-      criacao: `${hora} ${data}`,
-      atualizacao: "NULL",
-    });
-  }
-  return usuarios;
-}
+//     usuarios.push({
+//       id: i,
+//       nome,
+//       dt_nas,
+//       genero: Math.random() > 0.5 ? "M" : "F",
+//       cpf,
+//       email,
+//       cel: celular,
+//       cep,
+//       login,
+//       senha: "**********",
+//       categoria: "NULL",
+//       criacao: `${hora} ${data}`,
+//       atualizacao: "NULL",
+//     });
+//   }
+//   return usuarios;
+// }
 
-// Gera 50 usuários automaticamente
-let tableData = gerarUsuarios(50);
+// // Gera 50 usuários automaticamente
+// let tableData = gerarUsuarios(50);
 
 // Inicializa tabela Tabulator
-const table = new Tabulator("#user-table", {
-  data: tableData,
-  layout: "fitColumns",
-  responsiveLayout: "collapse",
-  pagination: "local",
-  paginationSize: 20,
-  movableColumns: true,
-  columns: [
-    { title: "ID", field: "id", width: 50 },
-    { title: "Nome", field: "nome" },
-    { title: "Data Nasc.", field: "dt_nas" },
-    { title: "Gênero", field: "genero" },
-    { title: "CPF", field: "cpf" },
-    { title: "Email", field: "email" },
-    { title: "Celular", field: "cel" },
-    { title: "CEP", field: "cep" },
-    { title: "Login", field: "login" },
-    { title: "Senha", field: "senha" },
-    { title: "Categoria", field: "categoria" },
-    { title: "Criação", field: "criacao" },
-    { title: "Atualização", field: "atualizacao" },
-    {
-      title: "Ações",
-      field: "acoes",
-      hozAlign: "center",
-      formatter: function () {
-        // Área de clique maior usando div
-        return `
-          <div style="display:flex; justify-content:center; gap:10px;">
-            <span class="editar actionBtn"><i class="fas fa-edit edit"></i></span>
-            <span class="excluir actionBtn"><i class="fas fa-trash delet"></i></span>
-          </div>
-        `;
+// Função para Inicializar a Aplicação
+async function init() {
+  console.log("Buscando dados do servidor...");
+  
+  // 1. Busca os dados do PHP
+  const tableData = await getUsuarios();
+
+  if (tableData.length === 0) {
+    console.warn("Nenhum usuário retornado para a tabela.");
+    // Você pode exibir uma mensagem de erro ou loading aqui
+  }
+
+  // 2. Inicializa tabela Tabulator com os dados buscados
+  const table = new Tabulator("#user-table", {
+    // ... (o restante da configuração da tabela Tabulator) ...
+    data: tableData, // AGORA USAMOS OS DADOS REAIS DO PHP
+    layout: "fitColumns",
+    responsiveLayout: "collapse",
+    pagination: "local",
+    paginationSize: 20,
+    movableColumns: true,
+    columns: [
+      { title: "ID", field: "id", width: 50 },
+      // ... todas as outras colunas aqui ...
+      { title: "Nome", field: "nome" },
+      { title: "Data Nasc.", field: "dt_nas" },
+      // ...
+      {
+        title: "Ações",
+        field: "acoes",
+        hozAlign: "center",
+        // ... (o restante da configuração de Ações) ...
       },
-      cellClick: function (e, cell) {
-        const rowData = cell.getRow().getData();
-        if (e.target.closest(".editar")) {
-          abrirEdicao(rowData, cell.getRow());
-        }
-        if (e.target.closest(".excluir")) {
-          rowToDelete = cell.getRow();
-          deleteUserModal.classList.add("active");
-        }
-      },
-    },
-  ],
-});
+    ],
+  });
+  
+  // 3. Adicione a referência da tabela ao escopo global ou a um objeto para que as outras funções a acessem
+  window.userTable = table; 
+  
+  // 4. Mantenha os Listeners
+  // (O resto do seu código, como o evento de pesquisa, deve usar window.userTable)
+  searchInput.addEventListener("input", function () {
+      let termo = searchInput.value.toLowerCase();
+      if (termo === "") window.userTable.clearFilter();
+      else
+          window.userTable.setFilter((data) =>
+              Object.values(data).some((v) => String(v).toLowerCase().includes(termo))
+          );
+  });
+}
+
+// Inicia a aplicação
+init();
 
 // Função para abrir dialog de edição
 function abrirEdicao(data, row) {

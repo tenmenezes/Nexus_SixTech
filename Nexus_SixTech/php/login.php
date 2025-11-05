@@ -143,7 +143,6 @@ if (isset($_GET['show_2fa']) && isset($_SESSION['user_id'])) {
           </div>
             <button>Logar</button>
             <br>
-            <div style="color: rgb(194, 181, 166);"><p > Não tem conta? </p> <a href="Cadastro.php" class="ghost" >Registre-se</a> </div>
             <?php echo $mensagem;?>          
             
         </form>

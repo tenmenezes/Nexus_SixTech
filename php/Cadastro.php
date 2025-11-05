@@ -183,7 +183,7 @@ end_form:
 
                 <div class="field input-box">
                     <input id="estado" name="estado" type="text" placeholder=" " />
-                    <label for="estado">Cidade *</label>
+                    <label for="estado">UF *</label>
                     <span class="error"></span>
                 </div>
 
