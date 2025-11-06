@@ -4,9 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
     <link rel="shortcut icon" href="../utils/gamepad.png" type="image/x-icon">
@@ -80,7 +77,7 @@
                 <div class="product-info">
                     <h3 id="nome">Ghost Of Yotei</h3>
                     <p id="preco" class="price">R$ 399.90</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -90,7 +87,7 @@
                 <div class="product-info">
                     <h3 id="nome">The Alters</h3>
                     <p id="preco" class="price">R$ 249.90</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -100,7 +97,7 @@
                 <div class="product-info">
                     <h3 id="nome">God of War</h3>
                     <p id="preco" class="price">R$ 229.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -110,7 +107,7 @@
                 <div class="product-info">
                     <h3 id="nome">Fallout 76</h3>
                     <p id="preco" class="price">R$ 129.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -120,7 +117,7 @@
                 <div class="product-info">
                     <h3 id="nome">Until Dawn</h3>
                     <p id="preco" class="price">R$ 199.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -130,7 +127,7 @@
                 <div class="product-info">
                     <h3 id="nome">Wild Arms After Code: F</h3>
                     <p id="preco" class="price">R$ 99.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -140,7 +137,7 @@
                 <div class="product-info">
                     <h3 id="nome">Dino Crisis</h3>
                     <p id="preco" class="price">R$ 189.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -150,7 +147,7 @@
                 <div class="product-info">
                     <h3 id="nome">Lego Star Wars</h3>
                     <p id="preco" class="price">R$ 89.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -162,7 +159,7 @@
                 <div class="product-info">
                     <h3 id="nome">Jedi Fallen Order</h3>
                     <p id="preco" class="price">R$ 99.90</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -174,7 +171,7 @@
                 <div class="product-info">
                     <h3 id="nome">Ghost of Tsushima</h3>
                     <p id="preco" class="price">R$ 299.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>

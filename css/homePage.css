@@ -78,7 +78,8 @@ header {
   left: 0;
   width: 100vw;
   z-index: 1000;
-  background-color: #f0f0f0;
+  background: transparent;
+  backdrop-filter: blur(20px);
   /* cinza claro */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   /* sombra leve */
@@ -87,6 +88,7 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  border-bottom: 2px solid black;
 }
 
 a {
