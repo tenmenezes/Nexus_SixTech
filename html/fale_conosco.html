@@ -18,16 +18,12 @@
 
     <link rel="stylesheet" href="../css/homePage.css" />
     <link rel="stylesheet" href="../css/fale_conosco.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
   </head>
 
   <body>
     <header>
       <div class="logo">
-        <a href="./Index.php" aria-label="Página inicial">
+        <a href="../php/Index.php" aria-label="Página inicial">
           <img
             src="../utils/img/imgProject-removebg-preview.png"
             alt="Logo GameStore"
@@ -38,13 +34,13 @@
       <nav class="main-menu">
         <ul>
           <li class="link1">
-            <a href="./Xbox.php"
+            <a href="../php/Xbox.php"
               ><img src="../utils/img/logoXbox.png" alt="Xbox" width="30" />
               <h2>Xbox</h2>
             </a>
           </li>
           <li class="link2">
-            <a href="./Nintendo.php"
+            <a href="../php/Nintendo.php"
               ><img
                 src="../utils/img/LogoNintendo.png"
                 alt="Nintendo"
@@ -54,7 +50,7 @@
             </a>
           </li>
           <li class="link3">
-            <a href="./Playstation.php"
+            <a href="../php/Playstation.php"
               ><img
                 src="../utils/img/LogoPS.png"
                 alt="PlayStation"
@@ -67,11 +63,11 @@
       </nav>
 
       <div class="user-info">
-        <a href="login.php"
+        <a href="../php/login.php"
           ><img src="../utils/img/user.png" alt="Avatar" class="avatar"
         /></a>
         <div class="cart-icon" id="cart-icon">
-          <a href="Cart.html">🛒</a>
+          <a href="../php/Cart.php">🛒</a>
           <span class="cart-count" id="cart-count"></span>
         </div>
 
@@ -116,7 +112,7 @@
                 Envie uma Mensagem
               </h2>
 
-              <form action="processar_contato.php" method="POST">
+              <form action="#" method="POST">
                 <div class="mb-3">
                   <label for="nome" class="form-label">Nome Completo</label>
                   <input
@@ -191,7 +187,7 @@
               <ul class="list-unstyled contact-info mt-4">
                 <li>
                   <i class="fa-solid fa-envelope me-2"></i>
-                  <strong>Email:</strong> contato@nexussixtech.com (Simulado)
+                  <strong>Email:</strong> nexusCorp@gmail.com
                 </li>
                 <li>
                   <i class="fa-solid fa-location-dot me-2"></i>
@@ -278,6 +274,5 @@
       crossorigin="anonymous"
     ></script>
     <script src="../js/homePage.js"></script>
-    <script src="../js/contato.js"></script>
   </body>
 </html>

@@ -106,7 +106,7 @@ end_form:
         <form action="Cadastro.php" method="post" id="form">
             <div style="display:flex;justify-content:space-between;align-items:center;">
                 <h3 style="margin:0; color: rgba(240, 248, 255, 0.582);">Cadastro</h3>
-                <div class="small">Já tem conta? <a href="../login/login.html" target="_blank" class="link">Entrar</a>
+                <div class="small">Já tem conta? <a href="login.php" class="link">Entrar</a>
                 </div>
             </div>
 

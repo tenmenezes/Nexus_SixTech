@@ -13,9 +13,6 @@ if (!empty($_SESSION['user_login'])) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
     <link rel="shortcut icon" href="../utils/gamepad.png" type="image/x-icon">
@@ -30,7 +27,7 @@ if (!empty($_SESSION['user_login'])) {
     <header>
         <div class="logo">
             <a href="./Index.php" aria-label="Página inicial">
-                <img src="../utils/img/imgProject.png" alt="Logo GameStore" />
+                <img src="../utils/img/imgProject-Photoroom.png" alt="Logo GameStore" />
             </a>
         </div>
 
@@ -66,7 +63,7 @@ if (!empty($_SESSION['user_login'])) {
                 echo "</span></a>";
             } ?>
             <div class="cart-icon" id="cart-icon">
-                <a href="Cart.html">🛒</a>
+                <a href="Cart.php">🛒</a>
                 <span class="cart-count" id="cart-count"></span>
             </div>
 
@@ -155,7 +152,7 @@ if (!empty($_SESSION['user_login'])) {
     <!-- Grid de jogos em destaque -->
     <section class="jogos" id="playstation">
         <h2>PlayStation</h2>
-        <a href="Playstation.html" target="_blank">
+            <a href="Playstation.php">
             <div class="grid">
                 <div class="jogo">
                     <img src="../utils/img/ghost-of-yotei-game-3840x2160-19048.jpg" alt="Ghost Of Yotei" />
@@ -173,7 +170,7 @@ if (!empty($_SESSION['user_login'])) {
 
     <section class="jogos" id="xbox">
         <h2>Xbox</h2>
-        <a href="Xbox.html" target="_blank">
+            <a href="Xbox.php">
             <div class="grid">
                 <div class="jogo">
                     <img src="../utils/img_games_x-box/senuasSacrifice.jpg" alt="Hellblade Senua's Sacrifice" />
@@ -191,7 +188,7 @@ if (!empty($_SESSION['user_login'])) {
 
     <section class="jogos" id="nintendo">
         <h2>Nintendo</h2>
-        <a href="Nintendo.html" target="_blank">
+            <a href="Nintendo.php">
             <div class="grid">
                 <div class="jogo">
                     <img src="../utils/img/capaNint.jpg" alt="Zelda: Tears of the Kingdom" />

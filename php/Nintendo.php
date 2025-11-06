@@ -4,9 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
     <link rel="shortcut icon" href="../utils/gamepad.png" type="image/x-icon">
@@ -80,7 +77,7 @@
                 <div class="product-info">
                     <h3 id="nome">Bomberman</h3>
                     <p id="preco" class="price">R$ 419.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -91,7 +88,7 @@
                 <div class="product-info">
                     <h3 id="nome">Earthworm</h3>
                     <p id="preco" class="price">R$ 449.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -103,7 +100,7 @@
                 <div class="product-info">
                     <h3 id="nome">Castlevania - Drácula X</h3>
                     <p id="preco" class="price">R$ 139.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -114,7 +111,7 @@
                 <div class="product-info">
                     <h3 id="nome">Final Fight</h3>
                     <p id="preco" class="price">R$ 99.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -125,7 +122,7 @@
                 <div class="product-info">
                     <h3 id="nome">Legend of Zelda</h3>
                     <p id="preco" class="price">R$ 299.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -136,7 +133,7 @@
                 <div class="product-info">
                     <h3 id="nome">Super Mario 64</h3>
                     <p id="preco" class="price">R$ 149.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -147,7 +144,7 @@
                 <div class="product-info">
                     <h3 id="nome">Super Mario allstar</h3>
                     <p id="preco" class="price">R$ 249.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -158,7 +155,7 @@
                 <div class="product-info">
                     <h3 id="nome">Mario Party</h3>
                     <p id="preco" class="price">R$ 349.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -169,7 +166,7 @@
                 <div class="product-info">
                     <h3 id="nome">Mario Kart 8 Deluxe</h3>
                     <p id="preco" class="price">R$ 199.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>
@@ -181,7 +178,7 @@
                 <div class="product-info">
                     <h3 id="nome">The Legend of Zelda TK</h3>
                     <p id="preco" class="price">R$ 249.99</p>
-                    <button class="add-to-cart-btn" onclick="adicionarAoCarrinho()">
+                    <button class="add-to-cart-btn">
                         Comprar
                     </button>
                 </div>

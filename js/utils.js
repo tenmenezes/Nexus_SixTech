@@ -1,8 +1,3 @@
-function redirecionarComErro(msg) {
-  sessionStorage.setItem("Erro", msg);
-  window.location.href = "../erro.html";
-}
-
 // Funções para tema e fonte global
 function applyTheme(theme) {
   const body = document.body;
@@ -38,16 +33,6 @@ function applyUserPreferences() {
 }
 
 document.addEventListener("DOMContentLoaded", applyUserPreferences);
-
-// redireciona o usuário conforme o login
-function redirecionarUsuarioOuLogin() {
-  const user = JSON.parse(localStorage.getItem("usuarioLogado"));
-  if (user && user.usuario && user.email) {
-    window.location.href = "../HomePage/user.html";
-  } else {
-    window.location.href = "#";
-  }
-}
 
 // Garante que tema e fonte sejam reaplicados ao voltar para a página
 window.addEventListener("pageshow", applyUserPreferences);

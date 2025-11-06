@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
   atualizarCartCount();
   const grid = document.getElementById("product-grid");
   // Se estiver na página do carrinho, exibe os itens do carrinho
-  if (grid && window.location.pathname.includes("Cart.html")) {
+  if (grid && (window.location.pathname.includes("Cart.php") || window.location.pathname.includes("Cart.html"))) {
     exibirCarrinhoNaPagina();
   } else {
     // Se estiver em uma página de produtos, adiciona evento aos botões
