@@ -2,216 +2,447 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-  <!-- tabulator CSS -->
-  <link href="https://unpkg.com/tabulator-tables@5.6.0/dist/css/tabulator.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tabulator-tables@5.6.0/dist/css/tabulator.min.css" rel="stylesheet">
 
-  <!-- Font Awesome CDN - CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="shortcut icon" href="/utils/master.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/utils/master.png" type="image/x-icon">
 
-  <link rel="stylesheet" href="../css/master.css" />
-  <link rel="stylesheet" href="../css/users.css">
+  <link rel="stylesheet" href="../css/master.css" />
+  <link rel="stylesheet" href="../css/users.css">
 
-  <title>Users | Report</title>
+  <title>Users | Report</title>
 </head>
 
 <body>
 
 
+  <header>
+    <div class="info-header">
+      <div class="logo">
+        <h3 class="glitch" data-text="NS">NS</h3>
+      </div>
+      <div class="icons-header">
+        <i class="fa-solid fa-expand"></i>
+      </div>
+    </div>
+    <div style="align-items: center" class="info-header">
+      <i class="fa-solid fa-bell not"></i>
+      <i class="fa-solid fa-envelope mail"></i>
+      <i class="fa-solid fa-user icon"></i>
+    </div>
+
+        <button class="hamburger" id="hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+
+    <section class="main">
+    <div class="sidebar">
+      <h3>Navegação</h3>
+      <a class="sidebar-active" href="../master.html"><i class="fa-solid fa-chart-simple icon-dash"></i> Dashboard</a>
+      <br />
+      <hr />
+
+      <h3>Relatórios</h3>
+      <a href="userReports.html"><i class="fas fa-users"></i> Usuários</a>
+      <a href="productReports.html"><i class="fas fa-clipboard-list"></i> Produtos</a>
+      <a href="salesReports.html"><i class="fas fa-chart-bar"></i> Vendas</a>
+      <a href="orders.html"><i class="fas fa-shopping-cart"></i> Pedidos</a>
+      <br />
+      <hr />
+
+      <h3>Sistema</h3>
+      <a href="../system/logs.html"><i class="fas fa-list-alt"></i> Logs do Sistema</a>
+      <br />
+      <hr />
+
+      <h3>Feedback</h3>
+      <a href="../feedback/faq.html"><i class="fas fa-info-circle"></i> FAQ</a>
+      <br />
+      <hr />
+
+      <h3>Documentação</h3>
+      <a href="../documentation/help.html"><i class="fas fa-book"></i> Ajuda</a>
+      <a href="../documentation/about.html"><i class="fa-solid fa-circle-exclamation"></i> Sobre</a>
+      <br />
+      <hr />
+
+      <h3>Logout</h3>
+      <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+        <div class="content">
+      <div class="titulo-secao">
+        <h2>Relatório de Usuários</h2>
+        <br />
+        <hr />
+        <div class="opc">
+          <p><i class="fas fa-users"></i> / Relatório de Usuários</p>
+
+          <div class="search-container">
+            <div class="search">
+              <input type="text" id="searchInput" placeholder="Pesquisar usuário">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div class="btnUser">
+              <button id="btnNovo" title="Adicionar novo usuário">
+                <i class="fas fa-user-plus"></i>
+              </button>
+            </div>
+        </div>
+      </div>
+      <br>
+      <br>
+
+      <div id="user-table" class="tableUser" role="grid" aria-label="Lista de Usuários"></div>
+
+            <div class="loading-indicator" role="status" aria-live="polite" hidden>
+        <i class="fas fa-spinner fa-spin"></i> Carregando...
+      </div>
+
+            <div id="message-container" class="message-container" role="alert" aria-live="polite"></div>
+    </div>
+
+            <div id="newUserModal" class="modal-container" role="dialog" aria-labelledby="newUserTitle">
+      <div class="modal-background"></div>
+      <div class="modal modal-add">
+        <h1 id="newUserTitle" class="faUser">
+          <i class="fas fa-user-plus" aria-hidden="true"></i> 
+          Adição de usuário
+        </h1>
+        <form id="newUserForm" novalidate>
+          <div class="form-group">
+            <label for="new-nome">Nome Completo:</label>
+            <input type="text" id="new-nome" name="nome" required 
+                   aria-required="true">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
+
+          <div class="form-group dt_gen">
+            <div>
+              <label for="new-dt_nas">Data de Nascimento:</label>
+              <input type="date" id="new-dt_nas" name="dt_nas" 
+                     class="data" required aria-required="true">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+
+            <div>
+              <label for="new-genero">Gênero:</label>
+              <select id="new-genero" name="genero" class="genero" 
+                      required aria-required="true">
+                <option value="">Selecione...</option>
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+                <option value="O">Outro</option>
+              </select>
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+          </div>
+
+                      <div class="form-group">
+            <label for="new-mother_name">Nome da Mãe:</label>
+            <input type="text" id="new-mother_name" name="mother_name" required aria-required="true">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="new-cpf">CPF:</label>
+            <input type="text" id="new-cpf" name="cpf" 
+                   required aria-required="true" 
+                   pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                   placeholder="000.000.000-00">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="new-email">Email:</label>
+            <input type="email" id="new-email" name="email" 
+                   required aria-required="true">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
+
+                      <div class="form-group dt_gen">
+            <div>
+              <label for="new-cel">Celular:</label>
+              <input type="tel" id="new-cel" name="cel" 
+                    required aria-required="true"
+                    placeholder="+55 (00) 00000-0000">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+
+            <div>
+              <label for="new-home_phone">Tel. Residencial:</label>
+              <input type="tel" id="new-home_phone" name="home_phone" 
+                    placeholder="(00) 0000-0000">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+          </div>
+            
+                      <div class="form-group dt_gen">
+            <div>
+              <label for="new-cep">CEP:</label>
+              <input type="text" id="new-cep" name="cep" 
+                    required aria-required="true"
+                    pattern="\d{5}-\d{3}"
+                    placeholder="00000-000">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+            <div>
+              <label for="new-street">Rua:</label>
+              <input type="text" id="new-street" name="street" required aria-required="true">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+          </div>
+            
+                      <div class="form-group dt_gen">
+            <div>
+              <label for="new-number">Número:</label>
+              <input type="text" id="new-number" name="number">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+            <div>
+              <label for="new-complement">Complemento:</label>
+              <input type="text" id="new-complement" name="complement">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+          </div>
+
+                      <div class="form-group dt_gen">
+            <div>
+              <label for="new-neighborhood">Bairro:</label>
+              <input type="text" id="new-neighborhood" name="neighborhood" required aria-required="true">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+            <div>
+              <label for="new-city">Cidade:</label>
+              <input type="text" id="new-city" name="city" required aria-required="true">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+          </div>
+            
+                      <div class="form-group">
+            <label for="new-state">Estado (UF):</label>
+            <input type="text" id="new-state" name="state" required aria-required="true" maxlength="2" placeholder="Ex: SP">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
 
 
-  <header>
-    <div class="info-header">
-      <div class="logo">
-        <h3 class="glitch" data-text="NS">NS</h3>
-      </div>
-      <div class="icons-header">
-        <i class="fa-solid fa-expand"></i>
-      </div>
-    </div>
-    <div style="align-items: center" class="info-header">
-      <i class="fa-solid fa-bell not"></i>
-      <i class="fa-solid fa-envelope mail"></i>
-      <i class="fa-solid fa-user icon"></i>
-    </div>
+          <div class="form-group">
+            <label for="new-login">Login:</label>
+            <input type="text" id="new-login" name="login" 
+                   required aria-required="true">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
 
-    <!-- Botão hambúrguer (visível apenas no mobile) -->
-    <button class="hamburger" id="hamburger">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-  </header>
+          <div class="form-group">
+            <label for="new-senha">Senha:</label>
+            <input type="password" id="new-senha" name="senha" 
+                   required aria-required="true">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
 
-  <!--FIM HEADER-->
+          <div class="form-group">
+            <label for="new-categoria">Categoria:</label>
+            <input type="text" id="new-categoria" name="categoria" 
+                   required aria-required="true">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
+        </form>
+        <div class="divButtons">
+          <button class="cancel" type="button">Fechar</button>
+          <button class="save" type="submit" form="newUserForm">Salvar</button>
+        </div>
+      </div>
+    </div>
 
-  <section class="main">
-    <div class="sidebar">
-      <h3>Navegação</h3>
-      <a class="sidebar-active" href="../master.html"><i class="fa-solid fa-chart-simple icon-dash"></i> Dashboard</a>
-      <br />
-      <hr />
+        <div id="editUserModal" class="modal-container" role="dialog" aria-labelledby="editUserTitle">
+      <div class="modal-background"></div>
+      <div class="modal modal-edit">
+        <h1 id="editUserTitle" class="faUser">
+          <i class="fas fa-user-pen" aria-hidden="true"></i> 
+          Edição de usuário
+        </h1>
+        <form id="editUserForm" novalidate>
+          <div class="form-group">
+            <label for="edit-nome">Nome Completo:</label>
+            <input type="text" id="edit-nome" name="nome" 
+                   required aria-required="true">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
 
-      <h3>Relatórios</h3>
-      <a href="userReports.html"><i class="fas fa-users"></i> Usuários</a>
-      <a href="productReports.html"><i class="fas fa-clipboard-list"></i> Produtos</a>
-      <a href="salesReports.html"><i class="fas fa-chart-bar"></i> Vendas</a>
-      <a href="orders.html"><i class="fas fa-shopping-cart"></i> Pedidos</a>
-      <br />
-      <hr />
+          <div class="form-group dt_gen">
+            <div>
+              <label for="edit-dt_nas">Data de Nascimento:</label>
+              <input type="date" id="edit-dt_nas" name="dt_nas" 
+                     class="data" required aria-required="true">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
 
-      <h3>Sistema</h3>
-      <a href="../system/logs.html"><i class="fas fa-list-alt"></i> Logs do Sistema</a>
-      <br />
-      <hr />
+            <div>
+              <label for="edit-genero">Gênero:</label>
+              <select id="edit-genero" name="genero" class="genero" 
+                      required aria-required="true">
+                <option value="">Selecione...</option>
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+                <option value="O">Outro</option>
+              </select>
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+          </div>
 
-      <h3>Feedback</h3>
-      <a href="../feedback/faq.html"><i class="fas fa-info-circle"></i> FAQ</a>
-      <br />
-      <hr />
+                      <div class="form-group">
+            <label for="edit-mother_name">Nome da Mãe:</label>
+            <input type="text" id="edit-mother_name" name="mother_name" required aria-required="true">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
 
-      <h3>Documentação</h3>
-      <a href="../documentation/help.html"><i class="fas fa-book"></i> Ajuda</a>
-      <a href="../documentation/about.html"><i class="fa-solid fa-circle-exclamation"></i> Sobre</a>
-      <br />
-      <hr />
+          <div class="form-group">
+            <label for="edit-cpf">CPF:</label>
+            <input type="text" id="edit-cpf" name="cpf" 
+                   required aria-required="true"
+                   pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                   placeholder="000.000.000-00">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
 
-      <h3>Logout</h3>
-      <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
-    </div>
-    <!--FIM SIDEBAR-->
+          <div class="form-group">
+            <label for="edit-email">Email:</label>
+            <input type="email" id="edit-email" name="email" 
+                   required aria-required="true">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
 
-    <div class="content">
-      <div class="titulo-secao">
-        <h2>Relatório de Usuários</h2>
-        <br />
-        <hr />
-        <div class="opc">
-          <p><i class="fas fa-users"></i> / Relatório de Usuários</p>
+                      <div class="form-group dt_gen">
+            <div>
+              <label for="edit-cel">Celular:</label>
+              <input type="tel" id="edit-cel" name="cel" 
+                    required aria-required="true"
+                    placeholder="+55 (00) 00000-0000">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
 
-          <div class="search-container">
-            <div class="search">
-              <input type="text" id="searchInput" placeholder="Pesquisar usuário">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
+            <div>
+              <label for="edit-home_phone">Tel. Residencial:</label>
+              <input type="tel" id="edit-home_phone" name="home_phone" 
+                    placeholder="(00) 0000-0000">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+          </div>
 
-            <div class="btnUser">
-              <button id="btnNovo" title="Adicionar novo usuário">
-                <i class="fas fa-user-plus"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <br>
+                      <div class="form-group dt_gen">
+            <div>
+              <label for="edit-cep">CEP:</label>
+              <input type="text" id="edit-cep" name="cep" 
+                    required aria-required="true"
+                    pattern="\d{5}-\d{3}"
+                    placeholder="00000-000">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+            <div>
+              <label for="edit-street">Rua:</label>
+              <input type="text" id="edit-street" name="street" required aria-required="true">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+          </div>
 
-      <div id="user-table" class="tableUser"></div>
+                      <div class="form-group dt_gen">
+            <div>
+              <label for="edit-number">Número:</label>
+              <input type="text" id="edit-number" name="number">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+            <div>
+              <label for="edit-complement">Complemento:</label>
+              <input type="text" id="edit-complement" name="complement">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+          </div>
 
-    </div>
+                      <div class="form-group dt_gen">
+            <div>
+              <label for="edit-neighborhood">Bairro:</label>
+              <input type="text" id="edit-neighborhood" name="neighborhood" required aria-required="true">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+            <div>
+              <label for="edit-city">Cidade:</label>
+              <input type="text" id="edit-city" name="city" required aria-required="true">
+              <div class="error-message" aria-live="polite"></div>
+            </div>
+          </div>
+            
+                      <div class="form-group">
+            <label for="edit-state">Estado (UF):</label>
+            <input type="text" id="edit-state" name="state" required aria-required="true" maxlength="2" placeholder="Ex: SP">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
 
-    <!-- Modals -->
+          <div class="form-group">
+            <label for="edit-login">Login:</label>
+            <input type="text" id="edit-login" name="login" 
+                   required aria-required="true">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
 
-    <!-- Novo usuário -->
-    <div id="newUserModal" class="modal-container">
-      <div class="modal-background"></div>
-      <div class="modal modal-add">
-        <h1 class="faUser"><i class="fas fa-user-plus"></i> Adição de usuário</h1>
-        <form>
-          <input type="text" placeholder="Nome">
-          <div class="dt_gen">
-            <input type="date" class="data">
-            <select name="Genero" class="genero">
-              <option value="genero">Genero</option>
-              <option value="M">M</option>
-              <option value="F">F</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <input type="text" placeholder="CPF">
-          <input type="text" placeholder="Email">
-          <input type="text" placeholder="Celular">
-          <input type="text" placeholder="CEP">
-          <input type="text" placeholder="Login">
-          <input type="text" placeholder="Senha">
-          <input type="text" placeholder="Categoria">
-        </form>
-        <div class="divButtons">
-          <button class="cancel">Fechar</button>
-          <button class="save">Salvar</button>
-        </div>
-      </div>
-    </div>
+          <div class="form-group">
+            <label for="edit-senha">Senha:</label>
+            <input type="password" id="edit-senha" name="senha" 
+                   placeholder="Deixe vazio para não alterar">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
 
-    <!-- Editar usuário -->
-    <div id="editUserModal" class="modal-container">
-      <div class="modal-background"></div>
-      <div class="modal modal-edit">
-        <h1 class="faUser"><i class="fas fa-user-pen"></i> Edição de usuário</h1>
-        <form>
-          <input type="text" placeholder="Nome">
-          <div class="dt_gen">
-            <input type="date" class="data">
-            <select name="Genero" class="genero">
-              <option value="genero">Genero</option>
-              <option value="M">M</option>
-              <option value="F">F</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <input type="text" placeholder="CPF">
-          <input type="text" placeholder="Email">
-          <input type="text" placeholder="Celular">
-          <input type="text" placeholder="CEP">
-          <input type="text" placeholder="Login">
-          <input type="text" placeholder="Senha">
-          <input type="text" placeholder="Categoria">
-        </form>
-        <div class="divButtons">
-          <button class="cancel">Fechar</button>
-          <button class="save">Salvar</button>
-        </div>
-      </div>
-    </div>
+          <div class="form-group">
+            <label for="edit-categoria">Categoria:</label>
+            <input type="text" id="edit-categoria" name="categoria" 
+                   required aria-required="true">
+            <div class="error-message" aria-live="polite"></div>
+          </div>
+        </form>
+        <div class="divButtons">
+          <button class="cancel" type="button">Fechar</button>
+          <button class="save" type="submit" form="editUserForm">Salvar</button>
+        </div>
+      </div>
+    </div>
 
-    <!-- Modal de exclusão -->
-    <div id="deleteUserModal" class="modal-container">
-      <div class="modal-background"></div>
-      <div class="modal delete-modal">
-        <div class="modal-header">
-          <h2>Attention!</h2>
-          <span class="close">&times;</span>
-        </div>
-        <hr>
-        <div class="modal-body">
-          <p>You are about to delete this user. <br> This action <strong style="color: red;">cannot be undone</strong>.
-          </p>
-          <p>Do you want to continue?</p>
-        </div>
-        <hr>
-        <div class="modal-footer">
-          <button class="cancel">Cancel</button>
-          <button class="confirm">Confirm</button>
-        </div>
-      </div>
-    </div>
-
-
-
-    <script src="https://unpkg.com/tabulator-tables@5.6.0/dist/js/tabulator.min.js"></script>
+        <div id="deleteUserModal" class="modal-container">
+      <div class="modal-background"></div>
+      <div class="modal delete-modal">
+        <div class="modal-header">
+          <h2>Atenção!</h2>
+          <span class="close">&times;</span>
+        </div>
+        <hr>
+        <div class="modal-body">
+          <p>Você está prestes a excluir este usuário. <br> Esta ação <strong style="color: red;">NÃO PODE SER DESFEITA.</strong>.
+          </p>
+          <p>Deseja continuar?</p>
+        </div>
+        <hr>
+        <div class="modal-footer">
+          <button class="cancel">Cancel</button>
+          <button class="confirm">Confirm</button>
+        </div>
+      </div>
+    </div>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"
-      referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/tabulator-tables@5.6.0/dist/js/tabulator.min.js"></script>
 
-    <!-- Scripts -->
-    <script src="../js/sidebar.js"></script>
-    <script src="../js/transition.js"></script>
-    <script type="module" src="../js/users.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
+
+        <script src="../js/sidebar.js"></script>
+    <script src="../js/transition.js"></script>
+    <script type="module" src="../js/users.js"></script>
 
 </body>
 

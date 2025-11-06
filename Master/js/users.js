@@ -1,7 +1,44 @@
-import { getUsuarios } from "./dados.js";
+import { CONFIG } from './config.js';
+import { getUsuarios, saveUser, deleteUser } from "./dados.js";
 
-// Seleção
+// Estado global da aplicação
+const state = {
+ table: null,
+ tableData: [],
+ rowToDelete: null,
+ isLoading: false,
+ lastError: null
+};
 
+// Utilitários
+function debounce(fn, delay) {
+ let timeoutId;
+ return (...args) => {
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(() => fn(...args), delay);
+ };
+}
+
+function showMessage(message, type = 'success') {
+ const messageEl = document.createElement('div');
+ messageEl.className = `message message-${type}`;
+ messageEl.setAttribute('role', 'alert');
+ messageEl.textContent = message;
+ 
+  // Usa o body para garantir que a mensagem não fique presa no modal
+ document.body.appendChild(messageEl); 
+ 
+ setTimeout(() => messageEl.remove(), CONFIG.TIMEOUTS.MESSAGE_DURATION);
+}
+
+function showLoading(show = true) {
+ const loadingEl = document.querySelector('.loading-indicator');
+ if (loadingEl) {
+    loadingEl.hidden = !show;
+ }
+}
+
+// Seleção de elementos DOM
 const btnNovo = document.getElementById("btnNovo");
 const newUserModal = document.getElementById("newUserModal");
 const editUserModal = document.getElementById("editUserModal");
@@ -9,294 +46,395 @@ const deleteUserModal = document.getElementById("deleteUserModal");
 const cancelDeleteBtn = deleteUserModal.querySelector(".cancel");
 const confirmDeleteBtn = deleteUserModal.querySelector(".confirm");
 const closeDeleteBtn = deleteUserModal.querySelector(".close");
-
-let rowToDelete = null; // guarda a referência da linha que será deletada
+const searchInput = document.getElementById("searchInput");
 
 // Abrir modal novo usuário
-
 btnNovo.addEventListener("click", () => {
-  newUserModal.classList.remove("out");
-  newUserModal.classList.add("active");
+ newUserModal.classList.remove("out");
+ newUserModal.classList.add("active");
 });
 
 // Fechar modal
 document.querySelectorAll(".modal-container .cancel").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const modal = btn.closest(".modal-container");
-    modal.classList.remove("active");
-    modal.classList.add("out");
+ btn.addEventListener("click", () => {
+  const modal = btn.closest(".modal-container");
+  modal.classList.remove("active");
+  modal.classList.add("out");
 
-    // Remove a classe "out" depois da animação
-    setTimeout(() => modal.classList.remove("out"), 500);
-  });
+  // Remove a classe "out" depois da animação
+  setTimeout(() => modal.classList.remove("out"), 500);
+ });
 });
 
 // Fechar clicando no background
 document.querySelectorAll(".modal-container").forEach((modal) => {
-  modal.addEventListener("click", (e) => {
-    if (e.target.classList.contains("modal-background")) {
-      modal.classList.remove("active");
-      modal.classList.add("out");
-      setTimeout(() => modal.classList.remove("out"), 500);
-    }
-  });
+ modal.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal-background")) {
+   modal.classList.remove("active");
+   modal.classList.add("out");
+   setTimeout(() => modal.classList.remove("out"), 500);
+  }
+ });
 });
 
-// Fechar modal com background ou X
+// Fechar modal de exclusão com background ou X
 deleteUserModal
-  .querySelector(".modal-background")
-  .addEventListener("click", (e) => {
-    if (e.target === deleteUserModal.querySelector(".modal-background"))
-      deleteUserModal.classList.remove("active");
-  });
+ .querySelector(".modal-background")
+ .addEventListener("click", (e) => {
+  if (e.target === deleteUserModal.querySelector(".modal-background"))
+   deleteUserModal.classList.remove("active");
+ });
 closeDeleteBtn.addEventListener("click", () =>
-  deleteUserModal.classList.remove("active")
+ deleteUserModal.classList.remove("active")
 );
 cancelDeleteBtn.addEventListener("click", () =>
-  deleteUserModal.classList.remove("active")
+ deleteUserModal.classList.remove("active")
 );
 
-// Confirmar exclusão
-confirmDeleteBtn.addEventListener("click", () => {
-  if (rowToDelete) {
-    rowToDelete.delete();
-    rowToDelete = null;
-    deleteUserModal.classList.remove("active");
+// // Validações
+const VALIDATIONS = {
+ email: (value) => CONFIG.VALIDATION_PATTERNS.email.test(value),
+ cpf: (value) => CONFIG.VALIDATION_PATTERNS.cpf.test(value),
+ cep: (value) => CONFIG.VALIDATION_PATTERNS.cep.test(value),
+ celular: (value) => CONFIG.VALIDATION_PATTERNS.celular.test(value),
+ required: (value) => value.trim().length > 0
+};
+
+function validateForm(inputs) {
+ const errors = [];
+ const data = {};
+ 
+ inputs.forEach(input => {
+  // Adição de verificação de campos vazios para novos campos obrigatórios
+    const field = input.getAttribute('name');
+    const value = input.value.trim();
+
+    // Se o campo for 'id', apenas armazena.
+    if (field === 'id') {
+      data[field] = value;
+      return;
+    }
+    
+    // Lista de campos obrigatórios
+    const requiredFields = [
+        'nome', 'dt_nas', 'genero', 'mother_name', 'cpf', 'email', 'cel', 
+        'street', 'neighborhood', 'city', 'state', 'login', 'categoria'
+    ];
+    // Se for o formulário de edição, a 'senha' só é obrigatória se preenchida
+    const isEditForm = input.closest('#editUserForm');
+
+    if (requiredFields.includes(field) && !VALIDATIONS.required(value)) {
+        errors.push(CONFIG.VALIDATION_MESSAGES.required(field));
+        return;
+    }
+    // Para edição, a senha não é obrigatória. Para novo usuário, é.
+    if (field === 'senha' && !isEditForm && !VALIDATIONS.required(value)) {
+        errors.push(CONFIG.VALIDATION_MESSAGES.required(field));
+        return;
+    }
+
+    // Validações específicas
+  if (field === 'email' && !VALIDATIONS.email(value)) {
+   errors.push(CONFIG.VALIDATION_MESSAGES.invalid(field));
+   return;
   }
-});
+    if (field === 'cpf' && !VALIDATIONS.cpf(value)) {
+   errors.push(CONFIG.VALIDATION_MESSAGES.invalid(field));
+   return;
+  }
+    if (field === 'cep' && !VALIDATIONS.cep(value)) {
+   errors.push(CONFIG.VALIDATION_MESSAGES.invalid(field));
+   return;
+  }
+    if (field === 'cel' && !VALIDATIONS.celular(value)) {
+   errors.push(CONFIG.VALIDATION_MESSAGES.invalid(field));
+   return;
+  }
+  
+  data[field] = value;
+ });
+ 
+ return { isValid: errors.length === 0, errors, data };
+}
 
-// // Função para gerar usuários automáticos
-// function gerarUsuarios(qtd) {
-//   const usuarios = [];
-//   const nomes = [
-//     "Ana",
-//     "Bruno",
-//     "Carlos",
-//     "Diana",
-//     "Eduardo",
-//     "Fernanda",
-//     "Gabriel",
-//     "Helena",
-//     "Igor",
-//     "Julia",
-//   ];
-//   const sobrenomes = [
-//     "Silva",
-//     "Souza",
-//     "Oliveira",
-//     "Pereira",
-//     "Almeida",
-//     "Costa",
-//     "Rodrigues",
-//     "Martins",
-//     "Barbosa",
-//     "Ferreira",
-//   ];
+// Sanitização
+function sanitizeInput(value) {
+ const div = document.createElement('div');
+ div.textContent = value;
+ return div.innerHTML;
+}
 
-//   for (let i = 1; i <= qtd; i++) {
-//     const nome = `${nomes[Math.floor(Math.random() * nomes.length)]} ${
-//       sobrenomes[Math.floor(Math.random() * sobrenomes.length)]
-//     }`;
-//     const cpf = `${Math.floor(100 + Math.random() * 900)}.${Math.floor(
-//       100 + Math.random() * 900
-//     )}.${Math.floor(100 + Math.random() * 900)}-${Math.floor(
-//       10 + Math.random() * 90
-//     )}`;
-//     const login = `user${i}`;
-//     const email = `user${i}@teste.com`;
-//     const celular = `+55 (21) 9${Math.floor(
-//       1000 + Math.random() * 9000
-//     )}-${Math.floor(1000 + Math.random() * 9000)}`;
-//     const cep = `${Math.floor(10000 + Math.random() * 90000)}-${Math.floor(
-//       100 + Math.random() * 900
-//     )}`;
-//     const dt_nas = `${String(Math.floor(1 + Math.random() * 28)).padStart(
-//       2,
-//       "0"
-//     )}/${String(Math.floor(1 + Math.random() * 12)).padStart(2, "0")}/${
-//       1980 + Math.floor(Math.random() * 25)
-//     }`;
-//     const hora = new Date().toLocaleTimeString("pt-BR");
-//     const data = new Date().toLocaleDateString("pt-BR");
+function sanitizeFormData(data) {
+ return Object.fromEntries(
+  Object.entries(data).map(([k, v]) => [k, sanitizeInput(v)])
+ );
+}
 
-//     usuarios.push({
-//       id: i,
-//       nome,
-//       dt_nas,
-//       genero: Math.random() > 0.5 ? "M" : "F",
-//       cpf,
-//       email,
-//       cel: celular,
-//       cep,
-//       login,
-//       senha: "**********",
-//       categoria: "NULL",
-//       criacao: `${hora} ${data}`,
-//       atualizacao: "NULL",
-//     });
-//   }
-//   return usuarios;
-// }
-
-// // Gera 50 usuários automaticamente
-// let tableData = gerarUsuarios(50);
-
-// Inicializa tabela Tabulator
-// Função para Inicializar a Aplicação
+// Inicialização da aplicação
 async function init() {
+ try {
+  showLoading(true);
   console.log("Buscando dados do servidor...");
   
   // 1. Busca os dados do PHP
-  const tableData = await getUsuarios();
+  state.tableData = await getUsuarios();
 
-  if (tableData.length === 0) {
-    console.warn("Nenhum usuário retornado para a tabela.");
-    // Você pode exibir uma mensagem de erro ou loading aqui
+  if (state.tableData.length === 0) {
+   showMessage("Nenhum usuário encontrado.", "warning");
   }
 
-  // 2. Inicializa tabela Tabulator com os dados buscados
-  const table = new Tabulator("#user-table", {
-    // ... (o restante da configuração da tabela Tabulator) ...
-    data: tableData, // AGORA USAMOS OS DADOS REAIS DO PHP
-    layout: "fitColumns",
-    responsiveLayout: "collapse",
-    pagination: "local",
-    paginationSize: 20,
-    movableColumns: true,
-    columns: [
-      { title: "ID", field: "id", width: 50 },
-      // ... todas as outras colunas aqui ...
-      { title: "Nome", field: "nome" },
-      { title: "Data Nasc.", field: "dt_nas" },
-      // ...
-      {
-        title: "Ações",
-        field: "acoes",
-        hozAlign: "center",
-        // ... (o restante da configuração de Ações) ...
-      },
-    ],
+  // 2. Inicializa tabela Tabulator
+  state.table = new Tabulator("#user-table", {
+   data: state.tableData,
+   layout: "fitColumns",
+   responsiveLayout: "collapse",
+   pagination: "local",
+   paginationSize: 20,
+   movableColumns: true,
+   columns: [
+    { 
+     title: "ID", 
+     field: "id", 
+     width: 50,
+     headerFilter: true
+    },
+    { 
+     title: "Nome", 
+     field: "nome", // full_name via alias
+     headerFilter: true
+    },
+    { 
+     title: "Email", 
+     field: "email",
+     headerFilter: true
+    },
+    { 
+     title: "CPF", 
+     field: "cpf",
+     headerFilter: true
+    },
+    { 
+     title: "Celular", 
+     field: "cel", // mobile_phone via alias
+     headerFilter: true
+    },
+        { 
+     title: "Endereço", 
+     field: "street",
+     headerFilter: true,
+          // Formata a visualização do endereço combinando vários campos
+          formatter: function(cell, formatterParams, onRendered) {
+              const data = cell.getRow().getData();
+              const ruaNum = data.street && data.number ? `${data.street}, ${data.number}` : data.street || '';
+              const cidadeEstado = data.city && data.state ? `${data.city}/${data.state}` : data.city || '';
+              return [ruaNum, data.neighborhood, cidadeEstado].filter(Boolean).join(' - ');
+          }
+    },
+    { 
+     title: "Categoria", 
+     field: "categoria", // user_type via alias
+     headerFilter: true
+    },
+    {
+     title: "Ações",
+     field: "acoes",
+     hozAlign: "center",
+     formatter: function(cell, formatterParams, onRendered) {
+      return `
+       <button class="btn-edit" title="Editar">
+        <i class="fas fa-edit"></i>
+       </button>
+       <button class="btn-delete" title="Excluir">
+        <i class="fas fa-trash"></i>
+       </button>
+      `;
+     },
+     cellClick: function(e, cell) {
+      const target = e.target.closest('button');
+      if (!target) return;
+
+      const rowData = cell.getRow().getData();
+      const row = cell.getRow();
+
+      if (target.classList.contains('btn-edit')) {
+       abrirEdicao(rowData, row);
+      } else if (target.classList.contains('btn-delete')) {
+       state.rowToDelete = row;
+       deleteUserModal.classList.add("active");
+      }
+     }
+    }
+   ],
+   rowFormatter: function(row) {
+    // Linhas com o status 'deletado' devem ter a cor alterada
+        // A lógica de 'deletado' depende de como você lida com exclusão no DB
+    if (row.getData().deletado) { 
+     row.getElement().style.backgroundColor = "#ffebee";
+    }
+   }
   });
-  
-  // 3. Adicione a referência da tabela ao escopo global ou a um objeto para que as outras funções a acessem
-  window.userTable = table; 
-  
-  // 4. Mantenha os Listeners
-  // (O resto do seu código, como o evento de pesquisa, deve usar window.userTable)
-  searchInput.addEventListener("input", function () {
-      let termo = searchInput.value.toLowerCase();
-      if (termo === "") window.userTable.clearFilter();
-      else
-          window.userTable.setFilter((data) =>
-              Object.values(data).some((v) => String(v).toLowerCase().includes(termo))
-          );
-  });
+
+  // 3. Configurar pesquisa com debounce
+  searchInput.addEventListener("input", debounce(function() {
+   const termo = this.value.toLowerCase();
+   if (termo === "") {
+    state.table.clearFilter();
+   } else {
+    state.table.setFilter((data) =>
+     Object.values(data).some((v) => 
+      String(v).toLowerCase().includes(termo)
+     )
+    );
+   }
+  }, CONFIG.TIMEOUTS.DEBOUNCE_SEARCH));
+
+ } catch (error) {
+  console.error("Erro na inicialização:", error);
+  showMessage(
+   "Erro ao carregar dados. Tente novamente mais tarde.", 
+   "error"
+  );
+ } finally {
+  showLoading(false);
+ }
 }
 
-// Inicia a aplicação
-init();
+// Iniciar quando o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', init);
+
+// Handlers dos modais
+async function handleSaveUser(inputs, isNew = false) {
+ try {
+  // Aqui o validateForm coleta todos os campos, incluindo os novos
+  const { isValid, errors, data } = validateForm(inputs); 
+  
+  if (!isValid) {
+   showMessage(errors.join('\n'), 'error');
+   return false;
+  }
+
+  showLoading(true);
+  
+  // Sanitizar e preparar dados
+  const userData = sanitizeFormData({
+   ...data,
+   // O campo 'atualizacao' é definido no back-end (PHP)
+  });
+
+  // Salvar no backend
+  const savedUser = await saveUser(userData);
+
+  // Atualizar UI
+  if (isNew) {
+   state.table.addData([savedUser]);
+  } else {
+   const row = editUserModal.rowRef;
+   row.update(savedUser);
+  }
+
+  showMessage(
+   isNew ? 'Usuário criado com sucesso!' : 'Usuário atualizado com sucesso!',
+   'success'
+  );
+  return true;
+
+ } catch (error) {
+  console.error("Erro ao salvar usuário:", error);
+  showMessage(
+   `Erro ao ${isNew ? 'criar' : 'atualizar'} usuário: ${error.message}`,
+   'error'
+  );
+  return false;
+ } finally {
+  showLoading(false);
+ }
+}
 
 // Função para abrir dialog de edição
 function abrirEdicao(data, row) {
-  editUserModal.classList.add("active");
-  editUserModal.rowRef = row; // referencia da linha
-  const inputs = editUserModal.querySelectorAll("input, select");
-  inputs[0].value = data.nome;
-  inputs[1].value = data.dt_nas;
-  inputs[2].value = data.genero;
-  inputs[3].value = data.cpf;
-  inputs[4].value = data.email;
-  inputs[5].value = data.cel;
-  inputs[6].value = data.cep;
-  inputs[7].value = data.login;
-  inputs[8].value = data.senha;
-  inputs[9].value = data.categoria;
+ editUserModal.classList.add("active");
+ editUserModal.rowRef = row;
+ 
+ // Lista COMPLETA de campos que serão preenchidos
+ const fields = [
+      'nome', 'dt_nas', 'genero', 'mother_name', 'cpf', 'email', 
+      'cel', 'home_phone', 'cep', 'street', 'number', 'complement',
+      'neighborhood', 'city', 'state', 'login', 'senha', 'categoria'
+  ];
+
+ // Preenche os campos do modal de edição
+ fields.forEach(field => {
+    const input = document.getElementById(`edit-${field}`);
+    if (input) {
+      // Usa um valor vazio para a senha no modal de edição
+      input.value = field === 'senha' ? '' : data[field] || ''; 
+    }
+ });
 }
 
 // Evento salvar edição
-editUserModal.querySelector(".save").addEventListener("click", () => {
-  const inputs = editUserModal.querySelectorAll("input, select");
-  const row = editUserModal.rowRef;
-  if (
-    !(
-      inputs[0].value &&
-      inputs[1].value &&
-      inputs[2].value &&
-      inputs[3].value &&
-      inputs[4].value &&
-      inputs[5].value &&
-      inputs[6].value
-    )
-  ) {
-    confirm("Erro: preencha os campos antes de salvar!");
-  } else {
-    row.update({
-      nome: inputs[0].value,
-      dt_nas: inputs[1].value,
-      genero: inputs[2].value,
-      cpf: inputs[3].value,
-      email: inputs[4].value,
-      cel: inputs[5].value,
-      cep: inputs[6].value,
-      login: inputs[7].value,
-      senha: inputs[8].value,
-      categoria: inputs[9].value,
-      atualizacao: new Date().toLocaleString("pt-BR"),
-    });
-    editUserModal.classList.remove("active");
-  }
-});
+editUserModal.querySelector(".save").addEventListener("click", async () => {
+ // Captura todos os inputs e selects do formulário de edição
+ const inputs = editUserModal.querySelectorAll("input, select");
+ 
+ // Adicionar o ID do usuário para que o PHP saiba que é um UPDATE
+ const userData = editUserModal.rowRef.getData();
+ const inputsWithId = [...inputs];
+ inputsWithId.push({ 
+    getAttribute: (name) => (name === 'id' ? 'id' : null), 
+    value: userData.id 
+ });
 
-// Inserção manual de usuário
-btnNovo.addEventListener("click", () => {
-  newUserModal.classList.add("active");
+
+ const success = await handleSaveUser(inputsWithId, false);
+ if (success) {
+  editUserModal.classList.remove("active");
+ }
 });
 
 // Evento salvar novo usuário
-newUserModal.querySelector(".save").addEventListener("click", () => {
-  const inputs = newUserModal.querySelectorAll("input, select");
-
-  if (
-    !(
-      inputs[0].value &&
-      inputs[1].value &&
-      inputs[2].value &&
-      inputs[3].value &&
-      inputs[4].value &&
-      inputs[5].value &&
-      inputs[6].value
-    )
-  ) {
-    confirm("Erro: preencha os campos antes de salvar!");
-  } else {
-    const newUser = {
-      id: tableData.length + 1,
-      nome: inputs[0].value,
-      dt_nas: inputs[1].value,
-      genero: inputs[2].value,
-      cpf: inputs[3].value,
-      email: inputs[4].value,
-      cel: inputs[5].value,
-      cep: inputs[6].value,
-      login: inputs[7].value,
-      senha: inputs[8].value,
-      categoria: inputs[9].value,
-      criacao: new Date().toLocaleString("pt-BR"),
-      atualizacao: "NULL",
-    };
-    table.addData([newUser]);
-    newUserModal.classList.remove("active");
-    inputs.forEach((i) => (i.value = "")); // limpa inputs
-  }
+newUserModal.querySelector(".save").addEventListener("click", async () => {
+ const inputs = newUserModal.querySelectorAll("input, select");
+ const success = await handleSaveUser(inputs, true);
+ if (success) {
+  newUserModal.classList.remove("active");
+  // Limpa os inputs após o sucesso
+  inputs.forEach(i => i.value = "");
+ }
 });
 
-// Pesquisa global
-const searchInput = document.getElementById("searchInput");
-searchInput.addEventListener("input", function () {
-  let termo = searchInput.value.toLowerCase();
-  if (termo === "") table.clearFilter();
-  else
-    table.setFilter((data) =>
-      Object.values(data).some((v) => String(v).toLowerCase().includes(termo))
-    );
+// Evento excluir usuário
+confirmDeleteBtn.addEventListener("click", async () => {
+ if (!state.rowToDelete) return;
+ 
+ try {
+  showLoading(true);
+  const userId = state.rowToDelete.getData().id;
+  await deleteUser(userId);
+  
+  state.rowToDelete.delete();
+  showMessage('Usuário excluído com sucesso!', 'success');
+  
+ } catch (error) {
+  console.error("Erro ao excluir usuário:", error);
+  showMessage(`Erro ao excluir usuário: ${error.message}`, 'error');
+  
+ } finally {
+  state.rowToDelete = null;
+  deleteUserModal.classList.remove("active");
+  showLoading(false);
+ }
+});
+
+// Tratamento de conexão
+window.addEventListener('online', () => {
+ showMessage('Conexão restaurada! Atualizando dados...', 'info');
+ init();
+});
+
+window.addEventListener('offline', () => {
+ showMessage(
+  'Sem conexão! Algumas funcionalidades podem estar indisponíveis.', 
+  'warning'
+ );
 });
