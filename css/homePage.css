@@ -26,7 +26,6 @@ body {
 
 body {
   min-height: 100vh;
-  /* ajuste conforme a altura do header */
   display: flex;
   flex-direction: column;
 }
@@ -42,7 +41,7 @@ body {
 
 /* Variáveis CSS padrão (valores iniciais - Tema Claro) */
 body.theme-light {
-  --bg-color-light: #ffffff;
+  --bg-color-light: #5f3b3b;
   --text-color-light: #333333;
   --div-bg-light: #aaaaaa;
   --div-text-light: #ffffff;
@@ -53,7 +52,7 @@ body.theme-light {
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #ffffff;
+  background-color: var(--bg-color-light);
   /* branco para claro */
   color: #121212;
   /* texto escuro */
@@ -88,7 +87,7 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.521);
 }
 
 a {
@@ -287,7 +286,6 @@ a {
 .link1:hover {
   background-size: 100% 100%;
   color: #121212;
-  /* ou altere para branco se quiser contraste */
 }
 
 .link2 {
@@ -303,7 +301,6 @@ a {
 .link2:hover {
   background-size: 100% 100%;
   color: #121212;
-  /* ou altere para branco se quiser contraste */
 }
 
 .link3 {
@@ -319,7 +316,6 @@ a {
 .link3:hover {
   background-size: 100% 100%;
   color: #121212;
-  /* ou altere para branco se quiser contraste */
 }
 
 @media (max-width: 910px) {
