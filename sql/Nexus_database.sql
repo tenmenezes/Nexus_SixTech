@@ -203,3 +203,63 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+-- Adicionando dados as outras tabelas
+
+INSERT INTO `games` (`id`, `name`, `description`, `price`, `platform`, `genre`, `stock`, `created_at`, `updated_at`) VALUES
+(1, 'The Witcher 3: Wild Hunt', 'Um RPG de mundo aberto com batalhas intensas e decisões morais complexas.', 199.90, 'PlayStation', 'RPG', 25, NOW(), NOW()),
+(2, 'God of War: Ragnarök', 'Kratos e Atreus enfrentam os deuses nórdicos em uma jornada épica.', 299.90, 'PlayStation', 'Ação/Aventura', 30, NOW(), NOW()),
+(3, 'Halo Infinite', 'O Master Chief retorna para salvar a humanidade em uma nova guerra intergaláctica.', 249.90, 'Xbox', 'Tiro em Primeira Pessoa', 40, NOW(), NOW()),
+(4, 'Super Mario Odyssey', 'Mario explora mundos incríveis com a ajuda de seu chapéu mágico Cappy.', 199.90, 'Nintendo', 'Plataforma', 20, NOW(), NOW()),
+(5, 'Elden Ring', 'Um novo mundo de fantasia sombria criado por Hidetaka Miyazaki e George R. R. Martin.', 279.90, 'PC', 'RPG', 15, NOW(), NOW()),
+(6, 'Forza Horizon 5', 'Corridas incríveis pelas paisagens do México com centenas de carros.', 259.90, 'Xbox', 'Corrida', 35, NOW(), NOW()),
+(7, 'The Legend of Zelda: Tears of the Kingdom', 'Explore o vasto mundo de Hyrule com novas habilidades e segredos.', 349.90, 'Nintendo', 'Aventura', 18, NOW(), NOW()),
+(8, 'Resident Evil 4 Remake', 'Leon enfrenta horrores em uma vila isolada na Europa.', 289.90, 'PC', 'Terror', 22, NOW(), NOW()),
+(9, 'Spider-Man 2', 'Peter Parker e Miles Morales enfrentam Venom em Nova York.', 349.90, 'PlayStation', 'Ação', 28, NOW(), NOW()),
+(10, 'Cyberpunk 2077', 'Um RPG futurista ambientado em Night City, onde o poder é tudo.', 199.90, 'PC', 'Ação/RPG', 26, NOW(), NOW());
+
+INSERT INTO `orders` (`id`, `user_id`, `order_date`, `status`, `total_value`, `created_at`, `updated_at`) VALUES
+(1, 3, '2025-10-20', 'Entregue', 499.80, NOW(), NOW()),
+(2, 4, '2025-10-22', 'Processando', 279.90, NOW(), NOW()),
+(3, 5, '2025-10-25', 'Enviado', 549.80, NOW(), NOW()),
+(4, 6, '2025-10-27', 'Pendente', 299.90, NOW(), NOW()),
+(5, 7, '2025-10-30', 'Entregue', 629.70, NOW(), NOW());
+
+INSERT INTO `order_items` (`id`, `order_id`, `game_id`, `quantity`, `price_at_purchase`, `created_at`, `updated_at`) VALUES
+-- Pedido 1 (usuário 3)
+(1, 1, 1, 1, 199.90, NOW(), NOW()),
+(2, 1, 5, 1, 299.90, NOW(), NOW()),
+
+-- Pedido 2 (usuário 4)
+(3, 2, 5, 1, 279.90, NOW(), NOW()),
+
+-- Pedido 3 (usuário 5)
+(4, 3, 3, 2, 274.90, NOW(), NOW()),
+
+-- Pedido 4 (usuário 6)
+(5, 4, 9, 1, 299.90, NOW(), NOW()),
+
+-- Pedido 5 (usuário 7)
+(6, 5, 4, 1, 199.90, NOW(), NOW()),
+(7, 5, 7, 1, 349.90, NOW(), NOW()),
+(8, 5, 10, 1, 79.90, NOW(), NOW());
+
+INSERT INTO `order_items` (`order_id`, `game_id`, `quantity`, `price_at_purchase`, `created_at`, `updated_at`) VALUES
+-- Pedido 1 (usuário 3)
+(1, 1, 1, 199.90, NOW(), NOW()),
+(1, 5, 1, 299.90, NOW(), NOW()),
+
+-- Pedido 2 (usuário 4)
+(2, 5, 1, 279.90, NOW(), NOW()),
+
+-- Pedido 3 (usuário 5)
+(3, 3, 2, 274.90, NOW(), NOW()),
+
+-- Pedido 4 (usuário 6)
+(4, 9, 1, 299.90, NOW(), NOW()),
+
+-- Pedido 5 (usuário 7)
+(5, 4, 1, 199.90, NOW(), NOW()),
+(5, 7, 1, 349.90, NOW(), NOW()),
+(5, 10, 1, 79.90, NOW(), NOW());
