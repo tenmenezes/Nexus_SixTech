@@ -94,7 +94,7 @@
 
           <div class="search-container">
             <div class="search">
-              <input type="text" id="searchSales" placeholder="Pesquisar venda">
+              <input type="text" id="searchSales" name="search" placeholder="Pesquisar venda">
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
           </div>
@@ -118,9 +118,9 @@
       </h1>
 
       <form>
-        <input type="text" placeholder="Nome">
-        <input type="text" placeholder="Descrição">
-        <input type="text" placeholder="Preço">
+        <input type="text" name="name" placeholder="Nome">
+        <input type="text" name="description" placeholder="Descrição">
+        <input type="text" name="price" placeholder="Preço">
 
         <div class="dt_gen">
 
@@ -143,8 +143,8 @@
 
         </div>
 
-        <input type="text" placeholder="Estoque">
-        <input type="date" placeholder="Data" value="">
+        <input type="text" name="stock" placeholder="Estoque">
+        <input type="date" name="date" placeholder="Data" value="">
       </form>
 
       <div class="divButtons">
@@ -161,7 +161,7 @@
     <script src="https://unpkg.com/tabulator-tables@5.6.0/dist/js/tabulator.min.js"></script>
 
     <script src="../js/sidebar.js"></script>
-    <script src="../js/transition.js"></script>
+  <script src="../js/transition.js"></script>
     <script src="../js/sales.js"></script>
 
     <!-- Font Awesome CDN - JS -->

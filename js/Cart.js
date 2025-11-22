@@ -5,13 +5,24 @@ function atualizarCartCount() {
   if (cartCount) cartCount.textContent = carrinho.length;
 }
 
-function adicionarAoCarrinho(event) {
-  const btn = event.target;
+function adicionarAoCarrinho(eOrBtn) {
+  // Aceita ser chamado tanto por addEventListener (recebe event) quanto inline onclick (sem args)
+  let btn;
+  if (eOrBtn && eOrBtn.target) {
+    btn = eOrBtn.target;
+  } else if (eOrBtn && eOrBtn.nodeType) {
+    btn = eOrBtn;
+  } else {
+    // Tenta usar document.activeElement como fallback (quando chamado inline)
+    btn = document.activeElement;
+  }
+  if (!btn) return;
   const productCard = btn.closest(".product-card");
   if (!productCard) return;
-  const img = productCard.querySelector("#imagem");
-  const nome = productCard.querySelector("#nome");
-  const preco = productCard.querySelector("#preco");
+  // Suporta tanto ids antigos quanto classes novas: #imagem ou .imagem
+  const img = productCard.querySelector("#imagem, .imagem");
+  const nome = productCard.querySelector("#nome, .nome");
+  const preco = productCard.querySelector("#preco, .price");
   if (!img || !nome || !preco) return;
   const item = {
     imagem: img.getAttribute("src"),
@@ -39,10 +50,10 @@ function exibirCarrinhoNaPagina() {
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
-      <img id="imagem" src="${item.imagem}" alt="${item.nome}">
+      <img class="imagem" src="${item.imagem}" alt="${item.nome}">
       <div class="product-info">
-        <h3 id="nome">${item.nome}</h3>
-        <p id="preco" class="price">${item.preco}</p>
+        <h3 class="nome">${item.nome}</h3>
+        <p class="price">${item.preco}</p>
         <button class="remove-btn" onclick="removerDoCarrinho(${index})">Remover</button>
       </div>
     `;
@@ -62,34 +73,51 @@ function removerDoCarrinho(index) {
 document.addEventListener("DOMContentLoaded", function () {
   atualizarCartCount();
   const grid = document.getElementById("product-grid");
-  // Se estiver na página do carrinho, exibe os itens do carrinho
-  if (grid && (window.location.pathname.includes("Cart.php") || window.location.pathname.includes("Cart.html"))) {
+  
+  // Se estivermos numa página dedicada Cart.php ou se a seção SPA #cart estiver ativa na página, exibe os itens
+  if (grid && (/Cart\.php$/i.test(window.location.pathname) || document.querySelector('.content-section#cart.active-section'))) {
     exibirCarrinhoNaPagina();
   } else {
     // Se estiver em uma página de produtos, adiciona evento aos botões
+    // Evita adicionar um listener se já houver um onclick inline (para não duplicar a ação)
     document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
-      btn.addEventListener("click", adicionarAoCarrinho);
+      if (!btn.getAttribute('onclick')) {
+        btn.addEventListener("click", adicionarAoCarrinho);
+      }
     });
   }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const btnFinalizar = document.querySelector(".finalizar"); // primeiro botão "Finalizar Compra"
+  const btnFinalizar = document.querySelector(".finalizar");
 
   if (btnFinalizar) {
     btnFinalizar.addEventListener("click", () => {
-      const usuarioLogado = localStorage.getItem("usuarioLogado"); // Ex: pode ser um nome, ID ou token
+      // Verifica primeiro no localStorage (fluxo SPA)
+      let usuarioLogado = localStorage.getItem("usuarioLogado");
+      // Se não houver, tenta ler o elemento impresso pelo servidor (id="user-name")
+      if (!usuarioLogado) {
+        const userEl = document.getElementById('user-name');
+        if (userEl) usuarioLogado = userEl.textContent && userEl.textContent.trim();
+      }
 
       if (!usuarioLogado) {
         alert("⚠️ Você precisa estar logado para finalizar a compra!");
         return;
       }
 
-      // Se estiver logado:
       alert("✅ Compra finalizada com sucesso! Obrigado pela preferência.");
       localStorage.removeItem("carrinho");
-      exibirCarrinhoNaPagina(); // Atualiza a exibição na tela imediatamente
-      atualizarCartCount(); // Zera o contador do carrinho
+      exibirCarrinhoNaPagina();
+      atualizarCartCount();
     });
   }
 });
+
+// Quando a SPA mostra a seção do carrinho, o homePage.js dispara um evento 'cart:shown'.
+// Escute e exiba o carrinho quando solicitado.
+document.addEventListener('cart:shown', () => {
+  const grid = document.getElementById('product-grid');
+  if (grid) exibirCarrinhoNaPagina();
+});
+

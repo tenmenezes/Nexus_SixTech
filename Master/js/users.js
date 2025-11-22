@@ -39,8 +39,9 @@ function showLoading(show = true) {
 }
 
 // Seleção de elementos DOM
-const btnNovo = document.getElementById("btnNovo");
-const newUserModal = document.getElementById("newUserModal");
+// const btnNovo = document.getElementById("btnNovo");
+// const newUserModal = document.getElementById("newUserModal");
+// const newUserForm = document.getElementById("newUserForm");
 const editUserModal = document.getElementById("editUserModal");
 const deleteUserModal = document.getElementById("deleteUserModal");
 const cancelDeleteBtn = deleteUserModal.querySelector(".cancel");
@@ -50,6 +51,13 @@ const searchInput = document.getElementById("searchInput");
 
 // Abrir modal novo usuário
 btnNovo.addEventListener("click", () => {
+ // Reseta o formulário de novo usuário para evitar dados residuais
+ if (newUserForm) {
+   try { newUserForm.reset(); } catch (e) { /* ignore */ }
+   // Remove eventual campo id caso exista (não deve haver para novo)
+   const idField = newUserForm.querySelector('input[name="id"]');
+   if (idField) idField.remove();
+ }
  newUserModal.classList.remove("out");
  newUserModal.classList.add("active");
 });
@@ -242,7 +250,7 @@ async function init() {
      formatter: function(cell, formatterParams, onRendered) {
       return `
        <button class="btn-edit" title="Editar">
-        <i class="fas fa-edit"></i>
+        <i class="fa-solid fa-pen-to-square"></i>
        </button>
        <button class="btn-delete" title="Excluir">
         <i class="fas fa-trash"></i>
@@ -370,38 +378,15 @@ function abrirEdicao(data, row) {
       input.value = field === 'senha' ? '' : data[field] || ''; 
     }
  });
+ // Preenche o campo hidden com o id do usuário
+ const idInput = document.getElementById('edit-id');
+ if (idInput) {
+   idInput.value = data.id || '';
+ }
 }
 
-// Evento salvar edição
-editUserModal.querySelector(".save").addEventListener("click", async () => {
- // Captura todos os inputs e selects do formulário de edição
- const inputs = editUserModal.querySelectorAll("input, select");
- 
- // Adicionar o ID do usuário para que o PHP saiba que é um UPDATE
- const userData = editUserModal.rowRef.getData();
- const inputsWithId = [...inputs];
- inputsWithId.push({ 
-    getAttribute: (name) => (name === 'id' ? 'id' : null), 
-    value: userData.id 
- });
-
-
- const success = await handleSaveUser(inputsWithId, false);
- if (success) {
-  editUserModal.classList.remove("active");
- }
-});
-
-// Evento salvar novo usuário
-newUserModal.querySelector(".save").addEventListener("click", async () => {
- const inputs = newUserModal.querySelectorAll("input, select");
- const success = await handleSaveUser(inputs, true);
- if (success) {
-  newUserModal.classList.remove("active");
-  // Limpa os inputs após o sucesso
-  inputs.forEach(i => i.value = "");
- }
-});
+// Note: save buttons now submit native forms to the server-side handler.
+// The JS-based save handlers were removed to avoid double-submission.
 
 // Evento excluir usuário
 confirmDeleteBtn.addEventListener("click", async () => {

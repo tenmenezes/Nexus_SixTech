@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/master.css" />
 
+    <style>
+      /* Controle de visibilidade das seções SPA */
+      .content-section {
+        display: block;
+        width: 100%;
+        min-height: calc(100vh - 60px);
+        padding: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .content-section.hidden {
+        display: none !important;
+      }
+
+      .content-section.active-section {
+        display: block !important;
+      }
+    </style>
+
     <!-- Font Awesome CDN - CSS -->
     <link
       rel="stylesheet"
@@ -13,257 +34,270 @@
       referrerpolicy="no-referrer"
     />
 
-    <link rel="shortcut icon" href="../utils/master.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../utils/master.png" type="image/x-icon" />
 
-    <title>Dashboard | Usuário Master</title>
+    <title>Tela do administrador</title>
   </head>
   <body>
     <header>
-    <div class="info-header">
-      <div class="logo">
-        <h3 class="glitch" data-text="NS">NS</h3>
+      <div class="info-header">
+        <div class="logo">
+          <h3 class="glitch" data-text="NS">NS</h3>
+        </div>
+        <div class="icons-header">
+          <i class="fa-solid fa-expand"></i>
+        </div>
       </div>
-      <div class="icons-header">
-        <i class="fa-solid fa-expand"></i>
+
+      <!-- Botão hambúrguer (visível apenas no mobile) -->
+      <button class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <!--FIM HEADER-->
+
+    <section class="main">
+      <div class="sidebar">
+        <h3>Navegação</h3>
+
+        <a href="#users"><i class="fas fa-users"></i> Usuários</a>
+        <a href="#games"><i class="fas fa-clipboard-list"></i> Jogos</a>
+        <a href="#orders"><i class="fas fa-chart-bar"></i> Vendas</a>
+        <a href="#session_logs"
+          ><i class="fas fa-list-alt"></i> Logs do Sistema</a
+        >
+        <div class="logout">
+          <a href="../php/logout.php"
+            ><i class="fa-solid fa-right-from-bracket"></i> Logout</a
+          >
+        </div>
       </div>
-    </div>
-    <div style="align-items: center" class="info-header">
-      <i class="fa-solid fa-bell not"></i>
-      <i class="fa-solid fa-envelope mail"></i>
-    </div>
-
-    <!-- Botão hambúrguer (visível apenas no mobile) -->
-    <button class="hamburger" id="hamburger">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-  </header>
-
-  <!--FIM HEADER-->
-
-  <section class="main">
-    <div class="sidebar">
-      <h3>Navegação</h3>
-      <a class="sidebar-active" href="../master.html"><i class="fa-solid fa-chart-simple icon-dash"></i> Dashboard</a>
-      <br />
-      <hr />
-
-      <h3>Relatórios</h3>
-      <a href="./reports/userReports.html"><i class="fas fa-users"></i> Usuários</a>
-      <a href="./reports/productReports.html"><i class="fas fa-clipboard-list"></i> Produtos</a>
-      <a href="./reports/salesReports.html"><i class="fas fa-chart-bar"></i> Vendas</a>
-      <a href="./reports/orders.html"><i class="fas fa-shopping-cart"></i> Pedidos</a>
-      <br />
-      <hr />
-
-      <h3>Sistema</h3>
-      <a href="./system/logs.html"><i class="fas fa-list-alt"></i> Logs do Sistema</a>
-      <br />
-      <hr />
-
-      <h3>Feedback</h3>
-      <a href="./feedback/faq.html"><i class="fas fa-info-circle"></i> FAQ</a>
-      <br />
-      <hr />
-
-      <h3>Documentação</h3>
-      <a href="./documentation/help.html"><i class="fas fa-book"></i> Ajuda</a>
-      <a href="./documentation/about.html"><i class="fa-solid fa-circle-exclamation"></i> Sobre</a>
-      <br />
-      <hr />
-
-      <h3>Logout</h3>
-      <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
-    </div>
 
       <!--FIM SIDEBAR-->
 
       <div class="content">
-        <div class="titulo-secao">
-          <h2>Dashboard de vendas</h2>
-          <br />
-          <hr />
-          <br />
-          <p><i class="fa-solid fa-house"></i> / Dashboard de vendas</p>
-        </div>
+        <input id="tableName" type="hidden" value="users" />
 
-        <div class="box-info">
-          <div
-            style="background: linear-gradient(45deg, #ff5370, #ff869a)"
-            class="box-info-single"
-          >
-            <div class="info-text">
-              <h3>Total de vendas</h3>
-              <h2>$0</h2>
+        <!-- INÍCIO DA SEÇÃO DE USUÁRIO -->
+        <section class="content-section active-section" id="users">
+          <div class="content">
+            <div class="titulo-secao">
+              <h2>Gestão de Usuários</h2>
+              <br />
+              <hr />
+              <div class="header-row">
+                <div class="opc">
+                  <p>
+                    <i class="fas fa-clipboard-list"></i> / Gestão de Usuários
+                  </p>
+                </div>
+                <div class="search-container">
+                  <input
+                    type="text"
+                    placeholder="Pesquisar usuários..."
+                    id="search_nome"
+                    name="search_nome"
+                  />
+                  <button
+                    class="btn-icon"
+                    title="pesquisar"
+                    onclick="searchTable()"
+                  >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </div>
+              </div>
             </div>
-            <i class="fa-solid fa-money-bill-1"></i>
-            <button class="toggle-card">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-          </div>
-          <div
-            style="background: linear-gradient(45deg, #4099ff, #73b4ff)"
-            class="box-info-single"
-          >
-            <div class="info-text">
-              <h3>Total de pedidos</h3>
-              <h2>0</h2>
+            <br />
+            <br />
+
+            <div class="table-wrapper">
+              <table class="tabela" id="dataTable-users"></table>
             </div>
-            <i class="fa-solid fa-database"></i>
-            <button class="toggle-card">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-          </div>
-          <div
-            style="background: linear-gradient(45deg, #2ed8b6, #59e0c5)"
-            class="box-info-single"
-          >
-            <div class="info-text">
-              <h3>Preço médio</h3>
-              <h2>$0</h2>
+
+            <!-- Modal de edição de usuário -->
+            <div
+              id="editUserModal"
+              class="modal-container"
+              role="dialog"
+              aria-labelledby="editUserTitle"
+              style="display: none"
+            >
+              <div class="modal-background"></div>
+
+              <div class="modal modal-edit">
+                <h1 id="editUserTitle" class="faUser">
+                  <i class="fas fa-user-pen" aria-hidden="true"></i>
+                  Edição de usuário
+                </h1>
+                <!-- COLOCAR O FORMULÁRIO AQUI -->
+
+                <div id="formContainer-users">
+                  <h3 id="formTitle-users">Editar Registo</h3>
+                  <form id="dataForm-users">
+                    <div id="formFields-users"></div>
+                    <button type="submit">Salvar</button>
+                    <button type="button" onclick="cancelEdit()">
+                      Cancelar
+                    </button>
+                  </form>
+                </div>
+              </div>
             </div>
-            <i class="fa-solid fa-dollar-sign"></i>
-            <button class="toggle-card">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-          </div>
-          <div
-            style="background: linear-gradient(45deg, #eb9c52, #faa85cc7)"
-            class="box-info-single"
-          >
-            <div class="info-text">
-              <h3>Produtos vendidos</h3>
-              <h2>0</h2>
-            </div>
-            <i class="fa-solid fa-tags"></i>
-            <button class="toggle-card">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-          </div>
-        </div>
+            <!-- Fim Modal de edição de usuário -->
 
-        <!-- Gráficos -->
+            <!--Início confirmação de edição -->
 
-        <div class="flex-container">
-          <div class="box-grafico item chart">
-            <!-- Botão de filtro com ícone -->
+            <div
+              id="successModal"
+              class="modal-container"
+              style="display: none"
+            >
+              <div class="modal-background"></div>
 
-            <div class="toolbar">
-              <!-- Troca de tipo -->
+              <div class="modal success-modal">
+                <div class="modal-header">
+                  <h2 class="success-title">Atenção</h2>
+                </div>
 
-              <button
-                class="toolbar-btn"
-                id="btn-linha"
-                title="Gráfico de linha"
-              >
-                <i class="fa-solid fa-chart-line"></i>
-              </button>
-              <button
-                class="toolbar-btn"
-                id="btn-barra"
-                title="Gráfico de barra"
-              >
-                <i class="fa-solid fa-chart-simple"></i>
-              </button>
-              <button class="toolbar-btn" id="btn-misto" title="Gráfico misto">
-                <i class="fa-solid fa-chart-simple"></i> +
-                <i class="fa-solid fa-chart-line"></i>
-              </button>
+                <hr />
 
-              <!-- Ações -->
+                <div class="modal-body">
+                  <p id="successMessage">
+                    A operação foi realizada com sucesso!
+                  </p>
+                </div>
 
-              <button
-                class="toolbar-btn"
-                id="btn-baixar-misto"
-                title="Baixar gráfico"
-              >
-                <i class="fa-solid fa-download"></i>
-              </button>
-              <button
-                class="toolbar-btn"
-                id="btn-resetar-misto"
-                title="Resetar o zoom"
-              >
-                <i class="fa-solid fa-arrows-rotate"></i>
-              </button>
+                <hr />
 
-              <!-- Filtro -->
-
-              <div class="filter-container">
-                <button class="filter-btn" title="Filtrar por produto">
-                  <i class="fa-solid fa-filter"></i>
-                </button>
-
-                <div class="filter-dropdown">
-                  <select id="produtoSelect" class="toolbar-select">
-                    <option value="todas">Todos</option>
-                    <optgroup label="PlayStation">
-                      <option value="God of War (2018)">God of War</option>
-                      <option value="The Last of Us (2013)">
-                        The Last of Us
-                      </option>
-                      <option value="God of War 2 (~2000)">God of War 2</option>
-                    </optgroup>
-                    <optgroup label="Xbox">
-                      <option value="Halo Infinite (2021)">
-                        Halo Infinite
-                      </option>
-                      <option value="Gears 5 (2019)">Gears 5</option>
-                    </optgroup>
-                    <optgroup label="Nintendo">
-                      <option value="Zelda: Breath of the Wild (2017)">
-                        Zelda: Breath of the Wild
-                      </option>
-                      <option value="Mario Odyssey (2017)">
-                        Mario Odyssey
-                      </option>
-                    </optgroup>
-                  </select>
+                <div class="modal-footer">
+                  <button id="successOkBtn" class="confirm">OK</button>
                 </div>
               </div>
             </div>
 
-            <canvas id="Sales"></canvas>
-          </div>
+            <!--fim confirmação de edição -->
 
-          <div class="box-grafico item chart">
-            <div class="toolbar">
-              <!-- Ações -->
-              <button class="toolbar-btn btn-baixar" title="Baixar gráfico">
-                <i class="fa-solid fa-download"></i>
-              </button>
-              <button class="toolbar-btn btn-resetar" title="Resetar o zoom">
-                <i class="fa-solid fa-arrows-rotate"></i>
-              </button>
+            <!-- Início Modal de exclusão de usuário -->
+
+            <div
+              id="deleteUserModal"
+              class="modal-container"
+              style="display: none"
+            >
+              <div class="modal-background"></div>
+
+              <div class="modal delete-modal">
+                <div class="modal-header">
+                  <h2>Atenção!</h2>
+                  <span class="close">&times;</span>
+                </div>
+
+                <hr />
+
+                <div class="modal-body">
+                  <p>
+                    Você está prestes a excluir este usuário. <br />
+                    Esta ação
+                    <strong style="color: red">NÃO PODE SER DESFEITA.</strong>.
+                  </p>
+
+                  <p>Deseja continuar?</p>
+                </div>
+
+                <hr />
+
+                <div class="modal-footer">
+                  <button class="cancel">Cancel</button>
+                  <button class="confirm">Confirm</button>
+                </div>
+              </div>
+            </div>
+            <!-- Fim Modal de exclusão de usuário -->
+          </div>
+        </section>
+        <!-- FIM DA SEÇÃO DE USUÁRIO -->
+
+        <!-- INÍCIO DA SEÇÃO DE JOGOS -->
+        <section class="content-section hidden" id="games">
+          <div class="content">
+            <div class="titulo-secao">
+              <h2>Gestão de Jogos</h2>
+              <br />
+              <hr />
+              <div class="opc">
+                <p><i class="fas fa-clipboard-list"></i> / Gestão de Jogos</p>
+              </div>
+            </div>
+            <br />
+            <br />
+
+            <div class="table-wrapper">
+              <table class="tabela" id="dataTable-games"></table>
             </div>
 
-            <canvas id="graficoLinha"></canvas>
+            <!-- <div id="formContainer-games" style="display: none">
+              <h3 id="formTitle-games">Adicionar Registo</h3>
+              <form id="dataForm-games">
+                <div id="formFields-games"></div>
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="cancelEdit()">Cancelar</button>
+              </form>
+            </div> -->
           </div>
+        </section>
+        <!-- FIM DA SEÇÃO DE JOGOS -->
 
-          <div class="box-grafico item full-width">
-            <div class="charts-container">
-              <canvas id="pizzaChart"></canvas>
-              <canvas id="radarChart"></canvas>
-              <canvas id="doughnutChart"></canvas>
+        <!-- INÍCIO DA SEÇÃO DE VENDAS -->
+        <section class="content-section hidden" id="orders">
+          <div class="content">
+            <div class="titulo-secao">
+              <h2>Gestão de Vendas</h2>
+              <br />
+              <hr />
+              <div class="opc">
+                <p><i class="fas fa-clipboard-list"></i> / Gestão de Vendas</p>
+              </div>
+            </div>
+            <br />
+            <br />
+
+            <div class="table-wrapper">
+              <table class="tabela" id="dataTable-orders"></table>
             </div>
           </div>
+        </section>
+        <!-- FIM DA SEÇÃO DE VENDAS -->
 
-          <!-- Adicione mais gráficos conforme necessário, totalmente responsivo-->
-        </div>
+        <!-- INÍCIO DA SEÇÃO DE LOGS -->
+        <section class="content-section hidden" id="session_logs">
+          <div class="content">
+            <div class="titulo-secao">
+              <h2>Logs do Sistema</h2>
+              <br />
+              <hr />
+              <div class="opc">
+                <p><i class="fas fa-clipboard-list"></i> / Logs do Sistema</p>
+              </div>
+            </div>
+            <br />
+            <br />
+
+            <div class="table-wrapper">
+              <table class="tabela" id="dataTable-session_logs"></table>
+            </div>
+          </div>
+        </section>
+        <!-- FIM DA SEÇÃO DE LOGS -->
       </div>
       <!--FIM CONTENT-->
     </section>
     <!--FIM MAIN-->
 
-    <!-- Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- Chart.js Zoom Plugin CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
-
     <!-- JS Files -->
+    <script src="./js/crud.js"></script>
     <script src="./js/sidebar.js"></script>
-    <script src="./js/graficos.js"></script>
-    <script src="./js/master.js"></script>
-    <script src="./js/transition.js"></script>
+    <script src="./js/master_copy.js"></script>
   </body>
 </html>

@@ -15,6 +15,7 @@
 
   <link rel="stylesheet" href="../css/master.css" />
   <link rel="stylesheet" href="../css/users.css">
+<script src="../js/crud.js"></script>
 
   <title>Users | Report</title>
 </head>
@@ -73,8 +74,9 @@
       <br />
       <hr />
 
-      <h3>Logout</h3>
-      <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    <h3>Logout</h3>
+    <!-- Use caminho absoluto a partir da raiz do servidor ou relativo correto -->
+    <a href="/Projeto_back/MEU/php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     </div>
         <div class="content">
       <div class="titulo-secao">
@@ -84,14 +86,16 @@
         <div class="opc">
           <p><i class="fas fa-users"></i> / Relatório de Usuários</p>
 
+<!-- NÃO ENTENDI O PORQUE DE TER ESSE SEARCH AQUI -->
+
           <div class="search-container">
             <div class="search">
-              <input type="text" id="searchInput" placeholder="Pesquisar usuário">
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="searchInput" name="search-user" placeholder="Pesquisar usuário" hidden>
+<!--               <i class="fa-solid fa-magnifying-glass"></i> -->
             </div>
 
             <div class="btnUser">
-              <button id="btnNovo" title="Adicionar novo usuário">
+              <button id="btnNovo" title="Adicionar novo usuário" hidden>
                 <i class="fas fa-user-plus"></i>
               </button>
             </div>
@@ -110,14 +114,14 @@
             <div id="message-container" class="message-container" role="alert" aria-live="polite"></div>
     
 
-            <div id="newUserModal" class="modal-container" role="dialog" aria-labelledby="newUserTitle">
+<!--             <div id="newUserModal" class="modal-container" role="dialog" aria-labelledby="newUserTitle">
       <div class="modal-background"></div>
       <div class="modal modal-add">
         <h1 id="newUserTitle" class="faUser">
           <i class="fas fa-user-plus" aria-hidden="true"></i> 
           Adição de usuário
         </h1>
-        <form id="newUserForm" novalidate>
+    <form id="newUserForm" novalidate method="post" action="../../php/save_user_form.php">
           <div class="form-group">
             <label for="new-nome">Nome Completo:</label>
             <input type="text" id="new-nome" name="nome" required 
@@ -254,13 +258,14 @@
                    required aria-required="true">
             <div class="error-message" aria-live="polite"></div>
           </div>
-        </form>
-        <div class="divButtons">
-          <button class="cancel" type="button">Fechar</button>
-          <button class="save" type="submit" form="newUserForm">Salvar</button>
-        </div>
+                </form>
+                <div class="divButtons">
+                    <button class="cancel" type="button">Fechar</button>
+                --><!-- Botão de envio agora usa submit do formulário 
+                    <button class="save" type="submit" form="newUserForm">Salvar</button>
+                </div>
       </div>
-    </div>
+    </div> -->
 
         <div id="editUserModal" class="modal-container" role="dialog" aria-labelledby="editUserTitle">
       <div class="modal-background"></div>
@@ -269,7 +274,10 @@
           <i class="fas fa-user-pen" aria-hidden="true"></i> 
           Edição de usuário
         </h1>
-        <form id="editUserForm" novalidate>
+                <form id="editUserForm" novalidate>
+                                        
+                    <input type="hidden" id="edit-id" name="id">
+
           <div class="form-group">
             <label for="edit-nome">Nome Completo:</label>
             <input type="text" id="edit-nome" name="nome" 
@@ -405,11 +413,12 @@
                    required aria-required="true">
             <div class="error-message" aria-live="polite"></div>
           </div>
-        </form>
-        <div class="divButtons">
-          <button class="cancel" type="button">Fechar</button>
-          <button class="save" type="submit" form="editUserForm">Salvar</button>
-        </div>
+                </form>
+                <div class="divButtons">
+                    <button class="cancel" type="button">Fechar</button>
+                   
+                    <button class="save" type="button" onclick="saveData()">Salvar</button>
+                </div>
       </div>
     </div>
 
@@ -441,9 +450,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"
       referrerpolicy="no-referrer"></script>
 
-        <script src="../js/sidebar.js"></script>
-    <script src="../js/transition.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/transition.js"></script>
     <script type="module" src="../js/users.js"></script>
+    
 
 </body>
 

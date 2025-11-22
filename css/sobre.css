@@ -17,7 +17,6 @@
     border-radius: 10px;
 }
 
-
 #a-equipe .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
@@ -62,4 +61,10 @@ body.dark-mode #a-equipe .card-text {
 body.dark-mode .text-primary {
     color: #28a745 !important;
     /* Uma cor de destaque no modo escuro (Ex: verde) */
+}
+
+@media (max-width: 2000px) {
+    #nossa-missao {
+        
+    }
 }

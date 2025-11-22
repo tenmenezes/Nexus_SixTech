@@ -94,7 +94,7 @@
 
           <div class="search-container">
             <div class="search">
-              <input type="text" id="searchProduct" placeholder="Pesquisar produto">
+              <input type="text" id="searchProduct" name="search" placeholder="Pesquisar produto">
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
 
@@ -121,9 +121,9 @@
       <div class="modal productDialog">
         <h1 class="faUser"><i class="fas fa-plus-circle"></i> Novo Produto</h1>
         <form>
-          <input type="text" placeholder="Nome">
-          <input type="text" placeholder="Descrição">
-          <input type="number" placeholder="Preço" step="0.01">
+          <input type="text" name="name" placeholder="Nome">
+          <input type="text" name="description" placeholder="Descrição">
+          <input type="number" name="price" placeholder="Preço" step="0.01">
           <select name="Plataforma">
             <option value="">Plataforma</option>
             <option value="PC">PC</option>
@@ -142,8 +142,8 @@
             <option value="Corrida">Corrida</option>
             <option value="Terror">Terror</option>
           </select>
-          <input type="number" placeholder="Estoque">
-          <input type="date" placeholder="Data">
+          <input type="number" name="stock" placeholder="Estoque">
+          <input type="date" name="date" placeholder="Data">
         </form>
         <div class="divButtons">
           <button class="cancel">Fechar</button>
@@ -156,11 +156,11 @@
     <div id="editProductDialog" class="modal-container">
       <div class="modal-background"></div>
       <div class="modal productDialog">
-        <h1 class="faUser"><i class="fas fa-edit"></i> Edição de Produto</h1>
+        <h1 class="faUser"><i class="fa-solid fa-pen-to-square"></i> Edição de Produto</h1>
         <form>
-          <input type="text" placeholder="Nome">
-          <input type="text" placeholder="Descrição">
-          <input type="number" placeholder="Preço" step="0.01">
+          <input type="text" name="name" placeholder="Nome">
+          <input type="text" name="description" placeholder="Descrição">
+          <input type="number" name="price" placeholder="Preço" step="0.01">
           <select name="Plataforma">
             <option value="">Plataforma</option>
             <option value="PC">PC</option>
@@ -179,8 +179,8 @@
             <option value="Corrida">Corrida</option>
             <option value="Terror">Terror</option>
           </select>
-          <input type="number" placeholder="Estoque">
-          <input type="date" placeholder="Data">
+          <input type="number" name="stock" placeholder="Estoque">
+          <input type="date" name="date" placeholder="Data">
         </form>
         <div class="divButtons">
           <button class="cancel">Fechar</button>
@@ -219,7 +219,7 @@
     <!-- Tabulator JS -->
     <script src="https://unpkg.com/tabulator-tables@5.6.0/dist/js/tabulator.min.js"></script>
     <script src="../js/sidebar.js"></script>
-    <script src="../js/transition.js"></script>
+  <script src="../js/transition.js"></script>
     <script src="../js/product.js"></script>
     <!-- Font Awesome CDN - JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"

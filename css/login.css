@@ -40,7 +40,7 @@ span {
 }
 
 a {
-    color: blue;
+    color: #333;
     font-size: 14px;
     text-decoration: none;
     margin: 15px 0;
@@ -74,19 +74,12 @@ button:focus {
 
 button.ghost {
     background-color: transparent;
-    backdrop-filter: blur(20px);
     border-color: none;
     transition: background-color 0.3s ease-in-out;
 }
 
 button.ghost:hover {
-    background-color: rgba(129, 128, 128, 0.199);
-}
-
-.box-ghost {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    background-color: #ffffff1a;
 }
 
 form {
@@ -94,7 +87,7 @@ form {
     backdrop-filter: blur(25px);
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
     padding: 0 50px;
     height: 100%;
@@ -225,6 +218,22 @@ i {
     transition: ease-in-out 0.3s;
 }
 
+#musicControl {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.507);
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
 @keyframes show {
 
     0%,
@@ -343,5 +352,19 @@ i {
 
     100% {
         opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    #musicControl {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 15px;
+    }
+
+    #musicControl i {
+        font-size: 16px;
     }
 }

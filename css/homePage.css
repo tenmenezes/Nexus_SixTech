@@ -19,6 +19,10 @@
   /* Links em azul claro */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   height: 100%;
@@ -26,6 +30,7 @@ body {
 
 body {
   min-height: 100vh;
+  /* ajuste conforme a altura do header */
   display: flex;
   flex-direction: column;
 }
@@ -38,10 +43,9 @@ body {
   /* Permite que o conteúdo principal ocupe o espaço restante */
 }
 
-
 /* Variáveis CSS padrão (valores iniciais - Tema Claro) */
 body.theme-light {
-  --bg-color-light: #5f3b3b;
+  --bg-color-light: #ffffff;
   --text-color-light: #333333;
   --div-bg-light: #aaaaaa;
   --div-text-light: #ffffff;
@@ -51,8 +55,8 @@ body.theme-light {
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: var(--bg-color-light);
+  font-family: "Segoe UI", sans-serif;
+  background-color: #ffffff;
   /* branco para claro */
   color: #121212;
   /* texto escuro */
@@ -70,15 +74,13 @@ body {
   font-size: 0.8em;
 }
 
-
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   z-index: 1000;
-  background: transparent;
-  backdrop-filter: blur(20px);
+  background-color: #f0f0f0;
   /* cinza claro */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   /* sombra leve */
@@ -87,7 +89,6 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.521);
 }
 
 a {
@@ -95,6 +96,14 @@ a {
   text-decoration: none;
   color: #121212;
   /* links escuros */
+}
+
+.hidden {
+  display: none !important;
+}
+
+.active-section {
+  display: block;
 }
 
 .logo {
@@ -106,7 +115,7 @@ a {
   background-size: 0% 100%;
   background-repeat: no-repeat;
   border-radius: 20px;
-  transition: background-size 0.4s cubic-bezier(.4, 0, .2, 1), color 0.4s;
+  transition: background-size 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s;
   z-index: 1;
   overflow: hidden;
 }
@@ -277,7 +286,7 @@ a {
   background: linear-gradient(90deg, #66b405, #6fff1c);
   background-size: 0% 100%;
   background-repeat: no-repeat;
-  transition: background-size 0.4s cubic-bezier(.4, 0, .2, 1);
+  transition: background-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   color: #121212;
   border-radius: 20px;
   padding: 0.5em 2em;
@@ -286,13 +295,14 @@ a {
 .link1:hover {
   background-size: 100% 100%;
   color: #121212;
+  /* ou altere para branco se quiser contraste */
 }
 
 .link2 {
   background: linear-gradient(90deg, #920000, #f80000);
   background-size: 0% 100%;
   background-repeat: no-repeat;
-  transition: background-size 0.4s cubic-bezier(.4, 0, .2, 1);
+  transition: background-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   color: #121212;
   border-radius: 20px;
   padding: 0.5em 2em;
@@ -301,13 +311,14 @@ a {
 .link2:hover {
   background-size: 100% 100%;
   color: #121212;
+  /* ou altere para branco se quiser contraste */
 }
 
 .link3 {
   background: linear-gradient(90deg, #004271, #00a1f8);
   background-size: 0% 100%;
   background-repeat: no-repeat;
-  transition: background-size 0.4s cubic-bezier(.4, 0, .2, 1);
+  transition: background-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   color: #121212;
   border-radius: 20px;
   padding: 0.5em 2em;
@@ -316,6 +327,7 @@ a {
 .link3:hover {
   background-size: 100% 100%;
   color: #121212;
+  /* ou altere para branco se quiser contraste */
 }
 
 @media (max-width: 910px) {

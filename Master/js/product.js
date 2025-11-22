@@ -147,7 +147,7 @@ const table = new Tabulator("#product-table", {
         // área de clique maior com spans
         return `
           <div style="display:flex; justify-content:center; gap:10px;">
-            <span class="editar actionBtn" title="Editar"><i class="fas fa-edit edit"></i></span>
+            <span class="editar actionBtn" title="Editar"><i class="fa-solid fa-pen-to-square edit"></i></span>
             <span class="excluir actionBtn" title="Excluir"><i class="fas fa-trash delet"></i></span>
           </div>
         `;

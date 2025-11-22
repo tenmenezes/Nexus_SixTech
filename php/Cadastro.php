@@ -10,10 +10,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $full_name = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_SPECIAL_CHARS);
-    $password = $_POST['senha'] ?? '';
+    $password = $_POST['password'] ?? '';
 
 
-    $required_fields = ['nome', 'NomeMae', 'cpf', 'bairro', 'cidade', 'estado', 'senha'];
+    $required_fields = ['nome', 'mae', 'cpf', 'bairro', 'cidade', 'estado', 'password'];
     foreach ($required_fields as $field) {
         if (empty($_POST[$field])) {
             $mensagem = '<div style="color: red;">Erro: O campo ' . $field . ' é obrigatório.</div>';
@@ -31,30 +31,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 2. Preparação dos dados para Inserção
     // **************************************
     $data = [
-        'full_name'    => $full_name,
-        'date_of_birth' => $_POST['nascimento'] ?? null,
-        'gender'       => $_POST['genero'] ?? null,
-        'mother_name'  => $_POST['NomeMae'],
-        'cpf'          => $_POST['cpf'],
-        'email'        => $email,
-        'mobile_phone' => $_POST['celular'] ?? null,
-        'home_phone'   => $_POST['fixo'] ?? null,
-        'street'       => $_POST['endereco'] ?? null,
-        'number'       => $_POST['numero'] ?? null,
-        'complement'   => $_POST['complemento'] ?? null,
-        'zip_code'     => $_POST['cep'] ?? null,
-        'neighborhood' => $_POST['bairro'],
-        'city'         => $_POST['cidade'],
-        'state'        => $_POST['estado'],
-        'login'        => $login,
-        'password'     => $hashed_password,
-        'user_type'    => 'C', // 'A' ou 'C'
+        'nome'        => $full_name,
+        'nascimento'  => $_POST['nascimento'] ?? null,
+        'genero'      => $_POST['genero'] ?? null,
+        'mae'         => $_POST['mae'],
+        'cpf'         => $_POST['cpf'],
+        'email'       => $email,
+        'celular'     => $_POST['celular'] ?? null,
+        'fixo'        => $_POST['fixo'] ?? null,
+        'rua'         => $_POST['rua'] ?? null,
+        'numero'      => $_POST['numero'] ?? null,
+        'complemento' => $_POST['complemento'] ?? null,
+        'cep'         => $_POST['cep'] ?? null,
+        'bairro'      => $_POST['bairro'],
+        'cidade'      => $_POST['cidade'],
+        'estado'       => $_POST['estado'],
+        'login'       => $login,
+        'password'    => $hashed_password,
+        'user_type'   => 'C'
     ];
+
 
     // 3. Inserção no Banco de Dados
     // *******************************
-    $sql = "INSERT INTO users (full_name, date_of_birth, gender, mother_name, cpf, email, mobile_phone, home_phone, street, number, complement, zip_code, neighborhood, city, state, login, password, user_type)
-            VALUES (:full_name, :date_of_birth, :gender, :mother_name, :cpf, :email, :mobile_phone, :home_phone, :street, :number, :complement, :zip_code, :neighborhood, :city, :state, :login, :password, :user_type)";
+    $sql = "INSERT INTO users (nome, nascimento, genero, mae, cpf, email, celular, fixo, rua, numero, complemento, cep, bairro, cidade, estado, login, password, user_type)
+            VALUES (:nome, :nascimento, :genero, :mae, :cpf, :email, :celular, :fixo, :rua, :numero, :complemento, :cep, :bairro, :cidade, :estado, :login, :password, :user_type)";
 
     try {
         $stmt = $pdo->prepare($sql);
@@ -126,18 +127,18 @@ end_form:
                 <div class="field input-box">
                     <select id="genero" name="genero">
                         <option value="" selected hidden></option>
-                        <option>Masculino</option>
-                        <option>Feminino</option>
-                        <option>Outro</option>
-                        <option>Prefiro não dizer</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                        <option value="O">Outro</option>
+                        
                     </select>
                     <label for="genero">Gênero *</label>
                     <span class="error"></span>
                 </div>
 
                 <div class="field full input-box">
-                    <input id="NomeMae" name="NomeMae" type="text" placeholder=" " />
-                    <label for="NomeMae">Nome da mãe *</label>
+                    <input id="NomeMae" name="mae" type="text" placeholder=" " />
+                    <label for="mae">Nome da mãe *</label>
                     <span class="error"></span>
                 </div>
 
@@ -188,16 +189,15 @@ end_form:
                 </div>
 
                 <div class="field input-box">
-                    <input id="endereco" name="endereco" type="text" placeholder=" " />
-                    <label for="endereco">Endereço *</label>
+                    <input id="rua" name="rua" type="text" placeholder=" " />
+                    <label for="rua">Endereço *</label>
                     <span class="error"></span>
                 </div>
 
                 <div class="field input-box">
                     <input id="numero" name="numero" type="text" placeholder=" " />
                     <label for="numero">Número *</label>
-                    <span class="error"></span>
-                    <span class="error"></span>
+                    <span class="error"></span>                    
                 </div>
 
                 <div class="field">
@@ -212,8 +212,8 @@ end_form:
                 </div>
 
                 <div class="field full input-box">
-                    <input id="senha" name="senha" type="password" placeholder=" " minlength="6" />
-                    <label for="senha">Senha *</label>
+                    <input id="password" name="password" type="password" placeholder=" " minlength="6" />
+                    <label for="password">password *</label>
                     <span class="error"></span>
                 </div>
 
@@ -254,7 +254,7 @@ end_form:
             const res = await fetch('https://viacep.com.br/ws/' + cep + '/json/');
             const data = await res.json();
             if (!data.erro) {
-                document.getElementById('endereco').value = data.logradouro || '';
+                document.getElementById('rua').value = data.logradouro || '';
                 document.getElementById('bairro').value = data.bairro || '';
                 document.getElementById('cidade').value = data.localidade || '';
             }
