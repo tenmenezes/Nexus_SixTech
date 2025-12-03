@@ -2,6 +2,23 @@
 // 1. Inicia a sessão (necessário para acessar as variáveis de sessão)
 session_start();
 
+// Registra o logout na tabela session_logs
+if (isset($_SESSION['session_log_id']) && isset($_SESSION['user_id'])) {
+    try {
+        require_once 'Conn.php';
+        $pdo = getDbConnection();
+
+        $stmt = $pdo->prepare("UPDATE session_logs SET logout = NOW() WHERE id = :log_id AND user_id = :user_id");
+        $stmt->execute([
+            'log_id' => $_SESSION['session_log_id'],
+            'user_id' => $_SESSION['user_id']
+        ]);
+    } catch (Exception $e) {
+        // Se falhar ao registrar o logout, continua o processo normalmente
+        error_log("Erro ao registrar logout: " . $e->getMessage());
+    }
+}
+
 // 2. Limpa todas as variáveis de sessão
 $_SESSION = array();
 

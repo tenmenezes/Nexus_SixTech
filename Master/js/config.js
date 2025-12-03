@@ -1,6 +1,6 @@
 // Configurações globais da aplicação
 export const CONFIG = {
-  API_BASE_URL: '../../php',
+  API_BASE_URL: 'http://localhost/MEU_Fredi/php',
   
   // Mensagens de validação
   VALIDATION_MESSAGES: {
