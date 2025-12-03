@@ -67,6 +67,7 @@ O projeto será desenvolvido utilizando:
 ├── 📁 Master
 │   ├── 📁 css
 │   │   ├── 🎨 about.css
+│   │   ├── 🎨 faq.css
 │   │   ├── 🎨 help.css
 │   │   ├── 🎨 master.css
 │   │   ├── 🎨 orders.css
@@ -74,18 +75,16 @@ O projeto será desenvolvido utilizando:
 │   │   ├── 🎨 sales.css
 │   │   ├── 🎨 systemVersion.css
 │   │   └── 🎨 users.css
-│   ├── 📁 documentation
-│   │   ├── 🌐 about.html
-│   │   └── 🌐 help.html
-│   ├── 📁 feedback
-│   │   ├── 🌐 faq.html
-│   │   ├── 🌐 history.html
-│   │   └── 🌐 question.html
 │   ├── 📁 img
 │   │   └── 🖼️ imgProject-Photoroom.png
 │   ├── 📁 js
+│   │   ├── 📄 addGame.js
+│   │   ├── 📄 config.js
+│   │   ├── 📄 crud.js
+│   │   ├── 📄 dados.js
 │   │   ├── 📄 graficos.js
 │   │   ├── 📄 master.js
+│   │   ├── 📄 master_copy.js
 │   │   ├── 📄 orders.js
 │   │   ├── 📄 product.js
 │   │   ├── 📄 sales.js
@@ -98,9 +97,7 @@ O projeto será desenvolvido utilizando:
 │   │   ├── 🌐 salesReports.html
 │   │   └── 🌐 userReports.html
 │   ├── 📁 system
-│   │   ├── 🌐 backup.html
-│   │   ├── 🌐 logs.html
-│   │   └── 🌐 systemVersion.html
+│   │   └── 🌐 logs.html
 │   └── 🌐 master.html
 ├── 📁 css
 │   ├── 🎨 Cart.css
@@ -125,20 +122,28 @@ O projeto será desenvolvido utilizando:
 │   ├── 📄 utils.js
 │   └── 📄 validacoes.js
 ├── 📁 php
+│   ├── 🐘 API.php
 │   ├── 🐘 Cadastro.php
 │   ├── 🐘 Cart.php
 │   ├── 🐘 Conn.php
 │   ├── 🐘 Index.php
+│   ├── 📦 Login-modal.zip
 │   ├── 🐘 Nintendo.php
 │   ├── 🐘 Playstation.php
 │   ├── 🐘 Xbox.php
+│   ├── 🐘 delete_user.php
+│   ├── 🐘 finalizar_compra.php
+│   ├── 🐘 get_clientes.php
 │   ├── 🐘 login.php
 │   ├── 🐘 logout.php
+│   ├── 🐘 logs_data.php
+│   ├── 🐘 save_user.php
+│   ├── 🐘 save_user_form.php
 │   ├── 🐘 user.php
 │   ├── 🐘 verificacao_2fa_modal.php
 │   └── 🐘 verificacao_2fa_process.php
 ├── 📁 sql
-│   └── 📄 Nexus_database.sql
+│   └── 📄 nexus_database.sql
 ├── 📁 utils
 │   ├── 📁 img
 │   │   ├── 🖼️ LogoNintendo.png
